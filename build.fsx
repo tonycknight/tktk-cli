@@ -76,9 +76,9 @@ Target.create "Clean" (fun _ ->
     ++ "src/**/obj"
     |> Shell.cleanDirs
     
-    !! "tests/**/bin"
-    ++ "tests/**/obj"
-    ++ "tests/**/TestResults"
+    !! "test/**/bin"
+    ++ "test/**/obj"
+    ++ "test/**/TestResults"
     ++ packageDir
     ++ publishDir
     |> Shell.cleanDirs
@@ -102,7 +102,7 @@ Target.create "Unit Tests" (fun _ ->
 )
 
 Target.create "Consolidate code coverage" (fun _ ->  
-    let args = sprintf @"-reports:""./tests/**/coverage.info"" -targetdir:""./%s/codecoverage"" -reporttypes:""Html""" publishDir
+    let args = sprintf @"-reports:""./test/**/coverage.info"" -targetdir:""./%s/codecoverage"" -reporttypes:""Html""" publishDir
     let result = DotNet.exec id "reportgenerator" args
   
     if not result.OK then failwithf "reportgenerator failed!"  
