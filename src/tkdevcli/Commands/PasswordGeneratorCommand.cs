@@ -1,5 +1,6 @@
 ﻿using McMaster.Extensions.CommandLineUtils;
 using tkdevcli.Io;
+using tkdevcli.Passwords;
 
 namespace tkdevcli.Commands
 {
@@ -7,10 +8,12 @@ namespace tkdevcli.Commands
     internal class PasswordGeneratorCommand
     {
         private readonly IConsoleWriter _consoleWriter;
+        private readonly IPasswordGenerator _pwGenerator;
 
-        public PasswordGeneratorCommand(IConsoleWriter consoleWriter)
+        public PasswordGeneratorCommand(IConsoleWriter consoleWriter, Passwords.IPasswordGenerator pwGenerator)
         {
             _consoleWriter = consoleWriter;
+            _pwGenerator = pwGenerator;
         }
 
         [Option(CommandOptionType.SingleValue, Description = "The number of passwords to generate.", LongName = "gen", ShortName = "g")]
@@ -21,7 +24,13 @@ namespace tkdevcli.Commands
 
         public Task<int> OnExecuteAsync()
         {
-            // TODO:
+            Generations = Generations <= 0 ? 1 : Generations;
+            PwLength = PwLength <= 1 ? 8 : PwLength;
+
+            var pws = Enumerable.Range(0, Generations)
+                .Select(_ => _pwGenerator.Generate(PwLength));
+
+            _consoleWriter.WriteMany(pws);
 
             return Task.FromResult(true.ToReturnCode());
         }
