@@ -30,7 +30,7 @@ namespace tkdevcli
         
         private int OnExecute(CommandLineApplication app)
         {
-            app.Description = "tkdevcli";
+            app.Description = "tkdev";
             app.ShowHelp();
             return true.ToReturnCode();
         }
