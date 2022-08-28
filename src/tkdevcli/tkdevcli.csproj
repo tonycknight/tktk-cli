@@ -9,7 +9,7 @@
     <Authors>Tony Knight</Authors>
     <Version>0.0.0</Version>
     <Description>Some general dev tools</Description>
-    <PackageId>tkdevcli</PackageId>
+    <PackageId>tkdev-cli</PackageId>
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>tkdev</ToolCommandName>
     <RepositoryUrl>https://github.com/tonycknight/tkdev-cli</RepositoryUrl>
