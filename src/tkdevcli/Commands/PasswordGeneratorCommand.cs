@@ -10,7 +10,7 @@ namespace tkdevcli.Commands
         private readonly IConsoleWriter _consoleWriter;
         private readonly IPasswordGenerator _pwGenerator;
 
-        public PasswordGeneratorCommand(IConsoleWriter consoleWriter, Passwords.IPasswordGenerator pwGenerator)
+        public PasswordGeneratorCommand(IConsoleWriter consoleWriter, IPasswordGenerator pwGenerator)
         {
             _consoleWriter = consoleWriter;
             _pwGenerator = pwGenerator;
