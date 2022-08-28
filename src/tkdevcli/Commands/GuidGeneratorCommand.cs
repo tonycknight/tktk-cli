@@ -17,18 +17,13 @@ namespace tkdevcli.Commands
         public int Generations { get; set; }
 
         public Task<int> OnExecuteAsync()
-        {
-
-            Generations = Generations <= 0 ? 1 : Generations;
-
-            var guids = Enumerable.Range(0, Generations)
+        {            
+            var guids = Enumerable.Range(0, Math.Max(1, Generations))
                                   .Select(_ => Guid.NewGuid().ToString());
             
             _consoleWriter.WriteMany(guids);
             
             return Task.FromResult(true.ToReturnCode());
         }
-
-
     }
 }

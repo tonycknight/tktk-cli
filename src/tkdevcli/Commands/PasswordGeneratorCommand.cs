@@ -24,11 +24,11 @@ namespace tkdevcli.Commands
 
         public Task<int> OnExecuteAsync()
         {
-            Generations = Generations <= 0 ? 1 : Generations;
-            PwLength = PwLength <= 1 ? 8 : PwLength;
-
-            var pws = Enumerable.Range(0, Generations)
-                .Select(_ => _pwGenerator.Generate(PwLength));
+            var gens = Math.Max(1, Generations);
+            var pwLen = PwLength <= 0 ? 8 : PwLength;
+            
+            var pws = Enumerable.Range(0, gens)
+                .Select(_ => _pwGenerator.Generate(pwLen));
 
             _consoleWriter.WriteMany(pws);
 
