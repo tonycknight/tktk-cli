@@ -94,7 +94,7 @@ jobs:
       - name: Code coverage results
         uses: 5monkeys/cobertura-action@master
         with:
-          path: ${{ github.workspace }}/test/tkdev.Tests.Unit/TestResults/coverage.info
+          path: ${{ github.workspace }}/test/tkdevcli.Tests.Unit/TestResults/coverage.info
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           minimum_coverage: 1
           fail_below_threshold: true
