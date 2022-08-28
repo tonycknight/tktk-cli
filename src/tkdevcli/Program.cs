@@ -1,6 +1,7 @@
 ﻿using System;
 using McMaster.Extensions.CommandLineUtils;
 using tkdevcli.Commands;
+using Tk.Extensions;
 
 namespace tkdevcli
 {
@@ -30,7 +31,13 @@ namespace tkdevcli
         
         private int OnExecute(CommandLineApplication app)
         {
-            app.Description = "tkdev";
+            var descLines = new[]
+            {
+                Crayon.Output.Bright.Cyan("tkdev"),
+                Crayon.Output.Bright.Cyan("An eclectic set of developer tools"),
+                Crayon.Output.Bright.Yellow($"Version {ProgramBootstrap.GetAssembly().GetAppVersion()}")
+            };
+            app.Description = descLines.Join(Environment.NewLine);
             app.ShowHelp();
             return true.ToReturnCode();
         }
