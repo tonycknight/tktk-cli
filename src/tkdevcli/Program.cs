@@ -31,12 +31,20 @@ namespace tkdevcli
         
         private int OnExecute(CommandLineApplication app)
         {
-            var descLines = new[]
+            var currentVersion = ProgramBootstrap.GetAssembly().GetAppVersion();
+            var nugetVersion = new NugetClient().GetLatestNugetVersion();
+            var descLines = new List<string>()
             {
                 Crayon.Output.Bright.Cyan("tkdev"),
                 Crayon.Output.Bright.Cyan("An eclectic set of developer tools"),
-                Crayon.Output.Bright.Yellow($"Version {ProgramBootstrap.GetAssembly().GetAppVersion()}")
+                Crayon.Output.Bright.Yellow($"Version {currentVersion}"),
             };
+
+            if(currentVersion != nugetVersion)
+            {
+                descLines.Add(Crayon.Output.Bright.Magenta($"An upgrade is available: {nugetVersion}"));
+            }
+
             app.Description = descLines.Join(Environment.NewLine);
             app.ShowHelp();
             return true.ToReturnCode();
