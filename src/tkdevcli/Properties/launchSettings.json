@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "tkdevcli": {
+      "commandName": "Project",
+      "commandLineArgs": "guid"
+    }
+  }
+}

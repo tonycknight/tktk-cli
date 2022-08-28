@@ -3,9 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tkdevcli", "src\tkdevcli\tkdevcli.csproj", "{FD059D72-CF4D-43C1-8395-9CAAED446FCD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "tkdevcli", "src\tkdevcli\tkdevcli.csproj", "{FD059D72-CF4D-43C1-8395-9CAAED446FCD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tkdevcli.Tests.Unit", "test\tkdevcli.Tests.Unit\tkdevcli.Tests.Unit.csproj", "{139D478F-2A6F-44DA-818B-90D62B106C31}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "tkdevcli.Tests.Unit", "test\tkdevcli.Tests.Unit\tkdevcli.Tests.Unit.csproj", "{139D478F-2A6F-44DA-818B-90D62B106C31}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{CF8FC603-C38A-4B6E-98CB-B7565798D0F2}"
+	ProjectSection(SolutionItems) = preProject
+		build.fsx = build.fsx
+		build.ps1 = build.ps1
+		paket.dependencies = paket.dependencies
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{41AEECFF-6354-4940-8C63-B77AA862149E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{CD391199-006A-473B-91C5-9E1A7BF4F5C4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{29878A22-030D-488C-846C-0B1BCB44AE56}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +40,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FD059D72-CF4D-43C1-8395-9CAAED446FCD} = {41AEECFF-6354-4940-8C63-B77AA862149E}
+		{139D478F-2A6F-44DA-818B-90D62B106C31} = {CD391199-006A-473B-91C5-9E1A7BF4F5C4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {766F3128-91A5-48F4-900F-F28CB86EDA55}
