@@ -2,7 +2,7 @@
 
 namespace tkdevcli.Passwords
 {
-    internal class PasswordGenerator : IPasswordGenerator
+    internal class CryptoPasswordGenerator : IPasswordGenerator
     {
         private readonly char[] _chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".ToCharArray();
 

@@ -7,7 +7,7 @@ namespace tkdevcli
         public static IServiceProvider CreateServiceCollection() =>
            new ServiceCollection()                
                 .AddSingleton<Io.IConsoleWriter, Io.ConsoleWriter>()
-                .AddSingleton<Passwords.IPasswordGenerator, Passwords.PasswordGenerator>()
+                .AddSingleton<Passwords.IPasswordGenerator, Passwords.CryptoPasswordGenerator>()
                 .BuildServiceProvider();
     }
 }

@@ -5,12 +5,12 @@ using tkdevcli.Passwords;
 
 namespace tkdevcli.Tests.Unit.Passwords
 {
-    public class PasswordGeneratorTests
+    public class CryptoPasswordGeneratorTests
     {
         [Property(Verbose = true)]
         public bool PasswordGenerator_AlwaysReturnsCorrectLength(PositiveInt len)
         {
-            var pg = new PasswordGenerator();
+            var pg = new CryptoPasswordGenerator();
 
             var pw = pg.Generate(len.Get);
 
@@ -20,7 +20,7 @@ namespace tkdevcli.Tests.Unit.Passwords
         [Property(Verbose = true)]
         public bool PasswordGenerator_AlwaysReturnsAlphanumeric(PositiveInt len)
         {
-            var pg = new PasswordGenerator();
+            var pg = new CryptoPasswordGenerator();
 
             var pw = pg.Generate(len.Get);
 
