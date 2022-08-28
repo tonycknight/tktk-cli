@@ -6,12 +6,10 @@ namespace tkdevcli.Commands
     [Command("guid", Description = "Generate guids")]
     internal class GuidGeneratorCommand 
     {
-        private readonly ITelemetry _telemetry;
         private readonly IConsoleWriter _consoleWriter;
 
-        public GuidGeneratorCommand(ITelemetry telemetry, IConsoleWriter consoleWriter)
+        public GuidGeneratorCommand(IConsoleWriter consoleWriter)
         {
-            _telemetry = telemetry;
             _consoleWriter = consoleWriter;
         }
 
