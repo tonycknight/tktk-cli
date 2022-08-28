@@ -87,7 +87,7 @@ jobs:
         if: always()
         with:
           name: unit test results
-          path: ${{ github.workspace }}/tests/tkdevcli.Tests.Unit/TestResults/test_results.trx
+          path: ${{ github.workspace }}/test/tkdevcli.Tests.Unit/TestResults/test_results.trx
           reporter: dotnet-trx
           token: ${{ secrets.GITHUB_TOKEN }}
 
