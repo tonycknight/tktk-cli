@@ -25,7 +25,7 @@ namespace tkdevcli.Commands
             {
                 if (string.IsNullOrWhiteSpace(Jwt))
                 {
-                    _consoleWriter.Write("Missing JWT");
+                    _consoleWriter.Write(Crayon.Output.Bright.Red("Missing JWT."));
                     return false.ToReturnCode().ToTaskResult();
                 }
                 
@@ -38,7 +38,7 @@ namespace tkdevcli.Commands
             }
             catch(Exception ex)
             {
-                _consoleWriter.Write(ex.Message);
+                _consoleWriter.Write(Crayon.Output.Bright.Red($"Invalid JWT.{Environment.NewLine}{ex.Message}"));
                 return false.ToReturnCode().ToTaskResult();
             }
         }
