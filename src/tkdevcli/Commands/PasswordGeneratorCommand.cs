@@ -24,7 +24,7 @@ namespace tkdevcli.Commands
 
         public Task<int> OnExecuteAsync()
         {
-            var gens = Math.Max(1, Generations);
+            var gens = Generations < 1 ? 5 : Generations;
             var pwLen = PwLength <= 0 ? 16 : PwLength;
             
             var pws = Enumerable.Range(0, gens)
