@@ -1,5 +1,6 @@
 using McMaster.Extensions.CommandLineUtils;
 using tkdevcli.Io;
+using Tk.Extensions.Tasks;
 
 namespace tkdevcli.Commands
 {
@@ -23,7 +24,7 @@ namespace tkdevcli.Commands
             
             _consoleWriter.WriteMany(guids);
             
-            return Task.FromResult(true.ToReturnCode());
+            return true.ToReturnCode().ToTaskResult();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using McMaster.Extensions.CommandLineUtils;
 using tkdevcli.Io;
 using tkdevcli.Passwords;
+using Tk.Extensions.Tasks;
 
 namespace tkdevcli.Commands
 {
@@ -29,7 +30,7 @@ namespace tkdevcli.Commands
 
             _consoleWriter.WriteMany(pws);
 
-            return Task.FromResult(true.ToReturnCode());
+            return true.ToReturnCode().ToTaskResult();
         }
     }
 }

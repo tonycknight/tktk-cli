@@ -7,6 +7,7 @@ namespace tkdevcli
 {
     [Subcommand(typeof(GuidGeneratorCommand))]
     [Subcommand(typeof(PasswordGeneratorCommand))]
+    [Subcommand(typeof(DecodeJwtCommand))]
     public class Program 
     {
         public static int Main(string[] args)
