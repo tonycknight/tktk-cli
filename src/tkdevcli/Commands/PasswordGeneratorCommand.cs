@@ -24,11 +24,8 @@ namespace tkdevcli.Commands
 
         public Task<int> OnExecuteAsync()
         {
-            var gens = Generations < 1 ? 5 : Generations;
-            var pwLen = PwLength <= 0 ? 16 : PwLength;
-            
-            var pws = Enumerable.Range(0, gens)
-                .Select(_ => _pwGenerator.Generate(pwLen));
+            var pws = Enumerable.Range(0, Generations.ApplyDefault(x => x <= 0, 5))
+                                .Select(_ => _pwGenerator.Generate(PwLength.ApplyDefault(x => x <=  0, 16)));
 
             _consoleWriter.WriteMany(pws);
 
