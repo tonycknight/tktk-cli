@@ -12,7 +12,7 @@ A `dotnet tool` for various development tasks.
 
 ## Dependenices
 
-You'll need the [.Net 6 runtime](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) installed on your Windows machine.
+You'll need the [.Net 6 runtime](https://dotnet.microsoft.com/en-us/download/dotnet/6.0) installed.
 
 ## Installation
 
