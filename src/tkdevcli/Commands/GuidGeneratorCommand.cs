@@ -17,8 +17,9 @@ namespace tkdevcli.Commands
         public int Generations { get; set; }
 
         public Task<int> OnExecuteAsync()
-        {            
-            var guids = Enumerable.Range(0, Math.Max(1, Generations))
+        {
+            var gens = Generations < 1 ? 5 : Generations;
+            var guids = Enumerable.Range(0, gens)
                                   .Select(_ => Guid.NewGuid().ToString());
             
             _consoleWriter.WriteMany(guids);
