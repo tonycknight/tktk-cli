@@ -55,12 +55,12 @@ namespace Tk.Toolkit.Cli.Commands
 
         private IEnumerable<(string, string)> Format(JwtSecurityToken jwt)
         {
-            var claims = jwt.Claims.Select(c => (Crayon.Output.Bright.Yellow(c.Type), c.Value))
-                                   .ToTable();
+            var claims = jwt.Claims.Select(c => ($"Claim [{c.Type}]", c.Value));
+            var audiences = jwt.Audiences.Select(c => ("Audience", c));
+
 
             var lines = new (string, string)[]
                 {
-                    ("Audiences", jwt.Audiences.Join(" ")),
                     ("Actor", jwt.Actor),
                     ("Algorithm", jwt.SignatureAlgorithm),
                     ("Issuer", jwt.Issuer),
@@ -68,9 +68,11 @@ namespace Tk.Toolkit.Cli.Commands
                     ("Subject", jwt.Subject),
                     ("Valid from", jwt.ValidFrom.ToString("yyyy-MM-dd HH:mm:ss")),
                     ("Valid to", jwt.ValidTo.ToString("yyyy-MM-dd HH:mm:ss")),
-                    ("Claims", Environment.NewLine + claims.Join(Environment.NewLine))
                 }
+                .Concat(audiences)
+                .Concat(claims)
                 .Where(t => !string.IsNullOrWhiteSpace(t.Item2))
+                .OrderBy(t => t.Item1)
                 .Select(t => (Crayon.Output.Bright.Cyan(t.Item1), t.Item2));
                 
             return lines;
