@@ -1,8 +1,8 @@
-# tkdev-cli
+# tktk-cli
 
-[![Build & Release](https://github.com/tonycknight/tkdev-cli/actions/workflows/build.yml/badge.svg)](https://github.com/tonycknight/tkdev-cli/actions/workflows/build.yml)
+[![Build & Release](https://github.com/tonycknight/tktk-cli/actions/workflows/build.yml/badge.svg)](https://github.com/tonycknight/tktk-cli/actions/workflows/build.yml)
 
-![Nuget](https://img.shields.io/nuget/v/tkdev-cli)
+![Nuget](https://img.shields.io/nuget/v/tktk-cli)
 
 A `dotnet tool` for various development tasks.
 
@@ -16,10 +16,10 @@ You'll need the [.Net 6 runtime](https://dotnet.microsoft.com/en-us/download/dot
 
 ## Installation
 
-``tkdev-cli`` is available from [Nuget](https://www.nuget.org/packages/tkdev-cli/):
+``tktk-cli`` is available from [Nuget](https://www.nuget.org/packages/tktk-cli/):
 
 ```
-dotnet tool install tkdev-cli -g
+dotnet tool install tktk-cli -g
 ```
 
 ---
@@ -29,13 +29,13 @@ dotnet tool install tkdev-cli -g
 ## Help:
 
 ```
-tkdev -?
+tktk -?
 ```
 
 ## Generate Guids:
 
 ```
-tkdev guid -g 10
+tktk guid -g 10
 ```
 
 where `-g` is the number of guids you want to generate. Default is 5.
@@ -43,7 +43,7 @@ where `-g` is the number of guids you want to generate. Default is 5.
 ## Generate Passwords:
 
 ```
-tkdev pw -g 10 -l 32
+tktk pw -g 10 -l 32
 ```
 
 Where:
@@ -52,4 +52,15 @@ Where:
 
 `-l` is the password length, default is 16.
 
+## Decode JWT
+
+```
+tktk decodejwt <jwt>
+```
+
+Where:
+
+`<jwt>` is the base-64 encoded JWT token to decode
+
 ---
+
