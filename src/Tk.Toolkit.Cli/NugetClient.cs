@@ -2,7 +2,7 @@
 using NuGet.Protocol;
 using NuGet.Protocol.Core.Types;
 
-namespace tkdevcli
+namespace Tk.Toolkit.Cli
 {
     internal class NugetClient
     {

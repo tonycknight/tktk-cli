@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-namespace tkdevcli.Commands
+namespace Tk.Toolkit.Cli.Commands
 {
     internal static class CommandExtensions
     {

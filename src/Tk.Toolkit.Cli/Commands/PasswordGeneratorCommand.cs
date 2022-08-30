@@ -1,9 +1,9 @@
 ﻿using McMaster.Extensions.CommandLineUtils;
-using tkdevcli.Io;
-using tkdevcli.Passwords;
+using Tk.Toolkit.Cli.Io;
+using Tk.Toolkit.Cli.Passwords;
 using Tk.Extensions.Tasks;
 
-namespace tkdevcli.Commands
+namespace Tk.Toolkit.Cli.Commands
 {
     [Command("pw", Description = "Generate passwords")]
     internal class PasswordGeneratorCommand

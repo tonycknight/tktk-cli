@@ -1,5 +1,6 @@
 ﻿using FsCheck;
 using FsCheck.Xunit;
+using Tk.Toolkit.Cli;
 
 namespace tkdevcli.Tests.Unit
 {

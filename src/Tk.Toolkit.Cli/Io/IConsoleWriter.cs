@@ -1,4 +1,4 @@
-﻿namespace tkdevcli.Io
+﻿namespace Tk.Toolkit.Cli.Io
 {
     internal interface IConsoleWriter
     {

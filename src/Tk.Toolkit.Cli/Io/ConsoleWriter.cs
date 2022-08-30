@@ -1,6 +1,6 @@
 ﻿using Tk.Extensions;
 
-namespace tkdevcli.Io
+namespace Tk.Toolkit.Cli.Io
 {
     internal class ConsoleWriter : IConsoleWriter
     {

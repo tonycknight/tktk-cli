@@ -1,4 +1,4 @@
-﻿namespace tkdevcli
+﻿namespace Tk.Toolkit.Cli
 {
     internal static class Extensions
     {

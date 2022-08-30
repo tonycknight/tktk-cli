@@ -1,6 +1,6 @@
 ﻿using System.Security.Cryptography;
 
-namespace tkdevcli.Passwords
+namespace Tk.Toolkit.Cli.Passwords
 {
     internal class CryptoPasswordGenerator : IPasswordGenerator
     {

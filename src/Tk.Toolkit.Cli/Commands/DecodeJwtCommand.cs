@@ -2,9 +2,9 @@
 using McMaster.Extensions.CommandLineUtils;
 using Tk.Extensions;
 using Tk.Extensions.Tasks;
-using tkdevcli.Io;
+using Tk.Toolkit.Cli.Io;
 
-namespace tkdevcli.Commands
+namespace Tk.Toolkit.Cli.Commands
 {
     [Command("decodejwt", Description = "Decode a JWT")]
     internal class DecodeJwtCommand
