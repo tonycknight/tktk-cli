@@ -10,7 +10,7 @@ namespace tkdevcli
         {
             try
             {
-                var packageId = "tkdev-cli";
+                var packageId = "tktk-cli";
                 
                 var cnxToken = CancellationToken.None;
                 var logger = new NuGet.Common.NullLogger();

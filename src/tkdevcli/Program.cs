@@ -36,8 +36,8 @@ namespace tkdevcli
             var nugetVersion = new NugetClient().GetLatestNugetVersion();
             var descLines = new List<string>()
             {
-                Crayon.Output.Bright.Cyan("tkdev"),
-                Crayon.Output.Bright.Cyan("An eclectic set of developer tools"),
+                Crayon.Output.Bright.Cyan("tktk"),
+                Crayon.Output.Bright.Cyan("An eclectic developer toolkit"),
                 Crayon.Output.Bright.Yellow($"Version {currentVersion}"),
             };
 
