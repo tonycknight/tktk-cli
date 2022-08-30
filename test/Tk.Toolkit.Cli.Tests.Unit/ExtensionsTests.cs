@@ -1,11 +1,12 @@
 ﻿using FsCheck;
 using FsCheck.Xunit;
+using Tk.Toolkit.Cli;
 
-namespace tkdevcli.Tests.Unit
+namespace Tk.Toolkit.Cli.Tests.Unit
 {
     public class ExtensionsTests
     {
-        [Property(Verbose =  true)]
+        [Property(Verbose = true)]
         public bool ApplyDefault_DefaultApplied(NegativeInt value, PositiveInt defaultValue)
         {
             var r = value.Get.ApplyDefault(x => x <= 0, defaultValue.Get);

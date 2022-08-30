@@ -2,7 +2,7 @@
 using NuGet.Protocol;
 using NuGet.Protocol.Core.Types;
 
-namespace tkdevcli
+namespace Tk.Toolkit.Cli
 {
     internal class NugetClient
     {
@@ -10,7 +10,7 @@ namespace tkdevcli
         {
             try
             {
-                var packageId = "tkdev-cli";
+                var packageId = "tktk-cli";
                 
                 var cnxToken = CancellationToken.None;
                 var logger = new NuGet.Common.NullLogger();

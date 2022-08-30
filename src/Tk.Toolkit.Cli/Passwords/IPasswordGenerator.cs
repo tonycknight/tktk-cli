@@ -1,4 +1,4 @@
-﻿namespace tkdevcli.Passwords
+﻿namespace Tk.Toolkit.Cli.Passwords
 {
     internal interface IPasswordGenerator
     {

@@ -1,7 +1,8 @@
 using McMaster.Extensions.CommandLineUtils;
-using tkdevcli.Io;
+using Tk.Toolkit.Cli.Io;
+using Tk.Extensions.Tasks;
 
-namespace tkdevcli.Commands
+namespace Tk.Toolkit.Cli.Commands
 {
     [Command("guid", Description = "Generate guids")]
     internal class GuidGeneratorCommand 
@@ -23,7 +24,7 @@ namespace tkdevcli.Commands
             
             _consoleWriter.WriteMany(guids);
             
-            return Task.FromResult(true.ToReturnCode());
+            return true.ToReturnCode().ToTaskResult();
         }
     }
 }

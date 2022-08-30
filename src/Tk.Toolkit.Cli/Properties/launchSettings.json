@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "tkdevcli": {
+      "commandName": "Project",
+      "commandLineArgs": "decodejwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6ImR1Y3R4QG1wc29sdXRpb25zLmlvIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJiM2E2ZTI5Zi1hZjdjLTRhZmUtYjA4Ni1jYmVjMjAzOTYxYmUiLCJleHAiOjE2MDE4ODk4OTksImlzcyI6Imh0dHA6Ly9tcHNvbHV0aW9ucy5pbyIsImF1ZCI6Imh0dHA6Ly9tcHNvbHV0aW9ucy5pbyJ9.0HmUptS8_VMPuYXMlSwfafhusiYPfyOPPaiSo6uSOMs"
+    }
+  }
+}

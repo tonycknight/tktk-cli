@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "tkdevcli": {
-      "commandName": "Project",
-      "commandLineArgs": ""
-    }
-  }
-}

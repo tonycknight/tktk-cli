@@ -18,7 +18,7 @@ open Fake.SystemHelper
 
 let packageDir = "./package"
 let publishDir = "./publish"
-let mainSolution = "./tkdevcli.sln"
+let mainSolution = "./tktk-cli.sln"
 
 let runNumber = (match Fake.BuildServer.GitHubActions.Environment.CI false with
                     | true -> Fake.BuildServer.GitHubActions.Environment.RunNumber
@@ -69,7 +69,7 @@ let packOptions = fun (opts: DotNet.PackOptions) ->
                                     MSBuildParams = { opts.MSBuildParams with Properties = (packBuildParams opts.MSBuildParams.Properties |> assemblyInfoParams )};
                                     OutputPath = Some packageDir }
 
-let publishProjects = !! "src/**/tkdevcli.csproj" |> List.ofSeq
+let publishProjects = !! "src/**/Tk.Toolkit.Cli.csproj" |> List.ofSeq
 
 Target.create "Clean" (fun _ ->
     !! "src/**/bin"
