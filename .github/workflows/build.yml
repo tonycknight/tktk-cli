@@ -66,8 +66,8 @@ jobs:
       - name: Archive tool nupkg
         uses: actions/upload-artifact@v2
         with:
-          name: tkdev-cli.nupkg
-          path: ./package/tkdev*.nupkg
+          name: tktk-cli.nupkg
+          path: ./package/tktk*.nupkg
 
       - name: Archive Test results
         uses: actions/upload-artifact@v2
