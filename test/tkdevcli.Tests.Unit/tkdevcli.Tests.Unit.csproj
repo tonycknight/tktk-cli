@@ -5,8 +5,8 @@
     <Nullable>enable</Nullable>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\tkdevcli\tkdevcli.csproj" />
-  </ItemGroup>
   <Import Project="..\..\.paket\Paket.Restore.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Tk.Toolkit.Cli\Tk.Toolkit.Cli.csproj" />
+  </ItemGroup>
 </Project>
