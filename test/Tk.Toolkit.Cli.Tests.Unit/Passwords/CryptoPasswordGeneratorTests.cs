@@ -3,7 +3,7 @@ using FsCheck;
 using FsCheck.Xunit;
 using Tk.Toolkit.Cli.Passwords;
 
-namespace tkdevcli.Tests.Unit.Passwords
+namespace Tk.Toolkit.Cli.Tests.Unit.Passwords
 {
     public class CryptoPasswordGeneratorTests
     {

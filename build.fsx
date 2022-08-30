@@ -69,7 +69,7 @@ let packOptions = fun (opts: DotNet.PackOptions) ->
                                     MSBuildParams = { opts.MSBuildParams with Properties = (packBuildParams opts.MSBuildParams.Properties |> assemblyInfoParams )};
                                     OutputPath = Some packageDir }
 
-let publishProjects = !! "src/**/tkdevcli.csproj" |> List.ofSeq
+let publishProjects = !! "src/**/Tk.Toolkit.Cli.csproj" |> List.ofSeq
 
 Target.create "Clean" (fun _ ->
     !! "src/**/bin"
