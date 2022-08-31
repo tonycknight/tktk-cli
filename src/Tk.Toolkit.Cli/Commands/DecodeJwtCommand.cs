@@ -1,6 +1,4 @@
-﻿using System.IdentityModel.Tokens.Jwt;
-using McMaster.Extensions.CommandLineUtils;
-using Tk.Extensions;
+﻿using McMaster.Extensions.CommandLineUtils;
 using Tk.Extensions.Tasks;
 using Tk.Toolkit.Cli.Io;
 using Tk.Toolkit.Cli.Jwts;
