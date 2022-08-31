@@ -9,6 +9,7 @@ namespace Tk.Toolkit.Cli
            new ServiceCollection()
                 .AddSingleton<Io.IConsoleWriter, Io.ConsoleWriter>()
                 .AddSingleton<Passwords.IPasswordGenerator, Passwords.CryptoPasswordGenerator>()
+                .AddSingleton<Jwts.IJwtParser, Jwts.JwtParser>()
                 .BuildServiceProvider();
 
         public static Assembly GetAssembly() => Assembly.GetExecutingAssembly();
