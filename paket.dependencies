@@ -13,6 +13,7 @@ nuget Microsoft.Extensions.DependencyInjection
 nuget Microsoft.NET.Test.Sdk 16.11.0
 nuget nsubstitute 4.3.0
 nuget NuGet.Protocol 6.1.0
+nuget spectre.console
 nuget System.IdentityModel.Tokens.Jwt
 nuget Tk.Extensions
 nuget xunit 2.4.1
