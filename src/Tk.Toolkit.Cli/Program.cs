@@ -32,7 +32,7 @@ namespace Tk.Toolkit.Cli
         private int OnExecute(CommandLineApplication app)
         {
             var currentVersion = ProgramBootstrap.GetAppVersion();
-            var nugetVersion = new NugetClient().GetLatestNugetVersion();
+            var nugetVersion = new Nuget.NugetClient().GetLatestNugetVersion();
             var descLines = new List<string>()
             {
                 Crayon.Output.Bright.Cyan("tktk"),
