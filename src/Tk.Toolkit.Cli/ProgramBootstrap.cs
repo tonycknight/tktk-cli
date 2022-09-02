@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
+using Spectre.Console;
 
 namespace Tk.Toolkit.Cli
 {
@@ -10,6 +11,7 @@ namespace Tk.Toolkit.Cli
                 .AddSingleton<Io.IConsoleWriter, Io.ConsoleWriter>()
                 .AddSingleton<Passwords.IPasswordGenerator, Passwords.CryptoPasswordGenerator>()
                 .AddSingleton<Jwts.IJwtParser, Jwts.JwtParser>()
+                .AddSingleton<IAnsiConsole>(sp => AnsiConsole.Create(new AnsiConsoleSettings()))
                 .BuildServiceProvider();
 
         public static Assembly GetAssembly() => Assembly.GetExecutingAssembly();

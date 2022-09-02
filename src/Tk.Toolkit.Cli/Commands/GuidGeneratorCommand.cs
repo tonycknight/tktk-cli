@@ -1,17 +1,17 @@
 using McMaster.Extensions.CommandLineUtils;
-using Tk.Toolkit.Cli.Io;
 using Tk.Extensions.Tasks;
+using Spectre.Console;
 
 namespace Tk.Toolkit.Cli.Commands
 {
     [Command("guid", Description = "Generate guids")]
     internal class GuidGeneratorCommand 
     {
-        private readonly IConsoleWriter _consoleWriter;
+        private readonly IAnsiConsole _console;
 
-        public GuidGeneratorCommand(IConsoleWriter consoleWriter)
+        public GuidGeneratorCommand(IAnsiConsole console)
         {
-            _consoleWriter = consoleWriter;
+            _console = console;
         }
 
         [Option(CommandOptionType.SingleValue, Description = "The number of guids to generate.", LongName = "gen", ShortName = "g")]
@@ -21,8 +21,10 @@ namespace Tk.Toolkit.Cli.Commands
         {            
             var guids = Enumerable.Range(0, Generations.ApplyDefault(x2 => x2 <= 0, 5))
                                   .Select(_ => Guid.NewGuid().ToString());
-            
-            _consoleWriter.WriteMany(guids);
+
+            var table = guids.ToSpectreList();
+
+            _console.Write(table);
             
             return true.ToReturnCode().ToTaskResult();
         }

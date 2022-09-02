@@ -1,19 +1,19 @@
 ﻿using McMaster.Extensions.CommandLineUtils;
-using Tk.Toolkit.Cli.Io;
 using Tk.Toolkit.Cli.Passwords;
 using Tk.Extensions.Tasks;
+using Spectre.Console;
 
 namespace Tk.Toolkit.Cli.Commands
 {
     [Command("pw", Description = "Generate passwords")]
     internal class PasswordGeneratorCommand
     {
-        private readonly IConsoleWriter _consoleWriter;
+        private readonly IAnsiConsole _console;
         private readonly IPasswordGenerator _pwGenerator;
 
-        public PasswordGeneratorCommand(IConsoleWriter consoleWriter, IPasswordGenerator pwGenerator)
+        public PasswordGeneratorCommand(IAnsiConsole console, IPasswordGenerator pwGenerator)
         {
-            _consoleWriter = consoleWriter;
+            _console = console;
             _pwGenerator = pwGenerator;
         }
 
@@ -26,9 +26,10 @@ namespace Tk.Toolkit.Cli.Commands
         public Task<int> OnExecuteAsync()
         {
             var pws = Enumerable.Range(0, Generations.ApplyDefault(x => x <= 0, 5))
-                                .Select(_ => _pwGenerator.Generate(PwLength.ApplyDefault(x => x <=  0, 16)));
+                                .Select(_ => _pwGenerator.Generate(PwLength.ApplyDefault(x => x <= 0, 16)))
+                                .ToSpectreList();
 
-            _consoleWriter.WriteMany(pws);
+            _console.Write(pws);
 
             return true.ToReturnCode().ToTaskResult();
         }

@@ -8,10 +8,12 @@ namespace Tk.Toolkit.Cli.Commands
     [Command("decodejwt", Description = "Decode a JWT")]
     internal class DecodeJwtCommand
     {
+        private readonly IAnsiConsole _console;
         private readonly IJwtParser _jwtParser;
 
-        public DecodeJwtCommand(Jwts.IJwtParser jwtParser)
+        public DecodeJwtCommand(IAnsiConsole console, Jwts.IJwtParser jwtParser)
         {
+            _console = console;
             _jwtParser = jwtParser;
         }
 
@@ -30,9 +32,9 @@ namespace Tk.Toolkit.Cli.Commands
                 
                 var lines = _jwtParser.Parse(this.Jwt)
                                       .Select(t => (t.Item1, t.Item2))
-                                      .ToSpectreTable();
-                
-                AnsiConsole.Write(lines);
+                                      .ToSpectreColumns();
+
+                _console.Write(lines);
 
                 return true.ToReturnCode().ToTaskResult();
             }
