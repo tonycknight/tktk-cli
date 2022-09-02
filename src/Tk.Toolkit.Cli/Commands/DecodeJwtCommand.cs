@@ -1,8 +1,7 @@
-﻿using System.IdentityModel.Tokens.Jwt;
-using McMaster.Extensions.CommandLineUtils;
-using Tk.Extensions;
+﻿using McMaster.Extensions.CommandLineUtils;
 using Tk.Extensions.Tasks;
 using Tk.Toolkit.Cli.Io;
+using Tk.Toolkit.Cli.Jwts;
 
 namespace Tk.Toolkit.Cli.Commands
 {
@@ -10,10 +9,12 @@ namespace Tk.Toolkit.Cli.Commands
     internal class DecodeJwtCommand
     {
         private readonly IConsoleWriter _consoleWriter;
+        private readonly IJwtParser _jwtParser;
 
-        public DecodeJwtCommand(IConsoleWriter consoleWriter)
+        public DecodeJwtCommand(IConsoleWriter consoleWriter, Jwts.IJwtParser jwtParser)
         {
             _consoleWriter = consoleWriter;
+            _jwtParser = jwtParser;
         }
 
         [Argument(0, Description ="The JWT to decode.")]
@@ -29,9 +30,10 @@ namespace Tk.Toolkit.Cli.Commands
                     return false.ToReturnCode().ToTaskResult();
                 }
                 
-                var token = Decode(this.Jwt);
+                var lines = _jwtParser.Parse(this.Jwt)
+                                      .Select(t => (Crayon.Output.Bright.Cyan(t.Item1), t.Item2))
+                                      .ToTable();
 
-                var lines = Format(token).ToTable();
                 _consoleWriter.WriteMany(lines);
 
                 return true.ToReturnCode().ToTaskResult();
@@ -41,41 +43,6 @@ namespace Tk.Toolkit.Cli.Commands
                 _consoleWriter.Write(Crayon.Output.Bright.Red($"Invalid JWT.{Environment.NewLine}{ex.Message}"));
                 return false.ToReturnCode().ToTaskResult();
             }
-        }
-
-        private JwtSecurityToken Decode(string jwt)
-        {
-            const string prefix = "Bearer ";
-
-            var idx = jwt.IndexOf(prefix);
-            jwt = idx >= 0 ? jwt.Substring(prefix.Length) : jwt;
-
-            return new JwtSecurityToken(jwt);
-        }
-
-        private IEnumerable<(string, string)> Format(JwtSecurityToken jwt)
-        {
-            var claims = jwt.Claims.Select(c => ($"Claim [{c.Type}]", c.Value));
-            var audiences = jwt.Audiences.Select(c => ("Audience", c));
-
-
-            var lines = new (string, string)[]
-                {
-                    ("Actor", jwt.Actor),
-                    ("Algorithm", jwt.SignatureAlgorithm),
-                    ("Issuer", jwt.Issuer),
-                    ("Issued at", jwt.IssuedAt.ToString("yyyy-MM-dd HH:mm:ss")),
-                    ("Subject", jwt.Subject),
-                    ("Valid from", jwt.ValidFrom.ToString("yyyy-MM-dd HH:mm:ss")),
-                    ("Valid to", jwt.ValidTo.ToString("yyyy-MM-dd HH:mm:ss")),
-                }
-                .Concat(audiences)
-                .Concat(claims)
-                .Where(t => !string.IsNullOrWhiteSpace(t.Item2))
-                .OrderBy(t => t.Item1)
-                .Select(t => (Crayon.Output.Bright.Cyan(t.Item1), t.Item2));
-                
-            return lines;
         }
     }
 }
