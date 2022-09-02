@@ -37,7 +37,7 @@ namespace Tk.Toolkit.Cli
             {
                 Crayon.Output.Bright.Cyan("tktk"),
                 Crayon.Output.Bright.Cyan("An eclectic developer toolkit"),
-                Crayon.Output.Bright.Yellow($"Version {currentVersion}"),
+                Crayon.Output.Bright.Yellow($"Version {currentVersion} beta"),
             };
 
             if (currentVersion != nugetVersion)
