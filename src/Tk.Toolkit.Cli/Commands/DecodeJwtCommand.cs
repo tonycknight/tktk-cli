@@ -26,7 +26,7 @@ namespace Tk.Toolkit.Cli.Commands
             {
                 if (string.IsNullOrWhiteSpace(Jwt))
                 {
-                    AnsiConsole.Markup("[red]Missing JWT.[/]");
+                    _console.Markup("[red]Missing JWT.[/]");
                     return false.ToReturnCode().ToTaskResult();
                 }
                 
@@ -40,7 +40,7 @@ namespace Tk.Toolkit.Cli.Commands
             }
             catch (Exception)
             {
-                AnsiConsole.Write(new Markup($"[red]Invalid JWT.[/]"));                
+                _console.Write(new Markup($"[red]Invalid JWT.[/]"));                
                 return false.ToReturnCode().ToTaskResult();
             }
         }
