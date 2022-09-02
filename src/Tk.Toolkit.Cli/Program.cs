@@ -31,7 +31,7 @@ namespace Tk.Toolkit.Cli
 
         private int OnExecute(CommandLineApplication app)
         {
-            var currentVersion = ProgramBootstrap.GetAssembly().GetAppVersion();
+            var currentVersion = ProgramBootstrap.GetAppVersion();
             var nugetVersion = new NugetClient().GetLatestNugetVersion();
             var descLines = new List<string>()
             {

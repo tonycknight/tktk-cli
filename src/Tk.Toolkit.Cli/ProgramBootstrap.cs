@@ -13,9 +13,8 @@ namespace Tk.Toolkit.Cli
                 .AddSingleton<IAnsiConsole>(sp => AnsiConsole.Create(new AnsiConsoleSettings() {  ColorSystem = ColorSystemSupport.TrueColor }))
                 .BuildServiceProvider();
 
-        public static Assembly GetAssembly() => Assembly.GetExecutingAssembly();
-
-        public static string? GetAppVersion(this Assembly assembly)
-            => assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion;
+        public static string? GetAppVersion()
+            => Assembly.GetExecutingAssembly()
+                       .GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion;
     }
 }
