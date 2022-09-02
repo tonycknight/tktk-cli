@@ -10,7 +10,7 @@ namespace Tk.Toolkit.Cli
            new ServiceCollection()
                 .AddSingleton<Passwords.IPasswordGenerator, Passwords.CryptoPasswordGenerator>()
                 .AddSingleton<Jwts.IJwtParser, Jwts.JwtParser>()
-                .AddSingleton<IAnsiConsole>(sp => AnsiConsole.Create(new AnsiConsoleSettings()))
+                .AddSingleton<IAnsiConsole>(sp => AnsiConsole.Create(new AnsiConsoleSettings() {  ColorSystem = ColorSystemSupport.TrueColor }))
                 .BuildServiceProvider();
 
         public static Assembly GetAssembly() => Assembly.GetExecutingAssembly();
