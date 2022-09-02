@@ -36,7 +36,7 @@ namespace Tk.Toolkit.Cli.Commands
 
                 return true.ToReturnCode().ToTaskResult();
             }
-            catch(Exception ex)
+            catch (Exception)
             {
                 AnsiConsole.Write(new Markup($"[red]Invalid JWT.[/]"));                
                 return false.ToReturnCode().ToTaskResult();

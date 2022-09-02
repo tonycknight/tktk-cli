@@ -20,13 +20,5 @@ namespace Tk.Toolkit.Cli
 
             return result;
         }
-
-        public static IEnumerable<string> ToTable(this IEnumerable<(string, string)> keyValues)
-        {
-            var maxHeader = keyValues.Max(t => t.Item1.Length);
-            Func<string, string> fmtHeader = hdr => $"{hdr}:".PadRight(maxHeader, ' ');
-
-            return keyValues.Select(t => $"{fmtHeader(t.Item1)}\t{t.Item2}");
-        }
     }
 }
