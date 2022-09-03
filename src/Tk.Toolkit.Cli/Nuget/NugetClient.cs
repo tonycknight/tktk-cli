@@ -8,30 +8,31 @@ namespace Tk.Toolkit.Cli.Nuget
     [ExcludeFromCodeCoverage]
     internal class NugetClient : INugetClient
     {
-        public string GetLatestNugetVersion()
+        private const string _packageId = "tktk-cli";
+        private const string _packageSource = NuGetConstants.V3FeedUrl;
+
+        public async Task<string?> GetLatestNugetVersionAsync()
         {
             try
             {
-                var packageId = "tktk-cli";
-
-                var cnxToken = CancellationToken.None;
-                var logger = new NuGet.Common.NullLogger();
-                using var cache = new SourceCacheContext();
-                var sourceRepository = Repository.Factory.GetCoreV3(new PackageSource(NuGetConstants.V3FeedUrl));
+                var logger = new NuGet.Common.NullLogger();                
+                var sourceRepository = Repository.Factory.GetCoreV3(new PackageSource(_packageSource));
                 var mdr = sourceRepository.GetResource<MetadataResource>();
 
-                var vsn = mdr.GetLatestVersion(packageId, true, false, cache, logger, cnxToken).Result;
+                using var cache = new SourceCacheContext();
+
+                var vsn = await mdr.GetLatestVersion(_packageId, true, false, cache, logger, CancellationToken.None);
 
                 if (vsn == null)
                 {
-                    return new Version().ToString();
+                    return null;
                 }
 
                 return vsn.ToString();
             }
             catch (Exception)
             {
-                return new Version().ToString();
+                return null;
             }
         }
     }

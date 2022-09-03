@@ -27,12 +27,12 @@ namespace Tk.Toolkit.Cli
                 return false.ToReturnCode();
             }
         }
-
+         
 
         private int OnExecute(CommandLineApplication app)
         {
             var currentVersion = ProgramBootstrap.GetAppVersion();
-            var nugetVersion = new Nuget.NugetClient().GetLatestNugetVersion();
+            var nugetVersion = new Nuget.NugetClient().GetLatestNugetVersionAsync().GetAwaiter().GetResult();
             var descLines = new List<string>()
             {
                 Crayon.Output.Bright.Cyan("tktk"),
@@ -40,7 +40,7 @@ namespace Tk.Toolkit.Cli
                 Crayon.Output.Bright.Yellow($"Version {currentVersion} beta"),
             };
 
-            if (currentVersion != nugetVersion)
+            if (nugetVersion != null && currentVersion != nugetVersion)
             {
                 descLines.Add(Crayon.Output.Bright.Magenta($"An upgrade is available: {nugetVersion}"));
             }
