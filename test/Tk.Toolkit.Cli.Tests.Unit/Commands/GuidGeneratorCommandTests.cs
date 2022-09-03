@@ -28,7 +28,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
             var rc = await cmd.OnExecuteAsync();
 
             rc.Should().Be(0);
-            AssertTableOutputIsGuids(output, 5);
+            AssertTableOutputContainsGuids(output, 5);
         }
 
         [Property(Verbose = true)]
@@ -50,12 +50,12 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
             var rc = cmd.OnExecuteAsync().GetAwaiter().GetResult();
 
             rc.Should().Be(0);
-            AssertTableOutputIsGuids(output, count.Get);
+            AssertTableOutputContainsGuids(output, count.Get);
 
             return true;
         }
 
-        private void AssertTableOutputIsGuids(Table? table, int count)
+        private void AssertTableOutputContainsGuids(Table? table, int count)
         {
             var guidLength = System.Guid.NewGuid().ToString().Length;
 

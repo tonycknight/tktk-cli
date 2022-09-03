@@ -33,7 +33,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
             var rc = await cmd.OnExecuteAsync();
 
             rc.Should().Be(0);
-            AssertTableOutputIPasswords(output, 5, 16);
+            AssertTableOutputContainsPasswords(output, 5, 16);
         }
 
         [Property(Verbose = true)]
@@ -60,7 +60,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
             var rc = cmd.OnExecuteAsync().GetAwaiter().GetResult();
 
             rc.Should().Be(0);
-            AssertTableOutputIPasswords(output, count.Get, pwLen.Get);
+            AssertTableOutputContainsPasswords(output, count.Get, pwLen.Get);
 
             return true;
         }
@@ -68,7 +68,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
 
         private string GeneratePassword(int length) => new string('a', length);
 
-        private void AssertTableOutputIPasswords(Table? table, int count, int pwLen)
+        private void AssertTableOutputContainsPasswords(Table? table, int count, int pwLen)
         {            
             table?.Rows.Count.Should().Be(count);
 
