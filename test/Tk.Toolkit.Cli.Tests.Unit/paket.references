@@ -7,3 +7,4 @@ coverlet.msbuild
 coverlet.collector
 nsubstitute
 FsUnit.Xunit
+System.IdentityModel.Tokens.Jwt
