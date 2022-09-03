@@ -61,7 +61,7 @@ jobs:
         run: dotnet tool restore
               
       - name: Run build
-        run: dotnet fake run "build.fsx" -t "All"
+        run: dotnet fake run "build.fsx" -t "Consolidate code coverage"
 
       - name: Archive tool nupkg
         uses: actions/upload-artifact@v2
@@ -108,10 +108,35 @@ jobs:
   codeql:
     uses: ./.github/workflows/codeql-analysis.yml
   
+  stryker:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@v1.9.0
+        with:
+          dotnet-version: "6.0.x"
+        
+      - name: dotnet tool restore
+        run: dotnet tool restore
+              
+      - name: Run build
+        run: dotnet fake run "build.fsx" -t "Stryker"
+
+      - name: Archive Stryker results
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: stryker.results
+          path: |
+            ./StrykerOutput/**/reports/* 
+
   nuget-release:
     name: nuget release
     runs-on: ubuntu-latest
-    needs:   [ sca, build, codeql ]
+    needs:   [ sca, build, codeql, stryker ]
     #if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev'
 
     steps:
