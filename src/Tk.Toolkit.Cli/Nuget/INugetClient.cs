@@ -2,6 +2,6 @@
 {
     internal interface INugetClient
     {
-        Task<string?> GetLatestNugetVersionAsync();
+        Task<string?> GetLatestNugetVersionAsync(string packageId, string? sourceUrl = null);
     }
 }
