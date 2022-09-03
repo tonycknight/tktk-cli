@@ -1,16 +1,40 @@
-﻿namespace Tk.Toolkit.Cli
+﻿using Spectre.Console;
+
+namespace Tk.Toolkit.Cli
 {
     internal static class Extensions
     {
         public static int ApplyDefault(this int value, Func<int, bool> applyDefault, int defaultValue) 
             => applyDefault(value) ? defaultValue : value;
 
-        public static IEnumerable<string> ToTable(this IEnumerable<(string, string)> keyValues)
+        public static Table ToSpectreColumns(this IEnumerable<(string, string)> keyValues)
         {
-            var maxHeader = keyValues.Max(t => t.Item1.Length);
-            Func<string, string> fmtHeader = hdr => $"{hdr}:".PadRight(maxHeader, ' ');
+            var result = new Table()
+                .Border(TableBorder.None)
+                .HideHeaders()
+                .AddColumns("", "");
 
-            return keyValues.Select(t => $"{fmtHeader(t.Item1)}\t{t.Item2}");
+            foreach(var t in keyValues)
+            {
+                result.AddRow($"[cyan]{Markup.Escape(t.Item1)}[/]", t.Item2);
+            }
+
+            return result;
+        }
+
+        public static Table ToSpectreList(this IEnumerable<string> keyValues)
+        {
+            var result = new Table()
+                .Border(TableBorder.None)
+                .HideHeaders()
+                .AddColumns("");
+
+            foreach (var t in keyValues)
+            {
+                result.AddRow($"{Markup.Escape(t)}");
+            }
+
+            return result;
         }
     }
 }

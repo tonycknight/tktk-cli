@@ -1,6 +1,6 @@
 ﻿using McMaster.Extensions.CommandLineUtils;
+using Spectre.Console;
 using Tk.Extensions.Tasks;
-using Tk.Toolkit.Cli.Io;
 using Tk.Toolkit.Cli.Jwts;
 
 namespace Tk.Toolkit.Cli.Commands
@@ -8,12 +8,12 @@ namespace Tk.Toolkit.Cli.Commands
     [Command("decodejwt", Description = "Decode a JWT")]
     internal class DecodeJwtCommand
     {
-        private readonly IConsoleWriter _consoleWriter;
+        private readonly IAnsiConsole _console;
         private readonly IJwtParser _jwtParser;
 
-        public DecodeJwtCommand(IConsoleWriter consoleWriter, Jwts.IJwtParser jwtParser)
+        public DecodeJwtCommand(IAnsiConsole console, Jwts.IJwtParser jwtParser)
         {
-            _consoleWriter = consoleWriter;
+            _console = console;
             _jwtParser = jwtParser;
         }
 
@@ -26,21 +26,21 @@ namespace Tk.Toolkit.Cli.Commands
             {
                 if (string.IsNullOrWhiteSpace(Jwt))
                 {
-                    _consoleWriter.Write(Crayon.Output.Bright.Red("Missing JWT."));
+                    _console.Markup("[red]Missing JWT.[/]");
                     return false.ToReturnCode().ToTaskResult();
                 }
                 
                 var lines = _jwtParser.Parse(this.Jwt)
-                                      .Select(t => (Crayon.Output.Bright.Cyan(t.Item1), t.Item2))
-                                      .ToTable();
+                                      .Select(t => (t.Item1, t.Item2))
+                                      .ToSpectreColumns();
 
-                _consoleWriter.WriteMany(lines);
+                _console.Write(lines);
 
                 return true.ToReturnCode().ToTaskResult();
             }
-            catch(Exception ex)
+            catch (Exception)
             {
-                _consoleWriter.Write(Crayon.Output.Bright.Red($"Invalid JWT.{Environment.NewLine}{ex.Message}"));
+                _console.Write(new Markup($"[red]Invalid JWT.[/]"));                
                 return false.ToReturnCode().ToTaskResult();
             }
         }

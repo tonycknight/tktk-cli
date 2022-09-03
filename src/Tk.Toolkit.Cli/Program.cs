@@ -27,20 +27,20 @@ namespace Tk.Toolkit.Cli
                 return false.ToReturnCode();
             }
         }
-
+         
 
         private int OnExecute(CommandLineApplication app)
         {
-            var currentVersion = ProgramBootstrap.GetAssembly().GetAppVersion();
-            var nugetVersion = new NugetClient().GetLatestNugetVersion();
+            var currentVersion = ProgramBootstrap.GetAppVersion();
+            var nugetVersion = new Nuget.NugetClient().GetLatestNugetVersionAsync("tktk-cli").GetAwaiter().GetResult();
             var descLines = new List<string>()
             {
                 Crayon.Output.Bright.Cyan("tktk"),
                 Crayon.Output.Bright.Cyan("An eclectic developer toolkit"),
-                Crayon.Output.Bright.Yellow($"Version {currentVersion}"),
+                Crayon.Output.Bright.Yellow($"Version {currentVersion} beta"),
             };
 
-            if (currentVersion != nugetVersion)
+            if (nugetVersion != null && currentVersion != nugetVersion)
             {
                 descLines.Add(Crayon.Output.Bright.Magenta($"An upgrade is available: {nugetVersion}"));
             }
