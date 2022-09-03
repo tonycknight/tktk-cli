@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using FsCheck.Xunit;
 using Tk.Toolkit.Cli.Jwts;
 
@@ -29,6 +30,22 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Jwts
                 .ToDictionary(t => t.Item1, t => t.Item2);
 
             return result["Issuer"] == JwtStringArbitraries.Issuer;
+        }
+
+        [Property(Verbose = true)]
+        public bool Parse_InvalidJwt_ThrowsException(Guid jwt)
+        {
+            var parser = new JwtParser();
+
+            try
+            {
+                var result = parser.Parse(jwt.ToString());
+                return false;
+            }
+            catch
+            {
+                return true;
+            }
         }
     }
 }
