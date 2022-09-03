@@ -86,6 +86,8 @@ Target.create "Clean" (fun _ ->
 
     !! strykerDir
     |> Shell.cleanDirs
+
+    DotNet.exec id "clean" "" |> ignore
 )
 
 Target.create "Restore" (fun _ ->
