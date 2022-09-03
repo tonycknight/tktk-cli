@@ -16,7 +16,7 @@ namespace Tk.Toolkit.Cli
 
             foreach(var t in keyValues)
             {
-                result.AddRow($"[cyan]{Markup.Escape(t.Item1)}[/]", t.Item2);
+                result.AddRow($"[cyan]{Markup.Escape(t.Item1)}[/]", Markup.Escape(t.Item2));
             }
 
             return result;
