@@ -3,7 +3,7 @@ using Xunit;
 
 namespace Tk.Toolkit.Cli.Tests.Unit.End2End
 {
-    public class GeneratePasswords
+    public class GeneratePasswordsCommand
     {        
 
         [Fact]

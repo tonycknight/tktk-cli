@@ -3,7 +3,7 @@ using Xunit;
 
 namespace Tk.Toolkit.Cli.Tests.Unit.End2End
 {
-    public class GenerateGuids
+    public class GenerateGuidsCommand
     {
         [Fact]
         public void GenerateGuids_ReturnsOk()
@@ -28,7 +28,5 @@ namespace Tk.Toolkit.Cli.Tests.Unit.End2End
 
             rc.Should().Be(1);
         }
-
-        
     }
 }
