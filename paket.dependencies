@@ -5,6 +5,7 @@ framework: net6.0, net5.0, netstandard2.0, netstandard2.1
 nuget coverlet.collector 3.1.2
 nuget coverlet.msbuild 3.1.2
 nuget crayon 2.0.64
+nuget FluentAssertions
 nuget FsCheck.XUnit 2.16.4
 nuget FSharp.Core 6.0.3
 nuget FsUnit.Xunit 4.2.0

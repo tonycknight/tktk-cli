@@ -7,5 +7,6 @@ coverlet.msbuild
 coverlet.collector
 nsubstitute
 FsUnit.Xunit
+FluentAssertions
 System.IdentityModel.Tokens.Jwt
 spectre.console
