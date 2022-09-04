@@ -18,6 +18,7 @@ open Fake.SystemHelper
 
 let packageDir = "./package"
 let publishDir = "./publish"
+let strykerDir = "./StrykerOutput"
 let mainSolution = "./tktk-cli.sln"
 
 let runNumber = (match Fake.BuildServer.GitHubActions.Environment.CI false with
@@ -82,6 +83,11 @@ Target.create "Clean" (fun _ ->
     ++ packageDir
     ++ publishDir
     |> Shell.cleanDirs
+
+    !! strykerDir
+    |> Shell.cleanDirs
+
+    DotNet.exec id "clean" "" |> ignore
 )
 
 Target.create "Restore" (fun _ ->
@@ -101,6 +107,14 @@ Target.create "Unit Tests" (fun _ ->
     |> Seq.iter (DotNet.test testOptions)    
 )
 
+Target.create "Stryker" (fun _ ->
+    !! "test/**/*.csproj"
+    |> Seq.iter (fun p ->   let args = sprintf "-tp %s -b 70" p
+                            let result = DotNet.exec id "dotnet-stryker" args
+                            if not result.OK then failwithf "Stryker failed!"
+                            )
+)
+
 Target.create "Consolidate code coverage" (fun _ ->  
     let args = sprintf @"-reports:""./test/**/coverage.info"" -targetdir:""./%s/codecoverage"" -reporttypes:""Html""" publishDir
     let result = DotNet.exec id "reportgenerator" args
@@ -116,6 +130,18 @@ Target.create "All" ignore
   ==> "Pack"
   ==> "Unit Tests"
   ==> "Consolidate code coverage"
-  ==> "All"
+  
+
+"Clean"
+  ==> "Restore"
+  ==> "Build"
+  ==> "Stryker"
+  
+
+"Stryker"
+==> "All"
+
+"Consolidate code coverage"
+==> "All"
 
 Target.runOrDefault "All"

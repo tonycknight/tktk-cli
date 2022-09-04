@@ -1,9 +1,11 @@
 ﻿using McMaster.Extensions.CommandLineUtils;
 using Tk.Toolkit.Cli.Commands;
 using Tk.Extensions;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Tk.Toolkit.Cli
 {
+    [ExcludeFromCodeCoverage]
     [Subcommand(typeof(GuidGeneratorCommand))]
     [Subcommand(typeof(PasswordGeneratorCommand))]
     [Subcommand(typeof(DecodeJwtCommand))]

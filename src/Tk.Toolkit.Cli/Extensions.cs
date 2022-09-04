@@ -16,20 +16,20 @@ namespace Tk.Toolkit.Cli
 
             foreach(var t in keyValues)
             {
-                result.AddRow($"[cyan]{Markup.Escape(t.Item1)}[/]", t.Item2);
+                result.AddRow($"[cyan]{Markup.Escape(t.Item1)}[/]", Markup.Escape(t.Item2));
             }
 
             return result;
         }
 
-        public static Table ToSpectreList(this IEnumerable<string> keyValues)
+        public static Table ToSpectreList(this IEnumerable<string> values)
         {
             var result = new Table()
                 .Border(TableBorder.None)
                 .HideHeaders()
                 .AddColumns("");
 
-            foreach (var t in keyValues)
+            foreach (var t in values)
             {
                 result.AddRow($"{Markup.Escape(t)}");
             }
