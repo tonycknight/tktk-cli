@@ -6,7 +6,7 @@ using Tk.Toolkit.Cli.Conversions;
 
 namespace Tk.Toolkit.Cli.Commands
 {
-    [Command("epoch", Description = "Convert epochs")]
+    [Command("epoch", Description = "Convert an epoch to date/time")]
     internal class EpochCommand
     {
         private readonly IAnsiConsole _console;

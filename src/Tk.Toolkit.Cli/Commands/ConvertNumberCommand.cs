@@ -5,7 +5,7 @@ using Tk.Toolkit.Cli.Conversions;
 
 namespace Tk.Toolkit.Cli.Commands
 {
-    [Command("conv", Description = "Convert numbers")]
+    [Command("conv", Description = "Convert a number between different bases")]
     internal class ConvertNumberCommand
     {
         private readonly IAnsiConsole _console;
