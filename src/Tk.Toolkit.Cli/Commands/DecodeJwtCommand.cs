@@ -5,7 +5,7 @@ using Tk.Toolkit.Cli.Jwts;
 
 namespace Tk.Toolkit.Cli.Commands
 {
-    [Command("decodejwt", Description = "Decode a JWT")]
+    [Command("jwt", Description = "Decode a JWT")]
     internal class DecodeJwtCommand
     {
         private readonly IAnsiConsole _console;
