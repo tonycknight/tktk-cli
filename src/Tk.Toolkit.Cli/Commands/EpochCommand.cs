@@ -31,7 +31,7 @@ namespace Tk.Toolkit.Cli.Commands
                     return false.ToReturnCode().ToTaskResult();
                 }
 
-                var date = value.FromEpoch();
+                var date = DateTimeOffset.FromUnixTimeSeconds(value);
 
                 _console.WriteLine(date.ToString("yyyy-MM-dd HH:mm:ss"));
 
