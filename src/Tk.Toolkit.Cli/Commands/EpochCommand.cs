@@ -1,8 +1,6 @@
-﻿using System;
-using McMaster.Extensions.CommandLineUtils;
+﻿using McMaster.Extensions.CommandLineUtils;
 using Spectre.Console;
 using Tk.Extensions.Tasks;
-using Tk.Toolkit.Cli.Conversions;
 
 namespace Tk.Toolkit.Cli.Commands
 {
@@ -34,14 +32,14 @@ namespace Tk.Toolkit.Cli.Commands
                 var date = DateTimeOffset.FromUnixTimeSeconds(value);
 
                 _console.WriteLine(date.ToString("yyyy-MM-dd HH:mm:ss"));
-
-                return true.ToReturnCode().ToTaskResult();
             }
             catch (Exception)
             {
                 _console.Write(new Markup($"[red]Invalid value.[/]"));
                 return false.ToReturnCode().ToTaskResult();
             }
+
+            return true.ToReturnCode().ToTaskResult();
         }
     }
 }

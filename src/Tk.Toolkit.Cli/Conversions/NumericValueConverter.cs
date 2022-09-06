@@ -26,7 +26,7 @@ namespace Tk.Toolkit.Cli.Conversions
             }
 
 
-            if (value.StartsWith("0x") || value.StartsWith("0X"))
+            if (value.StartsWith("0x", StringComparison.InvariantCultureIgnoreCase))
             {
                 value = TrimHexadecimalPrefix(value);
                 if (long.TryParse(value, NumberStyles.HexNumber, null, out result))

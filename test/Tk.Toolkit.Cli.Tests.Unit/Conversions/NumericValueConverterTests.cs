@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using FluentAssertions;
 using FsCheck;
 using FsCheck.Xunit;
 using Tk.Toolkit.Cli.Conversions;
+using Xunit;
 
 namespace Tk.Toolkit.Cli.Tests.Unit.Conversions
 {
@@ -31,7 +34,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Conversions
         }
         
         [Property(Verbose = true)]
-        public bool Parse_InvalidIntegers(Guid val)
+        public bool Parse_InvalidIntegers_ExceptionThrown(Guid val)
         {
             var value = val.ToString();
             var conv = new NumericValueConverter();
@@ -45,6 +48,17 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Conversions
             {
                 return true;
             }
+        }
+
+        [Fact]
+        public void Parse_InvalidValue_ExceptionThrown()
+        {
+            var value = "aaa";
+            var conv = new NumericValueConverter();
+
+            Func<NumericValue> f = () => conv.Parse(value);
+
+            f.Should().Throw<ArgumentException>().WithMessage("?*");            
         }
 
         [Property(Verbose = true)]
@@ -75,6 +89,17 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Conversions
             var result = conv.Convert(dec).Single();
 
             return result is HexadecimalValue && result.Value == value;
+        }
+
+        [Fact]
+        public void Convert_UnknownType_ExceptionThrown()
+        {
+            var s = NSubstitute.Substitute.For<NumericValue>();
+
+            var conv = new NumericValueConverter();
+            Func<IEnumerable<NumericValue>> f = () => conv.Convert(s);
+
+            f.Should().Throw<ArgumentException>().WithMessage("?*");
         }
     }
 }
