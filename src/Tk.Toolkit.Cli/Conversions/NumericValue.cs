@@ -15,4 +15,8 @@
         
     }
 
+    internal sealed class BinaryValue : NumericValue
+    {
+
+    }
 }

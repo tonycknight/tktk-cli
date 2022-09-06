@@ -32,7 +32,19 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Conversions
 
             return result is HexadecimalValue && result.Value == value;
         }
+
         
+        [Property(Verbose = true)]
+        public bool Parse_ValidBinaries(PositiveInt val)
+        {
+            var value = $"0x{System.Convert.ToString(val.Get, 2)}";
+            var conv = new NumericValueConverter();
+
+            var result = conv.Parse(value);
+
+            return result is HexadecimalValue && result.Value == value;
+        }
+
         [Property(Verbose = true)]
         public bool Parse_InvalidIntegers_ExceptionThrown(Guid val)
         {
@@ -89,6 +101,21 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Conversions
             var result = conv.Convert(dec).Single();
 
             return result is HexadecimalValue && result.Value == value;
+        }
+
+        [Property(Verbose = true)]
+        public bool Parse_Convert_BinaryToHexToDecimal(PositiveInt val)
+        {
+            var value = $"0b{System.Convert.ToString(val.Get, 2)}";
+            var conv = new NumericValueConverter();
+
+            var bin = conv.Parse(value);
+
+            var hex = conv.Convert(bin).Single();
+
+            var result = conv.Convert(hex).Single();
+
+            return result is DecimalValue && result.Value == val.Get.ToString();
         }
 
         [Fact]

@@ -15,6 +15,10 @@ namespace Tk.Toolkit.Cli.Conversions
             {
                 return ConvertHexToDec(hex).Singleton();
             }
+            else if(value is BinaryValue bin)
+            {
+                return ConvertBinToHex(bin).Singleton();
+            }
             throw new ArgumentException($"Unrecognised type {value.GetType()}");
         }
 
@@ -28,10 +32,23 @@ namespace Tk.Toolkit.Cli.Conversions
 
             if (value.StartsWith("0x", StringComparison.InvariantCultureIgnoreCase))
             {
-                value = TrimHexadecimalPrefix(value);
+                value = TrimPrefix(value, "0x");
                 if (long.TryParse(value, NumberStyles.HexNumber, null, out result))
                 {
                     return new HexadecimalValue() { Value = $"0x{value}" };
+                }
+            }
+
+            if(value.StartsWith("0b", StringComparison.InvariantCultureIgnoreCase))
+            {
+                value = TrimPrefix(value, "0b");                
+                try 
+                { 
+                    var x = System.Convert.ToInt64(value, 2);                    
+                    return new BinaryValue() { Value = $"0b{value}" };
+                }
+                catch (FormatException)
+                {
                 }
             }
 
@@ -50,17 +67,27 @@ namespace Tk.Toolkit.Cli.Conversions
         private NumericValue ConvertHexToDec(HexadecimalValue value)
         {
 #pragma warning disable CS8604 // Possible null reference argument.
-            var val = TrimHexadecimalPrefix(value.Value);
+            var val = TrimPrefix(value.Value, "0x");
 #pragma warning restore CS8604 // Possible null reference argument.
 
             var v = long.Parse(val, NumberStyles.HexNumber).ToString();
             return new DecimalValue() { Value = v };
         }
 
-        private string TrimHexadecimalPrefix(string value)
+        private NumericValue ConvertBinToHex(BinaryValue value)
         {
-            return value.StartsWith("0x") || value.StartsWith("0X")
-                ? value.Substring(2)
+#pragma warning disable CS8604 // Possible null reference argument.
+            var val = TrimPrefix(value.Value, "0b");
+#pragma warning restore CS8604 // Possible null reference argument.
+            var v = $"0x{System.Convert.ToInt64(val, 2).ToString("X2")}";
+            
+            return new HexadecimalValue() { Value = v };
+        }
+
+        private string TrimPrefix(string value, string prefix)
+        {
+            return value.StartsWith(prefix, StringComparison.InvariantCultureIgnoreCase) 
+                ? value.Substring(prefix.Length)
                 : value;
         }
     }
