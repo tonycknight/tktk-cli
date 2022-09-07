@@ -55,7 +55,7 @@ Where:
 ## Decode JWT
 
 ```
-tktk decodejwt <jwt>
+tktk jwt <jwt>
 ```
 
 Where:

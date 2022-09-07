@@ -9,6 +9,8 @@ namespace Tk.Toolkit.Cli
     [Subcommand(typeof(GuidGeneratorCommand))]
     [Subcommand(typeof(PasswordGeneratorCommand))]
     [Subcommand(typeof(DecodeJwtCommand))]
+    [Subcommand(typeof(ConvertNumberCommand))]
+    [Subcommand(typeof(EpochCommand))]
     public class Program
     {
         public static int Main(string[] args)
