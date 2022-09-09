@@ -14,7 +14,7 @@
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>tktk</ToolCommandName>
     <RepositoryUrl>https://github.com/tonycknight/tktk-cli</RepositoryUrl>
-    <ProjectUrl>https://github.com/tonycknight/tktk-cli</ProjectUrl>
+    <PackageProjectUrl>https://github.com/tonycknight/tktk-cli</PackageProjectUrl>
     <RootNamespace>Tk.Toolkit.Cli</RootNamespace>
   </PropertyGroup>
   <Import Project="..\..\.paket\Paket.Restore.targets" />
