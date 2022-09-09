@@ -2,6 +2,7 @@
 using Tk.Toolkit.Cli.Commands;
 using Tk.Extensions;
 using System.Diagnostics.CodeAnalysis;
+using Tk.Extensions.Tasks;
 
 namespace Tk.Toolkit.Cli
 {
@@ -33,10 +34,10 @@ namespace Tk.Toolkit.Cli
         }
          
 
-        private int OnExecute(CommandLineApplication app)
+        private async Task<int> OnExecuteAsync(CommandLineApplication app)
         {
             var currentVersion = ProgramBootstrap.GetAppVersion();
-            var nugetVersion = new Nuget.NugetClient().GetLatestNugetVersionAsync("tktk-cli").GetAwaiter().GetResult();
+            var nugetVersion = await new Nuget.NugetClient().GetLatestNugetVersionAsync("tktk-cli");
             var descLines = new List<string>()
             {
                 Crayon.Output.Bright.Cyan("tktk"),
@@ -51,6 +52,7 @@ namespace Tk.Toolkit.Cli
 
             app.Description = descLines.Join(Environment.NewLine);
             app.ShowHelp();
+
             return true.ToReturnCode();
         }
     }
