@@ -4,7 +4,7 @@ using Tk.Extensions.Tasks;
 
 namespace Tk.Toolkit.Cli.Commands
 {
-    [Command("epoch", Description = "Convert an epoch to date/time")]
+    [Command("epoch", Description = "Convert an epoch to date/time and vice-versa")]
     internal class EpochCommand
     {
         private readonly IAnsiConsole _console;
@@ -14,32 +14,44 @@ namespace Tk.Toolkit.Cli.Commands
             _console = console;
         }
 
-        [Argument(0, Description = "The number to convert.")]
+        [Argument(0, Description = "The number or date/time to convert, or `now`.")]
         public string? Value { get; set; }
 
         public Task<int> OnExecuteAsync()
         {
             try
             {
-                long value;
-                if (string.IsNullOrWhiteSpace(Value) ||
-                    !long.TryParse(Value, out value))
+                if (string.IsNullOrWhiteSpace(Value))
                 {
                     _console.Write(new Markup("[red]Missing or invalid value.[/]"));
                     return false.ToReturnCode().ToTaskResult();
                 }
 
-                var date = DateTimeOffset.FromUnixTimeSeconds(value);
+                if (long.TryParse(Value, out long value1))
+                {
+                    _console.WriteLine(DateTimeOffset.FromUnixTimeSeconds(value1).ToString("yyyy-MM-dd HH:mm:ss"));
+                    return true.ToReturnCode().ToTaskResult();
+                }
 
-                _console.WriteLine(date.ToString("yyyy-MM-dd HH:mm:ss"));
+                if (DateTimeOffset.TryParse(Value, out DateTimeOffset value2))
+                {                    
+                    _console.WriteLine(value2.ToUnixTimeSeconds().ToString());
+                    return true.ToReturnCode().ToTaskResult();
+                }
+
+                if(StringComparer.InvariantCultureIgnoreCase.Equals(Value, "now"))
+                {
+                    _console.WriteLine(DateTimeOffset.Now.ToUnixTimeSeconds().ToString());
+                    return true.ToReturnCode().ToTaskResult();
+                }
+
             }
-            catch (Exception)
-            {
-                _console.Write(new Markup($"[red]Invalid value.[/]"));
-                return false.ToReturnCode().ToTaskResult();
+            catch 
+            {                
             }
 
-            return true.ToReturnCode().ToTaskResult();
+            _console.Write(new Markup("[red]Invalid value.[/]"));
+            return false.ToReturnCode().ToTaskResult();
         }
     }
 }
