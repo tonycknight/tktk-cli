@@ -64,3 +64,52 @@ Where:
 
 ---
 
+## Base conversions
+
+```
+tktk conv <value>
+```
+
+Where: 
+
+`<value>` is a decimal, hexadecimal or binary value. Decimal and binary values always yield their hexadecimal countarpart, hexadecimal values yield their decimal counterpart.
+
+e.g. Decimal:
+
+```
+tktk conv 1234
+```
+
+Hexadecimal:
+
+```
+tktk conv 0x0a0b
+```
+
+Binary:
+
+```
+tktk conv 0b10101
+```
+
+---
+
+## Epoch
+
+Convert integer or date time values to their Unix epoch equivalents, or `now` for the curent time.
+
+```
+tktk epoch <value>
+```
+
+Where `<value>` is an integer, local date time or `now`
+
+E.g.
+
+`tktk epoch 0`
+
+`tktk epoch 2020-01-01T01:30:00`
+
+`tktk epoch now`
+
+---
