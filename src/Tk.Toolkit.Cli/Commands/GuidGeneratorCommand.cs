@@ -8,6 +8,7 @@ namespace Tk.Toolkit.Cli.Commands
     internal class GuidGeneratorCommand 
     {
         private readonly IAnsiConsole _console;
+        internal const int DefaultGenerationCount = 5;
 
         public GuidGeneratorCommand(IAnsiConsole console)
         {
@@ -15,11 +16,13 @@ namespace Tk.Toolkit.Cli.Commands
         }
 
         [Option(CommandOptionType.SingleValue, Description = "The number of guids to generate.", LongName = "gen", ShortName = "g")]
-        public int Generations { get; set; }
+        public int Generations { get; set; } = DefaultGenerationCount;
 
         public Task<int> OnExecuteAsync()
         {            
-            var guids = Enumerable.Range(0, Generations.ApplyDefault(x2 => x2 <= 0, 5))
+            var generations = Generations.ApplyDefault(x2 => x2 < 1, DefaultGenerationCount);
+
+            var guids = Enumerable.Range(0, generations)
                                   .Select(_ => Guid.NewGuid().ToString());
 
             var table = guids.ToSpectreList();

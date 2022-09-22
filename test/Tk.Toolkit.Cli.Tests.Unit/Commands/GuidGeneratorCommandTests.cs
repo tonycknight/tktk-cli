@@ -32,7 +32,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
         }
 
         [Property(Verbose = true)]
-        public bool OnExecuteAsync_ReturnsOk(PositiveInt count)
+        public bool OnExecuteAsync_PositiveCount_ReturnsOk(PositiveInt count)
         {
             Table? output = null;
             var console = Substitute.For<IAnsiConsole>();
@@ -54,6 +54,31 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
 
             return true;
         }
+
+        [Property(Verbose = true)]
+        public bool OnExecuteAsync_NegativeCount_ReturnsOk(NegativeInt count)
+        {
+            Table? output = null;
+            var console = Substitute.For<IAnsiConsole>();
+            console.When(ac => ac.Write(Arg.Any<Table>()))
+                .Do(cb =>
+                {
+                    output = cb.Arg<Table>();
+                });
+
+            var cmd = new GuidGeneratorCommand(console)
+            {
+                Generations = count.Get,
+            };
+
+            var rc = cmd.OnExecuteAsync().GetAwaiter().GetResult();
+
+            rc.Should().Be(0);
+            AssertTableOutputContainsGuids(output, GuidGeneratorCommand.DefaultGenerationCount);
+
+            return true;
+        }
+
 
         private void AssertTableOutputContainsGuids(Table? table, int count)
         {

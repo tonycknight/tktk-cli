@@ -37,7 +37,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
         }
 
         [Property(Verbose = true)]
-        public bool OnExecuteAsync_ReturnsOk(PositiveInt count, PositiveInt pwLen)
+        public bool OnExecuteAsync_PositiveValues_ReturnsOk(PositiveInt count, PositiveInt pwLen)
         {
             Table? output = null;
             var pwGen = Substitute.For<IPasswordGenerator>();
@@ -65,6 +65,33 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
             return true;
         }
 
+        [Property(Verbose = true)]
+        public bool OnExecuteAsync_NegativeCount_ReturnsOk(NegativeInt count)
+        {
+            Table? output = null;
+            var pwGen = Substitute.For<IPasswordGenerator>();
+            pwGen.Generate(Arg.Any<int>())
+                .Returns(ci => GeneratePassword(ci.ArgAt<int>(0)));
+
+            var console = Substitute.For<IAnsiConsole>();
+            console.When(ac => ac.Write(Arg.Any<Table>()))
+                .Do(cb =>
+                {
+                    output = cb.Arg<Table>();
+                });
+
+            var cmd = new PasswordGeneratorCommand(console, pwGen)
+            {
+                Generations = count.Get,
+            };
+
+            var rc = cmd.OnExecuteAsync().GetAwaiter().GetResult();
+
+            rc.Should().Be(0);
+            AssertTableOutputContainsPasswords(output, PasswordGeneratorCommand.DefaultPasswordCount, PasswordGeneratorCommand.DefaultPasswordLength);
+
+            return true;
+        }
 
         private string GeneratePassword(int length) => new string('a', length);
 
