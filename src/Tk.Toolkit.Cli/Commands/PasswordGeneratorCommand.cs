@@ -10,6 +10,8 @@ namespace Tk.Toolkit.Cli.Commands
     {
         private readonly IAnsiConsole _console;
         private readonly IPasswordGenerator _pwGenerator;
+        private const int DefaultPasswordLength = 16;
+        private const int DefaultPasswordCount = 5;
 
         public PasswordGeneratorCommand(IAnsiConsole console, IPasswordGenerator pwGenerator)
         {
@@ -18,15 +20,15 @@ namespace Tk.Toolkit.Cli.Commands
         }
 
         [Option(CommandOptionType.SingleValue, Description = "The number of passwords to generate.", LongName = "gen", ShortName = "g")]
-        public int Generations { get; set; }
+        public int Generations { get; set; } = DefaultPasswordCount;
 
         [Option(CommandOptionType.SingleValue, Description = "The character length of each generated password.", LongName = "len", ShortName = "l")]
-        public int PwLength { get; set; }
+        public int PwLength { get; set; } = DefaultPasswordLength;
 
         public Task<int> OnExecuteAsync()
         {
-            var pws = Enumerable.Range(0, Generations.ApplyDefault(x => x <= 0, 5))
-                                .Select(_ => _pwGenerator.Generate(PwLength.ApplyDefault(x => x <= 0, 16)))
+            var pws = Enumerable.Range(0, Generations.ApplyDefault(x => x <= 0, DefaultPasswordCount))
+                                .Select(_ => _pwGenerator.Generate(PwLength.ApplyDefault(x => x <= 0, DefaultPasswordLength)))
                                 .ToSpectreList();
 
             _console.Write(pws);
