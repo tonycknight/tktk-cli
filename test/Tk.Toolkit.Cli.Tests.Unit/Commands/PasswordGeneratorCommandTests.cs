@@ -14,7 +14,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
     public class PasswordGeneratorCommandTests
     {
         [Fact]
-        public async Task OnExecuteAsync_DefaultArgumnets_ReturnsOk()
+        public void OnExecute_DefaultArgumnets_ReturnsOk()
         {
             Table? output = null;            
             var pwGen = Substitute.For<IPasswordGenerator>();
@@ -30,14 +30,14 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
 
             var cmd = new PasswordGeneratorCommand(console, pwGen);
             
-            var rc = await cmd.OnExecuteAsync();
+            var rc = cmd.OnExecute();
 
             rc.Should().Be(0);
             AssertTableOutputContainsPasswords(output, 5, 16);
         }
 
         [Property(Verbose = true)]
-        public bool OnExecuteAsync_PositiveValues_ReturnsOk(PositiveInt count, PositiveInt pwLen)
+        public bool OnExecute_PositiveValues_ReturnsOk(PositiveInt count, PositiveInt pwLen)
         {
             Table? output = null;
             var pwGen = Substitute.For<IPasswordGenerator>();
@@ -57,7 +57,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
                 PwLength = pwLen.Get,
             };
 
-            var rc = cmd.OnExecuteAsync().GetAwaiter().GetResult();
+            var rc = cmd.OnExecute();
 
             rc.Should().Be(0);
             AssertTableOutputContainsPasswords(output, count.Get, pwLen.Get);
@@ -66,7 +66,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
         }
 
         [Property(Verbose = true)]
-        public bool OnExecuteAsync_NegativeCount_ReturnsOk(NegativeInt count)
+        public bool OnExecute_NegativeCount_ReturnsOk(NegativeInt count)
         {
             Table? output = null;
             var pwGen = Substitute.For<IPasswordGenerator>();
@@ -85,7 +85,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
                 Generations = count.Get,
             };
 
-            var rc = cmd.OnExecuteAsync().GetAwaiter().GetResult();
+            var rc = cmd.OnExecute();
 
             rc.Should().Be(0);
             AssertTableOutputContainsPasswords(output, PasswordGeneratorCommand.DefaultPasswordCount, PasswordGeneratorCommand.DefaultPasswordLength);

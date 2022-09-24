@@ -16,7 +16,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
         [InlineData(null)]
         [InlineData("")]
         [InlineData(" ")]
-        public async Task OnExecuteAsync_DefaultArgumnets_ReturnsError(string value)
+        public void OnExecute_DefaultArgumnets_ReturnsError(string value)
         {
             var console = Substitute.For<IAnsiConsole>();
             var cmd = new EpochCommand(console)
@@ -24,13 +24,13 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
                 Value = value
             };
 
-            var rc = await cmd.OnExecuteAsync();
+            var rc = cmd.OnExecute();
 
             rc.Should().Be(1);
         }
 
         [Fact]
-        public async Task OnExecuteAsync_ValidIntegerPassed_ReturnsOk()
+        public void OnExecute_ValidIntegerPassed_ReturnsOk()
         {
             var console = Substitute.For<IAnsiConsole>();
             
@@ -39,7 +39,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
                 Value = 1234.ToString(),
             };
 
-            var rc = await cmd.OnExecuteAsync();
+            var rc = cmd.OnExecute();
 
             rc.Should().Be(0);
             console.Received(1).Write(Arg.Any<Text>());
@@ -49,7 +49,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
         [InlineData(null)]
         [InlineData("")]
         [InlineData(" ")]
-        public async Task OnExecuteAsync_InvalidIntegerPassed_ReturnsError(string value)
+        public void OnExecute_InvalidIntegerPassed_ReturnsError(string value)
         {
             var console = Substitute.For<IAnsiConsole>();
 
@@ -58,7 +58,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
                 Value = value,
             };
 
-            var rc = await cmd.OnExecuteAsync();
+            var rc = cmd.OnExecute();
 
             rc.Should().Be(1);
             console.Received(1).Write(Arg.Any<Markup>());

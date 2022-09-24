@@ -25,7 +25,7 @@ namespace Tk.Toolkit.Cli.Commands
         [Option(CommandOptionType.SingleValue, Description = "The character length of each generated password.", LongName = "len", ShortName = "l")]
         public int PwLength { get; set; } = DefaultPasswordLength;
 
-        public Task<int> OnExecuteAsync()
+        public int OnExecute()
         {
             var generations = Generations.ApplyDefault(x => x < 1, DefaultPasswordCount);
             var pwLen = PwLength.ApplyDefault(x => x < 1, DefaultPasswordLength);
@@ -36,7 +36,7 @@ namespace Tk.Toolkit.Cli.Commands
 
             _console.Write(pws);
 
-            return true.ToReturnCode().ToTaskResult();
+            return true.ToReturnCode();
         }
     }
 }

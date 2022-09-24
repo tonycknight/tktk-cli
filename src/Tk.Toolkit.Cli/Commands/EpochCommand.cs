@@ -17,32 +17,32 @@ namespace Tk.Toolkit.Cli.Commands
         [Argument(0, Description = "The number or date/time to convert, or `now`.")]
         public string? Value { get; set; }
 
-        public Task<int> OnExecuteAsync()
+        public int OnExecute()
         {
             try
             {
                 if (string.IsNullOrWhiteSpace(Value))
                 {
                     _console.Write(new Markup("[red]Missing or invalid value.[/]"));
-                    return false.ToReturnCode().ToTaskResult();
+                    return false.ToReturnCode();
                 }
 
                 if (long.TryParse(Value, out long value1))
                 {
                     _console.WriteLine(DateTimeOffset.FromUnixTimeSeconds(value1).ToString("yyyy-MM-dd HH:mm:ss"));
-                    return true.ToReturnCode().ToTaskResult();
+                    return true.ToReturnCode();
                 }
 
                 if (DateTimeOffset.TryParse(Value, out DateTimeOffset value2))
                 {                    
                     _console.WriteLine(value2.ToUnixTimeSeconds().ToString());
-                    return true.ToReturnCode().ToTaskResult();
+                    return true.ToReturnCode();
                 }
 
                 if(StringComparer.InvariantCultureIgnoreCase.Equals(Value, "now"))
                 {
                     _console.WriteLine(DateTimeOffset.Now.ToUnixTimeSeconds().ToString());
-                    return true.ToReturnCode().ToTaskResult();
+                    return true.ToReturnCode();
                 }
 
             }
@@ -51,7 +51,7 @@ namespace Tk.Toolkit.Cli.Commands
             }
 
             _console.Write(new Markup("[red]Invalid value.[/]"));
-            return false.ToReturnCode().ToTaskResult();
+            return false.ToReturnCode();
         }
     }
 }
