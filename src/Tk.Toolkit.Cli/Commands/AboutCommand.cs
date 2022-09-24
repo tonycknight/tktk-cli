@@ -1,4 +1,5 @@
-﻿using McMaster.Extensions.CommandLineUtils;
+﻿using System.Diagnostics.CodeAnalysis;
+using McMaster.Extensions.CommandLineUtils;
 using Spectre.Console;
 using Tk.Extensions;
 
@@ -14,13 +15,14 @@ namespace Tk.Toolkit.Cli.Commands
             _console = console;
         }
 
+        [ExcludeFromCodeCoverage]
         public async Task<int> OnExecuteAsync(CommandLineApplication app)
         {
             var currentVersion = ProgramBootstrap.GetAppVersion();
             var nugetVersion = await ProgramBootstrap.GetCurrentNugetVersion();
             var descLines = new List<string>()
             {
-                $"[cyan]{app.Parent!.Name}[/]",
+                $"[cyan]{app.Parent?.Name}[/]",
                 "[cyan]An eclectic developer toolkit[/]",
                 $"[yellow]Version {currentVersion} beta[/]",
             };
@@ -34,7 +36,7 @@ namespace Tk.Toolkit.Cli.Commands
 
             _console.Write(desc);
             
-            app.Parent!.ShowHelp();
+            app.Parent?.ShowHelp();
 
             return 0;
         }
