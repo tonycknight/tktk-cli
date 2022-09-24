@@ -20,14 +20,14 @@ namespace Tk.Toolkit.Cli.Commands
         [Argument(0, Description ="The JWT to decode.")]
         public string? Jwt { get; set; }
 
-        public Task<int> OnExecuteAsync()
+        public int OnExecute()
         {
             try
             {
                 if (string.IsNullOrWhiteSpace(Jwt))
                 {
                     _console.Write(new Markup("[red]Missing JWT.[/]"));
-                    return false.ToReturnCode().ToTaskResult();
+                    return false.ToReturnCode();
                 }
                 
                 var lines = _jwtParser.Parse(this.Jwt)
@@ -36,12 +36,12 @@ namespace Tk.Toolkit.Cli.Commands
 
                 _console.Write(lines);
 
-                return true.ToReturnCode().ToTaskResult();
+                return true.ToReturnCode();
             }
             catch (Exception)
             {
                 _console.Write(new Markup($"[red]Invalid JWT.[/]"));
-                return false.ToReturnCode().ToTaskResult();
+                return false.ToReturnCode();
             }
         }
     }
