@@ -12,11 +12,17 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
 {
     public class EpochCommandTests
     {
-        [Fact]
-        public async Task OnExecuteAsync_DefaultArgumnets_ReturnsError()
+        [Theory]
+        [InlineData(null)]
+        [InlineData("")]
+        [InlineData(" ")]
+        public async Task OnExecuteAsync_DefaultArgumnets_ReturnsError(string value)
         {
             var console = Substitute.For<IAnsiConsole>();
-            var cmd = new EpochCommand(console);
+            var cmd = new EpochCommand(console)
+            {
+                Value = value
+            };
 
             var rc = await cmd.OnExecuteAsync();
 
@@ -38,5 +44,25 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
             rc.Should().Be(0);
             console.Received(1).Write(Arg.Any<Text>());
         }
+
+        [Theory]
+        [InlineData(null)]
+        [InlineData("")]
+        [InlineData(" ")]
+        public async Task OnExecuteAsync_InvalidIntegerPassed_ReturnsError(string value)
+        {
+            var console = Substitute.For<IAnsiConsole>();
+
+            var cmd = new EpochCommand(console)
+            {
+                Value = value,
+            };
+
+            var rc = await cmd.OnExecuteAsync();
+
+            rc.Should().Be(1);
+            console.Received(1).Write(Arg.Any<Markup>());
+        }
+
     }
 }

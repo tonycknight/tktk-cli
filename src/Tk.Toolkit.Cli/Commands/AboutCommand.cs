@@ -5,6 +5,7 @@ using Tk.Extensions;
 
 namespace Tk.Toolkit.Cli.Commands
 {
+    [ExcludeFromCodeCoverage]
     [Command("about", Description = "About the app")]
     internal class AboutCommand
     {
@@ -15,7 +16,6 @@ namespace Tk.Toolkit.Cli.Commands
             _console = console;
         }
 
-        [ExcludeFromCodeCoverage]
         public async Task<int> OnExecuteAsync(CommandLineApplication app)
         {
             var currentVersion = ProgramBootstrap.GetAppVersion();
