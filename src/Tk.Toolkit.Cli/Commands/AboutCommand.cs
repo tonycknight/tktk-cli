@@ -36,8 +36,6 @@ namespace Tk.Toolkit.Cli.Commands
             
             app.Parent!.ShowHelp();
 
-            //app.Parent!.MakeSuggestionsInErrorMessage = true; // TODO:
-
             return 0;
         }
     }
