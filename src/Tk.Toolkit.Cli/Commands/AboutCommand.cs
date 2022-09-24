@@ -20,7 +20,7 @@ namespace Tk.Toolkit.Cli.Commands
             var nugetVersion = await ProgramBootstrap.GetCurrentNugetVersion();
             var descLines = new List<string>()
             {
-                "[cyan]tktk[/]",
+                $"[cyan]{app.Parent!.Name}[/]",
                 "[cyan]An eclectic developer toolkit[/]",
                 $"[yellow]Version {currentVersion} beta[/]",
             };

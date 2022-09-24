@@ -33,10 +33,10 @@ namespace Tk.Toolkit.Cli
             catch(UnrecognizedCommandParsingException ex)
             {
                 Console.WriteLine(Crayon.Output.Bright.Red(ex.Message));
-                var possibleMatches = ex.NearestMatches.Join(", ");
+                var possibleMatches = ex.NearestMatches.Select(m => $"{app.Name} {m}").Join(Environment.NewLine);
                 if(possibleMatches.Length > 0)
                 {
-                    Console.WriteLine(Crayon.Output.Bright.Yellow($"Did you mean one of these commands? {possibleMatches} "));
+                    Console.WriteLine(Crayon.Output.Bright.Yellow($"Did you mean one of these commands?{Environment.NewLine}{possibleMatches}"));
                 }
             }
             catch (Exception ex)
