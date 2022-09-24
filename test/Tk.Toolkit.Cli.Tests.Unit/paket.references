@@ -10,3 +10,4 @@ FsUnit.Xunit
 FluentAssertions
 System.IdentityModel.Tokens.Jwt
 spectre.console
+McMaster.Extensions.CommandLineUtils

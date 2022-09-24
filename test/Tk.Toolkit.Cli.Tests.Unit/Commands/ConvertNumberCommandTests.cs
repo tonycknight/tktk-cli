@@ -12,19 +12,19 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
     public class ConvertNumberCommandTests
     {
         [Fact]
-        public async Task OnExecuteAsync_DefaultArgumnets_ReturnsError()
+        public void OnExecute_DefaultArgumnets_ReturnsError()
         {
             var console = Substitute.For<IAnsiConsole>();
             var converter = Substitute.For<Tk.Toolkit.Cli.Conversions.INumericValueConverter>();
             var cmd = new ConvertNumberCommand(console, converter);
 
-            var rc = await cmd.OnExecuteAsync();
+            var rc = cmd.OnExecute();
 
             rc.Should().Be(1);            
         }
 
         [Fact]
-        public async Task OnExecuteAsync_ValidIntegerPassed_ReturnsOk()
+        public void OnExecute_ValidIntegerPassed_ReturnsOk()
         {
             Table? output = null;
             var console = Substitute.For<IAnsiConsole>();
@@ -40,7 +40,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
                 Value = 1234.ToString(),
             };
 
-            var rc = await cmd.OnExecuteAsync();
+            var rc = cmd.OnExecute();
 
             rc.Should().Be(0);
 #pragma warning disable CS8602 // Dereference of a possibly null reference.

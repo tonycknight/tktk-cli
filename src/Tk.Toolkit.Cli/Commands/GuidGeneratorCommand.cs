@@ -18,7 +18,7 @@ namespace Tk.Toolkit.Cli.Commands
         [Option(CommandOptionType.SingleValue, Description = "The number of guids to generate.", LongName = "gen", ShortName = "g")]
         public int Generations { get; set; } = DefaultGenerationCount;
 
-        public Task<int> OnExecuteAsync()
+        public int OnExecute()
         {            
             var generations = Generations.ApplyDefault(x2 => x2 < 1, DefaultGenerationCount);
 
@@ -29,7 +29,7 @@ namespace Tk.Toolkit.Cli.Commands
 
             _console.Write(table);
             
-            return true.ToReturnCode().ToTaskResult();
+            return true.ToReturnCode();
         }
     }
 }

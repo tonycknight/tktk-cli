@@ -13,7 +13,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
     public class GuidGeneratorCommandTests
     {
         [Fact]
-        public async Task OnExecuteAsync_DefaultArgumnets_ReturnsOk()
+        public void OnExecute_DefaultArgumnets_ReturnsOk()
         {
             Table? output = null;
             var console = Substitute.For<IAnsiConsole>();
@@ -25,14 +25,14 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
 
             var cmd = new GuidGeneratorCommand(console);
 
-            var rc = await cmd.OnExecuteAsync();
+            var rc = cmd.OnExecute();
 
             rc.Should().Be(0);
             AssertTableOutputContainsGuids(output, 5);
         }
 
         [Property(Verbose = true)]
-        public bool OnExecuteAsync_PositiveCount_ReturnsOk(PositiveInt count)
+        public bool OnExecute_PositiveCount_ReturnsOk(PositiveInt count)
         {
             Table? output = null;
             var console = Substitute.For<IAnsiConsole>();
@@ -47,7 +47,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
                 Generations = count.Get,
             };
 
-            var rc = cmd.OnExecuteAsync().GetAwaiter().GetResult();
+            var rc = cmd.OnExecute();
 
             rc.Should().Be(0);
             AssertTableOutputContainsGuids(output, count.Get);
@@ -71,7 +71,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
                 Generations = count.Get,
             };
 
-            var rc = cmd.OnExecuteAsync().GetAwaiter().GetResult();
+            var rc = cmd.OnExecute();
 
             rc.Should().Be(0);
             AssertTableOutputContainsGuids(output, GuidGeneratorCommand.DefaultGenerationCount);

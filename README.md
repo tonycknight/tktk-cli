@@ -32,6 +32,12 @@ dotnet tool install tktk-cli -g
 tktk -?
 ```
 
+## About:
+
+```
+tktk about
+```
+
 ## Generate Guids:
 
 ```

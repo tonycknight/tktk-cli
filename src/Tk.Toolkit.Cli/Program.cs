@@ -2,7 +2,6 @@
 using Tk.Toolkit.Cli.Commands;
 using Tk.Extensions;
 using System.Diagnostics.CodeAnalysis;
-using Tk.Extensions.Tasks;
 
 namespace Tk.Toolkit.Cli
 {
@@ -12,11 +11,16 @@ namespace Tk.Toolkit.Cli
     [Subcommand(typeof(DecodeJwtCommand))]
     [Subcommand(typeof(ConvertNumberCommand))]
     [Subcommand(typeof(EpochCommand))]
+    [Subcommand(typeof(AboutCommand))]
     public class Program
     {
         public static int Main(string[] args)
         {
-            using var app = new CommandLineApplication<Program>();
+            using var app = new CommandLineApplication<Program>()
+            {
+                UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.Throw,
+                MakeSuggestionsInErrorMessage = true,
+            };
 
             app.Conventions
                 .UseDefaultConventions()
@@ -26,31 +30,25 @@ namespace Tk.Toolkit.Cli
             {
                 return app.Execute(args);
             }
+            catch(UnrecognizedCommandParsingException ex)
+            {
+                Console.WriteLine(Crayon.Output.Bright.Red(ex.Message));
+                var possibleMatches = ex.NearestMatches.Select(m => $"{app.Name} {m}").Join(Environment.NewLine);
+                if(possibleMatches.Length > 0)
+                {
+                    Console.WriteLine(Crayon.Output.Bright.Yellow($"Did you mean one of these commands?{Environment.NewLine}{possibleMatches}"));
+                }
+            }
             catch (Exception ex)
             {
                 Console.WriteLine(Crayon.Output.Bright.Red(ex.Message));
-                return false.ToReturnCode();
             }
+            return false.ToReturnCode();
         }
          
 
-        private async Task<int> OnExecuteAsync(CommandLineApplication app)
+        private int OnExecuteAsync(CommandLineApplication app)
         {
-            var currentVersion = ProgramBootstrap.GetAppVersion();
-            var nugetVersion = await new Nuget.NugetClient().GetLatestNugetVersionAsync("tktk-cli");
-            var descLines = new List<string>()
-            {
-                Crayon.Output.Bright.Cyan("tktk"),
-                Crayon.Output.Bright.Cyan("An eclectic developer toolkit"),
-                Crayon.Output.Bright.Yellow($"Version {currentVersion} beta"),
-            };
-
-            if (nugetVersion != null && currentVersion != nugetVersion)
-            {
-                descLines.Add(Crayon.Output.Bright.Magenta($"An upgrade is available: {nugetVersion}"));
-            }
-
-            app.Description = descLines.Join(Environment.NewLine);
             app.ShowHelp();
 
             return true.ToReturnCode();

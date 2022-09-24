@@ -16,7 +16,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
     public class DecodeJwtCommandTests
     {
         [Fact]
-        public async Task OnExecuteAsync_DefaultArgumnets_ReturnsError()
+        public void OnExecute_DefaultArgumnets_ReturnsError()
         {
             var console = Substitute.For<IAnsiConsole>();
             
@@ -28,7 +28,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
                 Jwt = "",
             };
 
-            var rc = await cmd.OnExecuteAsync();
+            var rc = cmd.OnExecute();
 
             rc.Should().Be(1);
             console.Received(1).Write(Arg.Any<IRenderable>());
@@ -36,7 +36,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
         }
 
         [Property(Verbose = true)]
-        public bool OnExecuteAsync_BadJwt_ReturnsError(Guid jwt)
+        public bool OnExecute_BadJwt_ReturnsError(Guid jwt)
         {
             var console = Substitute.For<IAnsiConsole>();
             var jwtParser = Substitute.For<IJwtParser>();
@@ -48,7 +48,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
                 Jwt = jwt.ToString(),
             };
 
-            var rc = cmd.OnExecuteAsync().GetAwaiter().GetResult();
+            var rc = cmd.OnExecute();
 
             rc.Should().Be(1);
             console.Received(1).Write(Arg.Any<IRenderable>());
@@ -59,7 +59,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
 
 
         [Property(Verbose = true, Arbitrary = new[] { typeof(Jwts.JwtStringArbitraries) })]
-        public bool OnExecuteAsync_JwtProvided_ReturnsOk(string jwt)
+        public bool OnExecute_JwtProvided_ReturnsOk(string jwt)
         {
             Table? output = null;
             var console = Substitute.For<IAnsiConsole>();
@@ -77,7 +77,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
                 Jwt = jwt,
             };
 
-            var rc = cmd.OnExecuteAsync().GetAwaiter().GetResult();
+            var rc = cmd.OnExecute();
 
             rc.Should().Be(0);
             output.Should().NotBeNull();
