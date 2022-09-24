@@ -20,14 +20,14 @@ namespace Tk.Toolkit.Cli.Commands
         [Argument(0, Description = "The number to convert.")]
         public string? Value { get; set; }
 
-        public Task<int> OnExecuteAsync()
+        public int OnExecute()
         {
             try
             {
                 if (string.IsNullOrWhiteSpace(Value))
                 {
                     _console.Write(new Markup("[red]Missing value.[/]"));
-                    return false.ToReturnCode().ToTaskResult();
+                    return false.ToReturnCode();
                 }
                                 
                 var val = _converter.Parse(Value);
@@ -39,12 +39,12 @@ namespace Tk.Toolkit.Cli.Commands
 
                 _console.Write(results);
                 
-                return true.ToReturnCode().ToTaskResult();
+                return true.ToReturnCode();
             }
             catch (Exception)
             {
                 _console.Write(new Markup($"[red]Invalid value.[/]"));
-                return false.ToReturnCode().ToTaskResult();
+                return false.ToReturnCode();
             }
         }
     }
