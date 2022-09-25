@@ -68,14 +68,17 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
             console.Received(1).Write(Arg.Any<Markup>());
         }
 
-        [Fact]
-        public void OnExecute_ValidDatePassed_ReturnsOk()
+        [Theory]
+        [InlineData("now")]
+        [InlineData("1970-01-01T01:01:00")]
+        [InlineData("2022-01-01T01:23:56")]
+        public void OnExecute_ValidDatePassed_ReturnsOk(string value)
         {
             var console = Substitute.For<IAnsiConsole>();
 
             var cmd = new EpochCommand(console)
             {
-                Value = DateTime.UtcNow.ToString(),
+                Value = value,
             };
 
             var rc = cmd.OnExecute();
