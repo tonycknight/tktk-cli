@@ -81,11 +81,11 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Conversions
 
             var dec = conv.Parse(value);
 
-            var hex = conv.Convert(dec).First();
+            var hex = conv.Convert(dec).OfType<HexadecimalValue>().Single();
 
-            var result = conv.Convert(hex).First();
+            var result = conv.Convert(hex).OfType<DecimalValue>().Single();
 
-            return result is DecimalValue && result.Value == value;
+            return result.Value == value;
         }
 
         [Property(Verbose = true)]
@@ -96,11 +96,11 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Conversions
 
             var hex = conv.Parse(value);
 
-            var dec = conv.Convert(hex).First();
+            var dec = conv.Convert(hex).OfType<DecimalValue>().Single();
 
-            var result = conv.Convert(dec).First();
+            var result = conv.Convert(dec).OfType<HexadecimalValue>().Single();
 
-            return result is HexadecimalValue && result.Value == value;
+            return result.Value == value;
         }
 
         [Property(Verbose = true)]
@@ -111,11 +111,11 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Conversions
 
             var bin = conv.Parse(value);
 
-            var hex = conv.Convert(bin).Skip(1).First();
+            var hex = conv.Convert(bin).OfType<HexadecimalValue>().Single();
 
-            var result = conv.Convert(hex).First();
+            var result = conv.Convert(hex).OfType<DecimalValue>().Single();
 
-            return result is DecimalValue && result.Value == val.Get.ToString();
+            return result.Value == val.Get.ToString();
         }
 
         [Fact]
