@@ -14,7 +14,7 @@ namespace Tk.Toolkit.Cli.Commands
             _console = console;
         }
 
-        [Argument(0, Description = "The number or date/time to convert, or `now`.")]
+        [Argument(0, Description = "The number or date/time to convert, or `now`.", Name = "value")]
         public string? Value { get; set; }
 
         public int OnExecute()

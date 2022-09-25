@@ -17,7 +17,7 @@ namespace Tk.Toolkit.Cli.Commands
             _jwtParser = jwtParser;
         }
 
-        [Argument(0, Description ="The JWT to decode.")]
+        [Argument(0, Description ="The JWT to decode.", Name = "jwt")]
         public string? Jwt { get; set; }
 
         public int OnExecute()

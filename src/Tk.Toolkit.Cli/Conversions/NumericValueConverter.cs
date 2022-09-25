@@ -8,16 +8,28 @@ namespace Tk.Toolkit.Cli.Conversions
         public IEnumerable<NumericValue> Convert(NumericValue value)
         {
             if(value is DecimalValue dec)
-            {   
-                return ConvertDecToHex(dec).Singleton();
+            {
+                return new NumericValue[]
+                {
+                    ConvertDecToHex(dec),
+                    ConvertDecToBin(dec)
+                };                
             }
             else if(value is HexadecimalValue hex)
             {
-                return ConvertHexToDec(hex).Singleton();
+                return new NumericValue[]
+                {
+                    ConvertHexToDec(hex),
+                    ConvertHexToBin(hex),
+                };
             }
             else if(value is BinaryValue bin)
             {
-                return ConvertBinToHex(bin).Singleton();
+                return new NumericValue[] 
+                {
+                    ConvertBinToDec(bin),
+                    ConvertBinToHex(bin),
+                };
             }
             throw new ArgumentException($"Unrecognised type {value.GetType()}");
         }
@@ -58,17 +70,13 @@ namespace Tk.Toolkit.Cli.Conversions
     
         private NumericValue ConvertDecToHex(DecimalValue value) 
         {
-#pragma warning disable CS8604 // Possible null reference argument.
-            var v = $"0x{long.Parse(value.Value).ToString("X2")}";
-#pragma warning restore CS8604 // Possible null reference argument.
+            var v = $"0x{long.Parse(value.Value!).ToString("X2")}";
             return new HexadecimalValue() { Value = v };
         }
 
         private NumericValue ConvertHexToDec(HexadecimalValue value)
         {
-#pragma warning disable CS8604 // Possible null reference argument.
-            var val = TrimPrefix(value.Value, "0x");
-#pragma warning restore CS8604 // Possible null reference argument.
+            var val = TrimPrefix(value.Value!, "0x");
 
             var v = long.Parse(val, NumberStyles.HexNumber).ToString();
             return new DecimalValue() { Value = v };
@@ -76,12 +84,34 @@ namespace Tk.Toolkit.Cli.Conversions
 
         private NumericValue ConvertBinToHex(BinaryValue value)
         {
-#pragma warning disable CS8604 // Possible null reference argument.
-            var val = TrimPrefix(value.Value, "0b");
-#pragma warning restore CS8604 // Possible null reference argument.
+            var val = TrimPrefix(value.Value!, "0b");
             var v = $"0x{System.Convert.ToInt64(val, 2).ToString("X2")}";
             
             return new HexadecimalValue() { Value = v };
+        }
+
+        private NumericValue ConvertBinToDec(BinaryValue value)
+        {
+            var val = TrimPrefix(value.Value!, "0b");
+            var v = $"{System.Convert.ToInt64(val, 2)}";
+            return new DecimalValue() { Value = v };
+        }
+
+        private NumericValue ConvertDecToBin(DecimalValue value)
+        {
+            var x = long.Parse(value.Value!);
+            var v = $"0b{System.Convert.ToString(x, 2)}";
+
+            return new BinaryValue() { Value = v }; 
+        }
+
+        private NumericValue ConvertHexToBin(HexadecimalValue value)
+        {
+            var val = TrimPrefix(value.Value!, "0x");
+
+            var v = long.Parse(val, NumberStyles.HexNumber).ToString();
+
+            return ConvertDecToBin(new DecimalValue() {  Value = v});
         }
 
         private string TrimPrefix(string value, string prefix)

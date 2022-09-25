@@ -81,9 +81,9 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Conversions
 
             var dec = conv.Parse(value);
 
-            var hex = conv.Convert(dec).Single();
+            var hex = conv.Convert(dec).First();
 
-            var result = conv.Convert(hex).Single();
+            var result = conv.Convert(hex).First();
 
             return result is DecimalValue && result.Value == value;
         }
@@ -96,9 +96,9 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Conversions
 
             var hex = conv.Parse(value);
 
-            var dec = conv.Convert(hex).Single();
+            var dec = conv.Convert(hex).First();
 
-            var result = conv.Convert(dec).Single();
+            var result = conv.Convert(dec).First();
 
             return result is HexadecimalValue && result.Value == value;
         }
@@ -111,9 +111,9 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Conversions
 
             var bin = conv.Parse(value);
 
-            var hex = conv.Convert(bin).Single();
+            var hex = conv.Convert(bin).Skip(1).First();
 
-            var result = conv.Convert(hex).Single();
+            var result = conv.Convert(hex).First();
 
             return result is DecimalValue && result.Value == val.Get.ToString();
         }
