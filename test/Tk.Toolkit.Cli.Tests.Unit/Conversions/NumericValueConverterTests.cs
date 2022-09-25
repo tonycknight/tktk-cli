@@ -81,11 +81,27 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Conversions
 
             var dec = conv.Parse(value);
 
-            var hex = conv.Convert(dec).Single();
+            var hex = conv.Convert(dec).OfType<HexadecimalValue>().Single();
 
-            var result = conv.Convert(hex).Single();
+            var result = conv.Convert(hex).OfType<DecimalValue>().Single();
 
-            return result is DecimalValue && result.Value == value;
+            return result.Value == value;
+        }
+
+        [Property(Verbose = true)]
+        public bool Parse_Convert_DecimalProducesHexAndBinary(PositiveInt val)
+        {
+            var value = val.Get.ToString();
+            var conv = new NumericValueConverter();
+
+            var dec = conv.Parse(value);
+
+            var results = conv.Convert(dec).ToList();
+
+            var hex = results.OfType<HexadecimalValue>().Single();
+            var bin = results.OfType<BinaryValue>().Single();
+
+            return !string.IsNullOrEmpty(hex.Value) && !string.IsNullOrEmpty(bin.Value);
         }
 
         [Property(Verbose = true)]
@@ -96,11 +112,28 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Conversions
 
             var hex = conv.Parse(value);
 
-            var dec = conv.Convert(hex).Single();
+            var dec = conv.Convert(hex).OfType<DecimalValue>().Single();
 
-            var result = conv.Convert(dec).Single();
+            var result = conv.Convert(dec).OfType<HexadecimalValue>().Single();
 
-            return result is HexadecimalValue && result.Value == value;
+            return result.Value == value;
+        }
+
+
+        [Property(Verbose = true)]
+        public bool Parse_Convert_HexProducesDecimalAndBinary(PositiveInt val)
+        {
+            var value = $"0x{val.Get.ToString("X2")}";
+            var conv = new NumericValueConverter();
+
+            var hex = conv.Parse(value);
+
+            var results = conv.Convert(hex).ToList();
+
+            var dec = results.OfType<DecimalValue>().Single();
+            var bin = results.OfType<BinaryValue>().Single();
+
+            return !string.IsNullOrEmpty(dec.Value) && !string.IsNullOrEmpty(bin.Value);
         }
 
         [Property(Verbose = true)]
@@ -111,22 +144,42 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Conversions
 
             var bin = conv.Parse(value);
 
-            var hex = conv.Convert(bin).Single();
+            var hex = conv.Convert(bin).OfType<HexadecimalValue>().Single();
 
-            var result = conv.Convert(hex).Single();
+            var result = conv.Convert(hex).OfType<DecimalValue>().Single();
 
-            return result is DecimalValue && result.Value == val.Get.ToString();
+            return result.Value == val.Get.ToString();
         }
+
+
+        [Property(Verbose = true)]
+        public bool Parse_Convert_BinaryProducesHexAndBinary(PositiveInt val)
+        {
+            var value = $"0b{System.Convert.ToString(val.Get, 2)}";
+            var conv = new NumericValueConverter();
+
+            var bin = conv.Parse(value);
+
+            var results = conv.Convert(bin).ToList();
+
+            var hex = results.OfType<HexadecimalValue>().Single();
+            var dec = results.OfType<DecimalValue>().Single();
+
+            return !string.IsNullOrEmpty(dec.Value) && !string.IsNullOrEmpty(hex.Value);
+        }
+        
+
 
         [Fact]
         public void Convert_UnknownType_ExceptionThrown()
         {
-            var s = NSubstitute.Substitute.For<NumericValue>();
+            var s = new UnrecognisedNumericValue("");
 
             var conv = new NumericValueConverter();
             Func<IEnumerable<NumericValue>> f = () => conv.Convert(s);
 
             f.Should().Throw<ArgumentException>().WithMessage("?*");
         }
+        
     }
 }

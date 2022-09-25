@@ -36,5 +36,16 @@ namespace Tk.Toolkit.Cli
 
             return result;
         }
+
+
+        public static string TrimPrefix(this string value, string prefix) 
+            => value.StartsWith(prefix, StringComparison.InvariantCultureIgnoreCase)
+                ? value.Substring(prefix.Length)
+                : value;
+
+        public static string EnsurePrefixed(this string value, string prefix) 
+            => value.StartsWith(prefix, StringComparison.InvariantCultureIgnoreCase)
+                ? value
+                : $"{prefix}{value}";
     }
 }

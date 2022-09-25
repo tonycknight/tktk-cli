@@ -34,7 +34,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
                     output = cb.Arg<Table>();
                 });
             var converter = Substitute.For<Tk.Toolkit.Cli.Conversions.INumericValueConverter>();
-            converter.Convert(Arg.Any<NumericValue>()).Returns(new[] { new HexadecimalValue() { Value = "0x1234" } });
+            converter.Convert(Arg.Any<NumericValue>()).Returns(new[] { new HexadecimalValue("0x1234")});
             var cmd = new ConvertNumberCommand(console, converter)
             {
                 Value = 1234.ToString(),
