@@ -93,7 +93,7 @@ namespace Tk.Toolkit.Cli.Conversions
         private NumericValue ConvertBinToDec(BinaryValue value)
         {
             var val = TrimPrefix(value.Value!, "0b");
-            var v = $"{System.Convert.ToInt64(val, 2)}";
+            var v = System.Convert.ToInt64(val, 2).ToString();
             return new DecimalValue() { Value = v };
         }
 
