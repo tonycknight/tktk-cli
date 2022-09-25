@@ -167,16 +167,19 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Conversions
 
             return !string.IsNullOrEmpty(dec.Value) && !string.IsNullOrEmpty(hex.Value);
         }
+        
+
 
         [Fact]
         public void Convert_UnknownType_ExceptionThrown()
         {
-            var s = NSubstitute.Substitute.For<NumericValue>();
+            var s = new UnrecognisedNumericValue("");
 
             var conv = new NumericValueConverter();
             Func<IEnumerable<NumericValue>> f = () => conv.Convert(s);
 
             f.Should().Throw<ArgumentException>().WithMessage("?*");
         }
+        
     }
 }

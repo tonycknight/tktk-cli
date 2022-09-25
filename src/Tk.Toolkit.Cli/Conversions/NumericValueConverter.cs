@@ -1,5 +1,4 @@
 ﻿using System.Globalization;
-using Tk.Extensions.Linq;
 
 namespace Tk.Toolkit.Cli.Conversions
 {
@@ -35,29 +34,30 @@ namespace Tk.Toolkit.Cli.Conversions
         }
 
         public NumericValue Parse(string value)
-        {            
+        {   
+            
             if(long.TryParse(value, NumberStyles.Integer, null, out long result))
             {
-                return new DecimalValue() { Value = result.ToString() };
+                return new DecimalValue(result.ToString());
             }
 
 
-            if (value.StartsWith("0x", StringComparison.InvariantCultureIgnoreCase))
+            if (value.StartsWith(HexadecimalValue.Prefix, StringComparison.InvariantCultureIgnoreCase))
             {
-                value = TrimPrefix(value, "0x");
+                value = value.TrimPrefix(HexadecimalValue.Prefix);
                 if (long.TryParse(value, NumberStyles.HexNumber, null, out result))
                 {
-                    return new HexadecimalValue() { Value = $"0x{value}" };
+                    return new HexadecimalValue(value);
                 }
             }
 
-            if(value.StartsWith("0b", StringComparison.InvariantCultureIgnoreCase))
+            if(value.StartsWith(BinaryValue.Prefix, StringComparison.InvariantCultureIgnoreCase))
             {
-                value = TrimPrefix(value, "0b");                
+                value = value.TrimPrefix(BinaryValue.Prefix);                
                 try 
                 { 
-                    var x = System.Convert.ToInt64(value, 2);                    
-                    return new BinaryValue() { Value = $"0b{value}" };
+                    var _ = System.Convert.ToInt64(value, 2);                    
+                    return new BinaryValue(value);
                 }
                 catch (FormatException)
                 {
@@ -67,58 +67,42 @@ namespace Tk.Toolkit.Cli.Conversions
             throw new ArgumentException("Unrecognised value");
 
         }
-    
-        private NumericValue ConvertDecToHex(DecimalValue value) 
-        {
-            var v = $"0x{long.Parse(value.Value!).ToString("X2")}";
-            return new HexadecimalValue() { Value = v };
-        }
+
+        private NumericValue ConvertDecToHex(DecimalValue value) => ConvertToHex(long.Parse(value.Value));
+
+        private NumericValue ConvertToDec(long value) => new DecimalValue(value.ToString());
+
+        private NumericValue ConvertToHex(long value) => new HexadecimalValue($"{value:X2}");
+
+        private NumericValue ConvertToBin(long value) => new BinaryValue(System.Convert.ToString(value, 2));
 
         private NumericValue ConvertHexToDec(HexadecimalValue value)
         {
-            var val = TrimPrefix(value.Value!, "0x");
+            var val = value.TrimValue();
 
-            var v = long.Parse(val, NumberStyles.HexNumber).ToString();
-            return new DecimalValue() { Value = v };
+            return ConvertToDec(long.Parse(val, NumberStyles.HexNumber));
         }
 
         private NumericValue ConvertBinToHex(BinaryValue value)
         {
-            var val = TrimPrefix(value.Value!, "0b");
-            var v = $"0x{System.Convert.ToInt64(val, 2).ToString("X2")}";
+            var val = value.TrimValue();
             
-            return new HexadecimalValue() { Value = v };
+            return ConvertToHex(System.Convert.ToInt64(val, 2));            
         }
 
         private NumericValue ConvertBinToDec(BinaryValue value)
         {
-            var val = TrimPrefix(value.Value!, "0b");
-            var v = System.Convert.ToInt64(val, 2).ToString();
-            return new DecimalValue() { Value = v };
+            var val = value.TrimValue();
+            return ConvertToDec(System.Convert.ToInt64(val, 2));            
         }
 
-        private NumericValue ConvertDecToBin(DecimalValue value)
-        {
-            var x = long.Parse(value.Value!);
-            var v = $"0b{System.Convert.ToString(x, 2)}";
-
-            return new BinaryValue() { Value = v }; 
-        }
+        private NumericValue ConvertDecToBin(DecimalValue value) => ConvertToBin(long.Parse(value.Value));
 
         private NumericValue ConvertHexToBin(HexadecimalValue value)
         {
-            var val = TrimPrefix(value.Value!, "0x");
-
-            var v = long.Parse(val, NumberStyles.HexNumber).ToString();
-
-            return ConvertDecToBin(new DecimalValue() {  Value = v});
-        }
-
-        private string TrimPrefix(string value, string prefix)
-        {
-            return value.StartsWith(prefix, StringComparison.InvariantCultureIgnoreCase) 
-                ? value.Substring(prefix.Length)
-                : value;
+            var val = value.TrimValue();
+            var dec = (DecimalValue)ConvertToDec(long.Parse(val, NumberStyles.HexNumber));
+            return ConvertDecToBin(dec);
         }
     }
 }

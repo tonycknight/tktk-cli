@@ -32,7 +32,7 @@ namespace Tk.Toolkit.Cli.Commands
                 var val = _converter.Parse(Value);
 
                 var results = _converter.Convert(val)
-                                        .Select(v => v.Value!.ToString())
+                                        .Select(v => v.Value.ToString())
                                         .ToSpectreList();
 
                 _console.Write(results);
