@@ -11,5 +11,7 @@
         public int OrdinalSequence { get; set; }
 
         public string Title { get; set; } = "";
+
+        public Render Rendering { get; set; }
     }
 }
