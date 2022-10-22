@@ -569,12 +569,6 @@
                 "|4"
             };
 
-        public static string[] CardinalSequence = new[]
-            {
-                "one","two","three","four","five","six",
-                "seven","eight","nine","ten","eleven","twelve"
-            };
-
         public static string[] OrdinalSequences = new[]
             {
                 "first","second","third","fourth","fifth"

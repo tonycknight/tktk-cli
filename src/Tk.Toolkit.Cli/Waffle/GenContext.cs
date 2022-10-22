@@ -5,9 +5,7 @@
         public GenContext(IRng rng) => Rng = rng;
 
         public IRng Rng { get; }
-
-        public int CardinalSequence { get; set; }
-
+                
         public int OrdinalSequence { get; set; }
 
         public string Title { get; set; } = "";

@@ -26,9 +26,6 @@ namespace Tk.Toolkit.Cli.Waffle
 
                     switch (phrase[i])
                     {
-                        case 'a':
-                            escape.EvaluateCardinalSequence(ctx);
-                            break;
                         case 'b':
                             escape.EvaluateOrdinalSequence(ctx);
                             break;
@@ -109,18 +106,6 @@ namespace Tk.Toolkit.Cli.Waffle
             var phrase = ctx.Rng.Pick(phrases);
 
             return output.EvaluatePhrase(ctx, phrase.Render(ctx.Rendering));
-        }
-
-        public static StringBuilder EvaluateCardinalSequence(this StringBuilder output, GenContext ctx)
-        {
-            if (ctx.CardinalSequence >= Waffles.CardinalSequence.Length)
-            {
-                ctx.CardinalSequence = 0;
-            }
-
-            output.Append(Waffles.CardinalSequence[ctx.CardinalSequence++]);
-
-            return output;
         }
 
         public static StringBuilder EvaluateOrdinalSequence(this StringBuilder output, GenContext ctx)
