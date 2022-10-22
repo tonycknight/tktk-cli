@@ -4,11 +4,11 @@
     {
         public static string[] PreamblePhrases = new[]
             {
-                "In broad terms, we can define the main issues with |t. There are :-<DL><DT>The |o of |o<DD>|B |C |D.<DT>The |o of |o<DD>|B |C |D.<DT>The |o of |o<DD>|B |C |D.<DT>The |o of |o<DD>|B |C |D.</DL><p>",
-                "The following points should be appreciated about |t; <ol><li>|B |C |D.<li>|B |C |D.<li>|B |C |D.<li>|B |C |D.<li>|B |C |D.<li>|B |C |D.</ol>|n    ",
-                "Note that:- <ol><li>|B |C |D..<li>|B |C |D..<li>|B |C |D.<li>|B |C |D.<li>|B |C |D.<li>|B |C |D.</ol>|n  ",
-                "Essentially; <ul><li>|B |C |D.<li>|B |C |D.<li>|B |C |D.<li>|B |C |D.<li>|B |C |D.<li>|B |C |D.</ul>|n   ",
-                "To make the main points more explicit, it is fair to say that; <ul><li>|B |C |D.<li>|B |C |D.<li>|B |C |D.<li>|B |C |D.</ul>|n   ",
+                "In broad terms, we can define the main issues with |t. There are :-[DL][DT]The |o of |o[DD]|B |C |D.[DT]The |o of |o[DD]|B |C |D.[DT]The |o of |o[DD]|B |C |D.[DT]The |o of |o[DD]|B |C |D.[/DL][p]",
+                "The following points should be appreciated about |t; [ol][li]|B |C |D.[li]|B |C |D.[li]|B |C |D.[li]|B |C |D.[li]|B |C |D.[li]|B |C |D.|n[/ol]    ",
+                "Note that:- [ol][li]|B |C |D..[li]|B |C |D..[li]|B |C |D.[li]|B |C |D.[li]|B |C |D.[li]|B |C |D.|n[/ol]  ",
+                "Essentially; [ol][li]|B |C |D.[li]|B |C |D.[li]|B |C |D.[li]|B |C |D.[li]|B |C |D.[li]|B |C |D.|n[/ol]   ",
+                "To make the main points more explicit, it is fair to say that; [ol][li]|B |C |D.[li]|B |C |D.[li]|B |C |D.[li]|B |C |D.|n[/ol]   ",
                 "We have heard it said, tongue-in-cheek, that",
                 "To be quite frank,",
                 "Focussing on the agreed facts, we can say that",
@@ -582,7 +582,7 @@
 
         public static string[] MaybeHeading = new[]
             {
-                "","","\n<h2>The |uc.</h2>\n<p>",""
+                "","","\n[h2]The |uc.[/h2]\n[p]",""
             };
 
         public static string[] MaybeParagraph = new[]

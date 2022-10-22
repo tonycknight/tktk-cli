@@ -84,7 +84,7 @@ namespace Tk.Toolkit.Cli.Waffle
                             escape.Append(ctx.Title);
                             break;
                         case 'n':
-                            escape.Append("</p>\n<p>");
+                            escape.Append("[p]".Render(ctx.Rendering));
                             break;
                         case 'p':
                             escape.EvaluateRandomPhrase(ctx, Waffles.PublicationNouns);
@@ -93,7 +93,7 @@ namespace Tk.Toolkit.Cli.Waffle
 
                     if (titleCase)
                     {
-                        accum.Append(escape.ToString().TitleCaseWords());
+                        accum.Append(escape.ToString().TitleCaseWords().Render(ctx.Rendering));
                     }
                 }
                 else
@@ -108,7 +108,7 @@ namespace Tk.Toolkit.Cli.Waffle
         {
             var phrase = ctx.Rng.Pick(phrases);
 
-            return output.EvaluatePhrase(ctx, phrase);
+            return output.EvaluatePhrase(ctx, phrase.Render(ctx.Rendering));
         }
 
         public static StringBuilder EvaluateCardinalSequence(this StringBuilder output, GenContext ctx)

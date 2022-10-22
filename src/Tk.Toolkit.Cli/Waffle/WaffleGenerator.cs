@@ -10,10 +10,13 @@ namespace Tk.Toolkit.Cli.Waffle
 
         public WaffleGenerator() : this(new Rng()) { }
         
-        public StringBuilder Generate(int paragraphs, bool addHeader) 
+        public StringBuilder Generate(int paragraphs, bool addHeader, RenderMode render) 
         {
             var result = new StringBuilder();
-            var ctx = new GenContext(_rng);
+            var ctx = new GenContext(_rng)
+            {
+                Rendering = render,
+            };
 
             if (addHeader)
             {
@@ -23,14 +26,14 @@ namespace Tk.Toolkit.Cli.Waffle
                                  .ToString()
                                  .TitleCaseWords();
 
-                result = result.AppendLine(ctx.Title)
+                result = result.AppendLine($"[h1]{ctx.Title}[/h1]".Render(ctx.Rendering))
                                .AppendLine()
-                               .EvaluatePhrase(ctx, "\"|A |B |C |t\"\n")
-                               .EvaluatePhrase(ctx, "(|f |s in |p of the |uc (|uy))")
+                               .EvaluatePhrase(ctx, "[q]|A |B |C |t[/q]".Render(ctx.Rendering))
+                               .EvaluatePhrase(ctx, "[br][b][i]|f |s in |p of the |uc (|uy)[/i][/b][p]".Render(ctx.Rendering))
+                               .AppendLine("[p]".Render(ctx.Rendering))
                                .AppendLine()
-                               .AppendLine()
-                               .EvaluatePhrase(ctx, "|c.")
-                               .AppendLine()
+                               .EvaluatePhrase(ctx, "[i]|c.[/i]".Render(ctx.Rendering))
+                               .AppendLine("[p]".Render(ctx.Rendering))
                                .AppendLine();
             }
 

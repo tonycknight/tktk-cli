@@ -12,6 +12,6 @@
 
         public string Title { get; set; } = "";
 
-        public Render Rendering { get; set; }
+        public RenderMode Rendering { get; set; }
     }
 }
