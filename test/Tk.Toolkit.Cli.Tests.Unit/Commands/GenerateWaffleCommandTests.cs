@@ -19,7 +19,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
             console.When(ac => ac.Write(Arg.Any<Text>())).Do(cb =>
             {
                 var arg = cb[0] as Spectre.Console.Text;
-                outputs.Add((arg.Length, arg.Lines));
+                outputs.Add((arg!.Length, arg.Lines));
             });
             
             Func<GenerateWaffleCommand> cmd = () => new GenerateWaffleCommand(console)

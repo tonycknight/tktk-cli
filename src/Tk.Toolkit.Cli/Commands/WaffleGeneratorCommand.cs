@@ -24,7 +24,7 @@ namespace Tk.Toolkit.Cli.Commands
 
         public int OnExecute()
         {
-            var rng = Seed.HasValue ? new Rng(Seed.Value) : new Rng();
+            var rng = Seed.HasValue ? new Waffle.Rng(Seed.Value) : new Waffle.Rng();
             var gen = new Waffle.WaffleGenerator(rng);
                         
             var sb = gen.Generate(Paragraphs, IncludeTitle);
