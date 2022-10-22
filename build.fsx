@@ -109,7 +109,7 @@ Target.create "Unit Tests" (fun _ ->
 
 Target.create "Stryker" (fun _ ->
     !! "test/**/*.csproj"
-    |> Seq.iter (fun p ->   let args = sprintf "-tp %s -b 70" p
+    |> Seq.iter (fun p ->   let args = sprintf "-tp %s -b 20" p
                             let result = DotNet.exec id "dotnet-stryker" args
                             if not result.OK then failwithf "Stryker failed!"
                             )
@@ -120,6 +120,12 @@ Target.create "Consolidate code coverage" (fun _ ->
     let result = DotNet.exec id "reportgenerator" args
   
     if not result.OK then failwithf "reportgenerator failed!"  
+)
+
+Target.create "SCA" (fun _ ->
+    let args = "package --vulnerable --include-transitive"
+    let result = DotNet.exec id "list" args
+    if not result.OK then failwithf "dotnet sca failed!"      
 )
 
 Target.create "All" ignore
