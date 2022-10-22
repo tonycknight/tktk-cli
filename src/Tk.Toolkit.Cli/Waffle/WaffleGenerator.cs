@@ -31,10 +31,8 @@ namespace Tk.Toolkit.Cli.Waffle
                                .EvaluatePhrase(ctx, "[q]|A |B |C |t[/q]".Render(ctx.Rendering))
                                .EvaluatePhrase(ctx, "[br][b][i]|f |s in |p of the |uc (|uy)[/i][/b][p]".Render(ctx.Rendering))
                                .AppendLine("[p]".Render(ctx.Rendering))
-                               .AppendLine()
                                .EvaluatePhrase(ctx, "[i]|c.[/i]".Render(ctx.Rendering))
-                               .AppendLine("[p]".Render(ctx.Rendering))
-                               .AppendLine();
+                               .AppendLine("[p]".Render(ctx.Rendering));
             }
 
 

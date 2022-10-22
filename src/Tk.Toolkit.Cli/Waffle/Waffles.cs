@@ -576,7 +576,7 @@
 
         public static string[] MaybeHeading = new[]
             {
-                "","","\n[h2]The |uc.[/h2]\n[p]",""
+                "","","[h2]The |uc.[/h2][p]",""
             };
 
         public static string[] MaybeParagraph = new[]

@@ -2,7 +2,7 @@
   "profiles": {
     "tkdevcli": {
       "commandName": "Project",
-      "commandLineArgs": "waffle -p 2 -t -s 2112340"
+      "commandLineArgs": "waffle -t -p 10 -s 10 -r markdown"
     }
   }
 }
