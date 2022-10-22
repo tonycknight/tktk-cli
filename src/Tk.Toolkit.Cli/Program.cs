@@ -48,7 +48,7 @@ namespace Tk.Toolkit.Cli
         }
          
 
-        private int OnExecuteAsync(CommandLineApplication app)
+        private int OnExecute(CommandLineApplication app)
         {
             app.ShowHelp();
 
