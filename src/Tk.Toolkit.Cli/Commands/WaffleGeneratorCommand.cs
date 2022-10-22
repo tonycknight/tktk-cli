@@ -20,11 +20,11 @@ namespace Tk.Toolkit.Cli.Commands
         public bool IncludeTitle { get; set; }
 
         [Option(CommandOptionType.SingleValue, Description = "The RNG's seed.", LongName = "seed", ShortName = "s")]
-        public int Seed { get; set; } = 0;
+        public int? Seed { get; set; }
 
         public int OnExecute()
         {
-            var rng = Seed == 0 ? new Rng() : new Rng(Seed);
+            var rng = Seed.HasValue ? new Rng(Seed.Value) : new Rng();
             var gen = new Waffle.WaffleGenerator(rng);
                         
             var sb = gen.Generate(Paragraphs, IncludeTitle);
