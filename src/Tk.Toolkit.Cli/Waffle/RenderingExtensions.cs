@@ -35,11 +35,11 @@
         private static Dictionary<string, string> MarkdownTranslation()
             => new Dictionary<string, string>()
             {
-                { "[h1]", "\r\n# " },
+                { "[h1]", "# " },
                 { "[/h1]", "\r\n" },
-                { "[h2]", "\r\n## " },
+                { "[h2]", "## " },
                 { "[/h2]", "\r\n" },
-                { "[h3]", "\r\n### " },
+                { "[h3]", "### " },
                 { "[/h3]", "\r\n" },
                 { "[p]", "\r\n\r\n" },
                 { "[ol]", "" },
