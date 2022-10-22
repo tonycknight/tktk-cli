@@ -86,6 +86,9 @@ namespace Tk.Toolkit.Cli.Waffle
                         case 'n':
                             escape.Append("</p>\n<p>");
                             break;
+                        case 'p':
+                            escape.EvaluateRandomPhrase(ctx, Waffles.PublicationNouns);
+                            break;
                     }
 
                     if (titleCase)

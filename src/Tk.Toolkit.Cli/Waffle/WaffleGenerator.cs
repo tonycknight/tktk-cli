@@ -26,7 +26,7 @@ namespace Tk.Toolkit.Cli.Waffle
                 result = result.AppendLine(ctx.Title)
                                .AppendLine()
                                .EvaluatePhrase(ctx, "\"|A |B |C |t\"\n")
-                               .EvaluatePhrase(ctx, "(|f |s in The Journal of the |uc (|uy))")
+                               .EvaluatePhrase(ctx, "(|f |s in |p of the |uc (|uy))")
                                .AppendLine()
                                .AppendLine()
                                .EvaluatePhrase(ctx, "|c.")

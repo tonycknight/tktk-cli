@@ -126,6 +126,11 @@
                 "Whilst it may be true that |B |C |D, one must not lose sight of the fact that"
             };
 
+        public static string[] PublicationNouns = new[]
+        {
+            "The Journal", "Register", "Gazette", "Annals", "The Memoirs", "Chronology"
+        };
+
         public static string[] SubjectPhrases = new[]
             {
                 "|h strategic goals",
