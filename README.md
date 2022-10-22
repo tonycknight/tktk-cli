@@ -118,6 +118,23 @@ E.g.
 
 `tktk epoch now`
 
+
+---
+
+## Waffle
+
+Generate reams of dull, meaningless random text.  
+
+```
+tktk waffle -p <paragraphs> -s <random seed>
+```
+
+Where:
+* `<paragraphs>` is the number of paragraphs you want to generate. 1 by default.
+* `<random seed>` is an optional integer to set the randomisation. Using the same integer will produce the same text on subsequent iterations.
+
+Include `-t` to add a title.
+
 ---
 
 ## Copyright and notices
