@@ -19,11 +19,15 @@ namespace Tk.Toolkit.Cli.Commands
         [Option(CommandOptionType.NoValue, Description = "Include a title", LongName = "title", ShortName = "t")]
         public bool IncludeTitle { get; set; }
 
+        [Option(CommandOptionType.SingleValue, Description = "The RNG's seed.", LongName = "seed", ShortName = "s")]
+        public int Seed { get; set; } = 0;
+
         public int OnExecute()
         {
-            var e = new Waffle.WaffleGenerator();
+            var rng = Seed == 0 ? new Rng() : new Rng(Seed);
+            var gen = new Waffle.WaffleGenerator(rng);
                         
-            var sb = e.Generate(Paragraphs, IncludeTitle);
+            var sb = gen.Generate(Paragraphs, IncludeTitle);
 
             _console.Write(sb.ToString());
 

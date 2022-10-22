@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Tk.Toolkit.Cli
+﻿namespace Tk.Toolkit.Cli
 {
     internal interface IRng
     {
@@ -15,7 +9,11 @@ namespace Tk.Toolkit.Cli
 
     internal class Rng : IRng
     {
-        private Random _r = new();
+        private readonly Random _r;
+        public Rng() => _r = new();
+
+        public Rng(int seed) => _r = new Random(seed);
+
         public int Pick(int upper) => _r.Next(0, upper);
 
         public string Pick(IList<string> values) => values[Pick(values.Count)];
