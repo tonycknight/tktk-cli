@@ -92,7 +92,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Code coverage results
-        uses: 5monkeys/cobertura-action@master
+        uses: 5monkeys/cobertura-action@v13
         with:
           path: ${{ github.workspace }}/test/Tk.Toolkit.Cli.Tests.Unit/TestResults/coverage.info
           repo_token: ${{ secrets.GITHUB_TOKEN }}
