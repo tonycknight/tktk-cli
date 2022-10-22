@@ -2,7 +2,7 @@
   "profiles": {
     "tkdevcli": {
       "commandName": "Project",
-      "commandLineArgs": ""
+      "commandLineArgs": "waffle -p 1 -t"
     }
   }
 }

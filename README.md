@@ -119,3 +119,11 @@ E.g.
 `tktk epoch now`
 
 ---
+
+## Copyright and notices
+
+(c) Tony Knight 2022.
+
+Waffle - contains code originally published by [Andrew Clarke](https://www.red-gate.com/simple-talk/author/andrew-clarke/)
+See [his article](https://www.red-gate.com/simple-talk/development/dotnet-development/the-waffle-generator/) and [source code](https://www.red-gate.com/simple-talk/wp-content/uploads/imported/465-WaffleEngine.cs.txt)
+
