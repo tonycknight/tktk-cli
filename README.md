@@ -38,7 +38,9 @@ tktk -?
 tktk about
 ```
 
-## Generate Guids:
+---
+
+## Generate Guids
 
 ```
 tktk guid -g 10
@@ -46,7 +48,9 @@ tktk guid -g 10
 
 where `-g` is the number of guids you want to generate. Default is 5.
 
-## Generate Passwords:
+---
+
+## Generate Passwords
 
 ```
 tktk pw -g 10 -l 32
@@ -57,6 +61,8 @@ Where:
 `-g` is the number of passwords you want to generate, default is 5.
 
 `-l` is the password length, default is 16.
+
+---
 
 ## Decode JWT
 
