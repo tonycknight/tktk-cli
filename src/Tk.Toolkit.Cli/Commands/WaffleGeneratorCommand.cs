@@ -20,7 +20,7 @@ namespace Tk.Toolkit.Cli.Commands
         [Option(CommandOptionType.NoValue, Description = "Include a title", LongName = "title", ShortName = "t")]
         public bool IncludeTitle { get; set; }
 
-        [Option(CommandOptionType.SingleValue, Description = "The RNG's seed.", LongName = "seed", ShortName = "s")]
+        [Option(CommandOptionType.SingleValue, Description = "The RNG's seed integer.", LongName = "seed", ShortName = "s")]
         public int? Seed { get; set; }
 
         [Option(CommandOptionType.SingleValue, Description = "The render mode.", LongName = "render", ShortName = "r")]

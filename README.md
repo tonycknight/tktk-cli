@@ -129,15 +129,16 @@ E.g.
 
 ## Waffle
 
-Generate reams of dull, meaningless random text.  
+Generate reams of tedious, bloated, pompous text, for fun & testing.
 
 ```
-tktk waffle -p <paragraphs> -s <random seed>
+tktk waffle --paragraphs <paragraphs> --seed <random seed> --title --render <form>
 ```
 
 Where:
 * `<paragraphs>` is the number of paragraphs you want to generate. 1 by default.
 * `<random seed>` is an optional integer to set the randomisation. Using the same integer will produce the same text on subsequent iterations.
+* `<form>` is the render form, either text, html or markdown
 
 Include `-t` to add a title.
 
