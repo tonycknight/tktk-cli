@@ -24,7 +24,7 @@ namespace Tk.Toolkit.Cli.Commands
         public int? Seed { get; set; }
 
         [Option(CommandOptionType.SingleValue, Description = "The render mode.", LongName = "render", ShortName = "r")]
-        public RenderMode Render { get; set; }
+        public RenderMode Render { get; set; } = RenderMode.Text;
 
         public int OnExecute()
         {
