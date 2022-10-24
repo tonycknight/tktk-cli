@@ -2,7 +2,7 @@
 
 namespace Tk.Toolkit.Cli.Waffle
 {
-    internal static class WaffleEvaluators
+    internal static class WaffleGeneratorExtensions
     {
         public static string TitleCaseWords(this string input) => System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(input);
 
