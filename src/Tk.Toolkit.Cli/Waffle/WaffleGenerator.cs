@@ -40,11 +40,11 @@ namespace Tk.Toolkit.Cli.Waffle
             {
                 if (i != 0)
                 {
-                    result = result.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrase(PhraseKind.MaybeHeading));
+                    result = result.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrases(PhraseKind.MaybeHeading));
                 }
 
                 result = result.EvaluatePhrase(ctx, "|A |B |C |D.  ")
-                               .EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrase(PhraseKind.Maybe));
+                               .EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrases(PhraseKind.Maybe));
             }
 
             return result;

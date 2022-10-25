@@ -25,6 +25,6 @@
 
     internal interface IPhraseProvider
     {
-        string[] GetPhrase(PhraseKind phrase);
+        string[] GetPhrases(PhraseKind phrase);
     }
 }

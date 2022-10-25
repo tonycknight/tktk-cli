@@ -30,52 +30,52 @@ namespace Tk.Toolkit.Cli.Waffle
                             escape.EvaluateOrdinalSequence(ctx);
                             break;
                         case 'c':
-                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrase(PhraseKind.Buzzphrase));
+                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrases(PhraseKind.Buzzphrase));
                             break;
                         case 'd':
-                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrase(PhraseKind.Verb));
+                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrases(PhraseKind.Verb));
                             break;
                         case 'e':
-                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrase(PhraseKind.Adverb));
+                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrases(PhraseKind.Adverb));
                             break;
                         case 'f':
-                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrase(PhraseKind.FirstName));
+                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrases(PhraseKind.FirstName));
                             break;
                         case 's':
-                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrase(PhraseKind.Surname));
+                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrases(PhraseKind.Surname));
                             break;
                         case 'o':
-                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrase(PhraseKind.ArtyNoun));
+                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrases(PhraseKind.ArtyNoun));
                             break;
                         case 'y':
                             escape.AppendRandomYear(ctx);
                             break;
                         case 'h':
-                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrase(PhraseKind.Prefix));
+                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrases(PhraseKind.Prefix));
                             break;
                         case 'A':
-                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrase(PhraseKind.Preamble));
+                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrases(PhraseKind.Preamble));
                             break;
                         case 'B':
-                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrase(PhraseKind.Subject));
+                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrases(PhraseKind.Subject));
                             break;
                         case 'C':
-                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrase(PhraseKind.VerbPhrase));
+                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrases(PhraseKind.VerbPhrase));
                             break;
                         case 'D':
-                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrase(PhraseKind.Object));
+                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrases(PhraseKind.Object));
                             break;
                         case '1':
-                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrase(PhraseKind.FirstAdjective));
+                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrases(PhraseKind.FirstAdjective));
                             break;
                         case '2':
-                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrase(PhraseKind.SecondAdjective));
+                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrases(PhraseKind.SecondAdjective));
                             break;
                         case '3':
-                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrase(PhraseKind.Noun));
+                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrases(PhraseKind.Noun));
                             break;
                         case '4':
-                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrase(PhraseKind.Cliche));
+                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrases(PhraseKind.Cliche));
                             break;
                         case 't':
                             escape.Append(ctx.Title);
@@ -84,7 +84,7 @@ namespace Tk.Toolkit.Cli.Waffle
                             escape.Append("[p]".Render(ctx.Rendering));
                             break;
                         case 'p':
-                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrase(PhraseKind.Publication));
+                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrases(PhraseKind.Publication));
                             break;
                     }
 
@@ -110,12 +110,12 @@ namespace Tk.Toolkit.Cli.Waffle
 
         public static StringBuilder EvaluateOrdinalSequence(this StringBuilder output, GenContext ctx)
         {
-            if (ctx.OrdinalSequence >= ctx.Phrases.GetPhrase(PhraseKind.OrdinalSequence).Length)
+            if (ctx.OrdinalSequence >= ctx.Phrases.GetPhrases(PhraseKind.OrdinalSequence).Length)
             {
                 ctx.OrdinalSequence = 0;
             }
 
-            output.Append(ctx.Phrases.GetPhrase(PhraseKind.OrdinalSequence)[ctx.OrdinalSequence++]);
+            output.Append(ctx.Phrases.GetPhrases(PhraseKind.OrdinalSequence)[ctx.OrdinalSequence++]);
 
             return output;
         }

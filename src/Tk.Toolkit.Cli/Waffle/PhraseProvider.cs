@@ -584,7 +584,7 @@
                 "","","|n",""
             };
 
-        public string[] GetPhrase(PhraseKind phrase)
+        public string[] GetPhrases(PhraseKind phrase)
         {
             return phrase switch
             {
