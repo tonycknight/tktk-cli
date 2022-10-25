@@ -56,7 +56,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
         }
 
         [Property(Verbose = true)]
-        public bool OnExecuteAsync_NegativeCount_ReturnsOk(NegativeInt count)
+        public bool OnExecute_NegativeCount_ReturnsOk(NegativeInt count)
         {
             Table? output = null;
             var console = Substitute.For<IAnsiConsole>();

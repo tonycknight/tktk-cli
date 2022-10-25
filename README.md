@@ -38,7 +38,9 @@ tktk -?
 tktk about
 ```
 
-## Generate Guids:
+---
+
+## Generate Guids
 
 ```
 tktk guid -g 10
@@ -46,7 +48,9 @@ tktk guid -g 10
 
 where `-g` is the number of guids you want to generate. Default is 5.
 
-## Generate Passwords:
+---
+
+## Generate Passwords
 
 ```
 tktk pw -g 10 -l 32
@@ -57,6 +61,8 @@ Where:
 `-g` is the number of passwords you want to generate, default is 5.
 
 `-l` is the password length, default is 16.
+
+---
 
 ## Decode JWT
 
@@ -118,4 +124,30 @@ E.g.
 
 `tktk epoch now`
 
+
 ---
+
+## Waffle
+
+Generate reams of tedious, bloated, pompous text, for fun & testing.
+
+```
+tktk waffle --paragraphs <paragraphs> --seed <random seed> --title --render <form>
+```
+
+Where:
+* `<paragraphs>` is the number of paragraphs you want to generate. 1 by default.
+* `<random seed>` is an optional integer to set the randomisation. Using the same integer will produce the same text on subsequent iterations.
+* `<form>` is the render form, either text, html or markdown.
+
+Include `-t` to add a title.
+
+---
+
+## Copyright and notices
+
+(c) Tony Knight 2022.
+
+Waffle - contains code originally produced & published by [Andrew Clarke](https://www.red-gate.com/simple-talk/author/andrew-clarke/) ([LinkedIn](https://www.linkedin.com/in/andrewclarke6/))
+at [his article](https://www.red-gate.com/simple-talk/development/dotnet-development/the-waffle-generator/) and [public domain source code](https://www.red-gate.com/simple-talk/wp-content/uploads/imported/465-WaffleEngine.cs.txt).
+

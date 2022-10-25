@@ -25,6 +25,7 @@ namespace Tk.Toolkit.Cli.Commands
                 $"[cyan]{app.Parent?.Name}[/]",
                 "[cyan]An eclectic developer toolkit[/]",
                 $"[yellow]Version {currentVersion} beta[/]",
+                $"[yellow]Repo:[/] [white]https://github.com/tonycknight/tktk-cli [/]",
             };
             
             if (nugetVersion != null && currentVersion != nugetVersion)

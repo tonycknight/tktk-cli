@@ -11,6 +11,7 @@ namespace Tk.Toolkit.Cli
     [Subcommand(typeof(DecodeJwtCommand))]
     [Subcommand(typeof(ConvertNumberCommand))]
     [Subcommand(typeof(EpochCommand))]
+    [Subcommand(typeof(GenerateWaffleCommand))]
     [Subcommand(typeof(AboutCommand))]
     public class Program
     {
@@ -47,7 +48,7 @@ namespace Tk.Toolkit.Cli
         }
          
 
-        private int OnExecuteAsync(CommandLineApplication app)
+        private int OnExecute(CommandLineApplication app)
         {
             app.ShowHelp();
 

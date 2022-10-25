@@ -21,12 +21,7 @@ namespace Tk.Toolkit.Cli.Nuget
 
                 var vsn = await mdr.GetLatestVersion(packageId, true, false, cache, logger, CancellationToken.None);
 
-                if (vsn == null)
-                {
-                    return null;
-                }
-
-                return vsn.ToString();
+                return vsn?.ToString();
             }
             catch (Exception)
             {

@@ -5,7 +5,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <Copyright>Copyright 2022 Tony Knight</Copyright>
+    <Copyright>Copyright 2022 Tony Knight, with contributions</Copyright>
     <Authors>Tony Knight</Authors>
     <Version>0.0.0</Version>
     <Description>Some general dev tools</Description>
