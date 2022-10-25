@@ -14,8 +14,8 @@ namespace Tk.Toolkit.Cli.Waffle
                 {
                     i++;
 
-                    StringBuilder escape = accum;
-                    bool titleCase = false;
+                    var escape = accum;
+                    var titleCase = false;
 
                     if (phrase[i] == 'u' && i + 1 < phrase.Length)
                     {
@@ -30,52 +30,52 @@ namespace Tk.Toolkit.Cli.Waffle
                             escape.EvaluateOrdinalSequence(ctx);
                             break;
                         case 'c':
-                            escape.EvaluateRandomPhrase(ctx, Waffles.Buzzphrases);
+                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrase(PhraseKind.Buzzphrase));
                             break;
                         case 'd':
-                            escape.EvaluateRandomPhrase(ctx, Waffles.Verbs);
+                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrase(PhraseKind.Verb));
                             break;
                         case 'e':
-                            escape.EvaluateRandomPhrase(ctx, Waffles.Adverbs);
+                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrase(PhraseKind.Adverb));
                             break;
                         case 'f':
-                            escape.EvaluateRandomPhrase(ctx, Waffles.Forenames);
+                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrase(PhraseKind.FirstName));
                             break;
                         case 's':
-                            escape.EvaluateRandomPhrase(ctx, Waffles.Surnames);
+                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrase(PhraseKind.Surname));
                             break;
                         case 'o':
-                            escape.EvaluateRandomPhrase(ctx, Waffles.ArtyNouns);
+                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrase(PhraseKind.ArtyNoun));
                             break;
                         case 'y':
                             escape.AppendRandomYear(ctx);
                             break;
                         case 'h':
-                            escape.EvaluateRandomPhrase(ctx, Waffles.Prefixes);
+                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrase(PhraseKind.Prefix));
                             break;
                         case 'A':
-                            escape.EvaluateRandomPhrase(ctx, Waffles.PreamblePhrases);
+                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrase(PhraseKind.Preamble));
                             break;
                         case 'B':
-                            escape.EvaluateRandomPhrase(ctx, Waffles.SubjectPhrases);
+                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrase(PhraseKind.Subject));
                             break;
                         case 'C':
-                            escape.EvaluateRandomPhrase(ctx, Waffles.VerbPhrases);
+                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrase(PhraseKind.VerbPhrase));
                             break;
                         case 'D':
-                            escape.EvaluateRandomPhrase(ctx, Waffles.ObjectPhrases);
+                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrase(PhraseKind.Object));
                             break;
                         case '1':
-                            escape.EvaluateRandomPhrase(ctx, Waffles.FirstAdjectivePhrases);
+                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrase(PhraseKind.FirstAdjective));
                             break;
                         case '2':
-                            escape.EvaluateRandomPhrase(ctx, Waffles.SecondAdjectivePhrases);
+                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrase(PhraseKind.SecondAdjective));
                             break;
                         case '3':
-                            escape.EvaluateRandomPhrase(ctx, Waffles.NounPhrases);
+                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrase(PhraseKind.Noun));
                             break;
                         case '4':
-                            escape.EvaluateRandomPhrase(ctx, Waffles.Cliches);
+                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrase(PhraseKind.Cliche));
                             break;
                         case 't':
                             escape.Append(ctx.Title);
@@ -84,7 +84,7 @@ namespace Tk.Toolkit.Cli.Waffle
                             escape.Append("[p]".Render(ctx.Rendering));
                             break;
                         case 'p':
-                            escape.EvaluateRandomPhrase(ctx, Waffles.PublicationNouns);
+                            escape.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrase(PhraseKind.Publication));
                             break;
                     }
 
@@ -110,12 +110,12 @@ namespace Tk.Toolkit.Cli.Waffle
 
         public static StringBuilder EvaluateOrdinalSequence(this StringBuilder output, GenContext ctx)
         {
-            if (ctx.OrdinalSequence >= Waffles.OrdinalSequences.Length)
+            if (ctx.OrdinalSequence >= ctx.Phrases.GetPhrase(PhraseKind.OrdinalSequence).Length)
             {
                 ctx.OrdinalSequence = 0;
             }
 
-            output.Append(Waffles.OrdinalSequences[ctx.OrdinalSequence++]);
+            output.Append(ctx.Phrases.GetPhrase(PhraseKind.OrdinalSequence)[ctx.OrdinalSequence++]);
 
             return output;
         }

@@ -1,9 +1,9 @@
 ﻿namespace Tk.Toolkit.Cli.Waffle
 {
-    internal static class Waffles
+    internal class PhraseProvider : IPhraseProvider
     {
-        public static string[] PreamblePhrases = new[]
-            {
+        private static readonly string[] PreamblePhrases = new[]
+        {
                 "In broad terms, we can define the main issues with |t. There are :-[DL][DT]The |o of |o[DD]|B |C |D.[DT]The |o of |o[DD]|B |C |D.[DT]The |o of |o[DD]|B |C |D.[DT]The |o of |o[DD]|B |C |D.[/DL][p]",
                 "The following points should be appreciated about |t; [ol][li]|B |C |D.[li]|B |C |D.[li]|B |C |D.[li]|B |C |D.[li]|B |C |D.[li]|B |C |D.|n[/ol]    ",
                 "Note that:- [ol][li]|B |C |D..[li]|B |C |D..[li]|B |C |D.[li]|B |C |D.[li]|B |C |D.[li]|B |C |D.|n[/ol]  ",
@@ -126,12 +126,12 @@
                 "Whilst it may be true that |B |C |D, one must not lose sight of the fact that"
             };
 
-        public static string[] PublicationNouns = new[]
+        private static readonly string[] PublicationNouns = new[]
         {
             "The Journal", "Register", "Gazette", "Annals", "The Memoirs", "Chronology"
         };
 
-        public static string[] SubjectPhrases = new[]
+        private static readonly string[] SubjectPhrases = new[]
             {
                 "|h strategic goals",
                 "|h gap analysis",
@@ -194,7 +194,7 @@
                 "a primary interrelationship between system and/or subsystem  technologies"
             };
 
-        public static string[] VerbPhrases = new[]
+        private static readonly string[] VerbPhrases = new[]
             {
                 "|d the overall efficiency of",
                 "|d the |4 and |C",
@@ -294,7 +294,7 @@
                 "needs to be addessed along with the"
             };
 
-        public static string[] ObjectPhrases = new[]
+        private static readonly string[] ObjectPhrases = new[]
             {
                 "the overall game-plan",
                 "the slippery slope",
@@ -334,7 +334,7 @@
                 "the |c. This trend may dissipate due to the |c"
             };
 
-        public static string[] Adverbs = new[]
+        private static readonly string[] Adverbs = new[]
             {
                 "substantively","intuitively","uniquely","semantically","necessarily",
                 "stringently","precisely","rigorously","broadly","generally",
@@ -346,7 +346,7 @@
                 "retroactively","retrospectively", "globally","clearly","disconcertingly"
             };
 
-        public static string[] Verbs = new[]
+        private static readonly string[] Verbs = new[]
             {
                 "stimulates","spreads","improves","energises","emphasizes","subordinates",
                 "posits","perceives","de-stabilizes","revisits",
@@ -366,7 +366,7 @@
                 "restates","stresses","enhances","amends","translates","specifies"
             };
 
-        public static string[] FirstAdjectivePhrases = new[]
+        private static readonly string[] FirstAdjectivePhrases = new[]
             {
                 "comprehensive", "targeted","realigned","client focussed","best practice","value added","quality driven",
                 "basic","principal","central","essential","primary","indicative","continuous",
@@ -389,7 +389,7 @@
                 "mechanism-independent","synergistic","high-level"
             };
 
-        public static string[] SecondAdjectivePhrases = new[]
+        private static readonly string[] SecondAdjectivePhrases = new[]
             {
                 "fast-track","transparent","results-driven",
                 "subsystem","test","configuration","mission","functional","referential",
@@ -431,7 +431,7 @@
                 "subjective","empathic","imaginative","ethical","expressionistic","resonant","vibrant"
             };
 
-        public static string[] NounPhrases = new[]
+        private static readonly string[] NounPhrases = new[]
             {
                 "|o","|o","|o","|o","|o","|o","|o","|o","|o","|o","|o","|o","|o","|o","|o",
                 "|o","|o","|o","|o","|o","|o","|o","|o","|o","|o","|o","|o","|o","|o","|o",
@@ -452,7 +452,7 @@
                 "service","support","best-practice","change","delivery","funding","resources"
             };
 
-        public static string[] Cliches = new[]
+        private static readonly string[] Cliches = new[]
             {
                 "|o of |o","|o of |o","|o of |o","|o of |o","|o of |o","|o of |o","|o of |o","|o of |o",
                 "development strategy","decision support","fourth-generation environment",
@@ -505,7 +505,7 @@
                 "corporate procedure","proposed scenario"
             };
 
-        public static string[] Prefixes = new[]
+        private static readonly string[] Prefixes = new[]
             {
                 "the","the","the","the","the","the","the","the","the","any","any",
                 "what might be described as the","what amounts to the",
@@ -525,7 +525,7 @@
                 "a preponderance of the"
             };
 
-        public static string[] ArtyNouns = new[]
+        private static readonly string[] ArtyNouns = new[]
             {
                 "discordance","legitimisation","principle","transposition","dimension",
                 "reciprocity","fragmentation","projection","dichotomy","concept","theme","teleology",
@@ -543,14 +543,14 @@
                 "discord","milieu"
             };
 
-        public static string[] Surnames = new[]
+        private static readonly string[] Surnames = new[]
             {
                 "Bennet","Blotchet-Halls","Carson","Clarke","DeFrance","del Castillo","Dull","Green","Greene",
                 "Gringlesby","Hunter","Karsen","Locksley","MacFeather","McBadden","O'Leary","Panteley","Poel","Powys-Lybbe","Smith",
                 "Straight","Stringer","White","Yokomoto"
             };
 
-        public static string[] Forenames = new[]
+        private static readonly string[] Forenames = new[]
             {
                 "Abraham","Reginald","Cheryl","Michel","Innes","Ann","Marjorie","Matthew","Mark", "Luke", "John",
                 "Burt","Lionel","Humphrey","Andrew", "Jenny","Sheryl","Livia","Charlene","Winston","Heather","Michael","Sylvia","Albert",
@@ -558,7 +558,7 @@
                 "Gethsemane","Hermione"
             };
 
-        public static string[] Buzzphrases = new[]
+        private static readonly string[] Buzzphrases = new[]
             {
                 "|1 |2 |3",
                 "|1 |2 |3",
@@ -569,19 +569,46 @@
                 "|4"
             };
 
-        public static string[] OrdinalSequences = new[]
+        private static readonly string[] OrdinalSequences = new[]
             {
                 "first","second","third","fourth","fifth"
             };
 
-        public static string[] MaybeHeading = new[]
+        private static readonly string[] MaybeHeading = new[]
             {
                 "","","[h2]The |uc.[/h2][p]",""
             };
 
-        public static string[] MaybeParagraph = new[]
+        private static readonly string[] MaybeParagraph = new[]
             {
                 "","","|n",""
             };
+
+        public string[] GetPhrase(PhraseKind phrase)
+        {
+            return phrase switch
+            {
+                PhraseKind.Adverb => Adverbs,
+                PhraseKind.Surname => Surnames,
+                PhraseKind.FirstName => Forenames,
+                PhraseKind.Preamble => PreamblePhrases,
+                PhraseKind.Verb => Verbs,
+                PhraseKind.Object => ObjectPhrases,
+                PhraseKind.Subject => SubjectPhrases,
+                PhraseKind.ArtyNoun => ArtyNouns,
+                PhraseKind.Buzzphrase => Buzzphrases,
+                PhraseKind.Cliche => Cliches,
+                PhraseKind.MaybeHeading => MaybeHeading,
+                PhraseKind.Maybe => MaybeParagraph,
+                PhraseKind.OrdinalSequence => OrdinalSequences,
+                PhraseKind.Publication => PublicationNouns,
+                PhraseKind.VerbPhrase => VerbPhrases,
+                PhraseKind.FirstAdjective => FirstAdjectivePhrases,
+                PhraseKind.SecondAdjective => SecondAdjectivePhrases,
+                PhraseKind.Noun => NounPhrases,
+                PhraseKind.Prefix => Prefixes,
+                _ => Array.Empty<string>()
+            };
+        }
     }
 }

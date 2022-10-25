@@ -13,7 +13,7 @@ namespace Tk.Toolkit.Cli.Waffle
         public StringBuilder Generate(int paragraphs, bool addHeader, RenderMode render) 
         {
             var result = new StringBuilder();
-            var ctx = new GenContext(_rng)
+            var ctx = new GenContext(_rng, new PhraseProvider())
             {
                 Rendering = render,
             };
@@ -40,11 +40,11 @@ namespace Tk.Toolkit.Cli.Waffle
             {
                 if (i != 0)
                 {
-                    result = result.EvaluateRandomPhrase(ctx, Waffles.MaybeHeading);
+                    result = result.EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrase(PhraseKind.MaybeHeading));
                 }
 
                 result = result.EvaluatePhrase(ctx, "|A |B |C |D.  ")
-                               .EvaluateRandomPhrase(ctx, Waffles.MaybeParagraph);
+                               .EvaluateRandomPhrase(ctx, ctx.Phrases.GetPhrase(PhraseKind.Maybe));
             }
 
             return result;
