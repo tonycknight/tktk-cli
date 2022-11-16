@@ -14,7 +14,9 @@ using static Nuke.Common.Tools.MSBuild.MSBuildTasks;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
 using Nuke.Common.Tools.DotNet;
 using Nuke.Common.Tools.Coverlet;
-using Nuke.Common.Tools.ReportGenerator;
+using Nuke.Common.Tools.GitVersion;
+using Serilog;
+using Nuke.Common.CI.GitHubActions;
 
 class Build : NukeBuild
 {
@@ -27,6 +29,12 @@ class Build : NukeBuild
     public static int Main () => Execute<Build>(x => x.All);
 
     private const string SolutionFile = "tktk-cli.sln";
+    
+    [GitVersion]
+    private readonly GitVersion GitVersion;
+
+    private readonly GitHubActions Gha;
+
     private AbsolutePath SourceDirectory => RootDirectory / "src";
     private AbsolutePath TestsDirectory => RootDirectory / "test";
     private AbsolutePath PublishDirectory => RootDirectory / "publish";
@@ -39,7 +47,24 @@ class Build : NukeBuild
     [PathExecutable("dotnet")]
     readonly Tool DotNet;
 
+    Target Start => _ => _
+        .Executes(() =>
+        {
+            Log.Information("GitVersion.MajorMinorPatch = {Value}", GitVersion.MajorMinorPatch);
+            Log.Information("GitVersion.FullSemVer = {Value}", GitVersion.FullSemVer);
+            Log.Information("GitVersion.NuGetVersion = {Value}", GitVersion.NuGetVersion);
+            Log.Information("GitVersion.NuGetPreReleaseTag = {Value}", GitVersion.NuGetPreReleaseTag);            
+            Log.Information("GitVersion.FullBuildMetaData = {Value}", GitVersion.FullBuildMetaData.ToString());
+
+            Log.Information("GHA.RunNumber = {Value}", Gha?.RunNumber);
+            Log.Information("GHA.RunId = {Value}", Gha?.RunId);
+            Log.Information("GHA.JobId = {Value}", Gha?.JobId);
+
+
+        });
+
     Target Clean => _ => _
+        .DependsOn(Start)
         .Executes(() =>
         {
             SourceDirectory.GlobDirectories("**/bin", "**/obj")
@@ -54,19 +79,14 @@ class Build : NukeBuild
 
     Target Restore => _ => _
         .DependsOn(Clean)
-        .Executes(() =>
-        {
-            DotNetRestore(s => s.SetProjectFile(SolutionFile));
-        });
+        .Executes(() => DotNetRestore(s => s.SetProjectFile(SolutionFile)));
 
     Target Compile => _ => _
         .DependsOn(Restore)
         .Executes(() =>
             DotNetBuild(x => x.SetProjectFile(SolutionFile)
-                              .SetAssemblyVersion("0.1.2") // TODO: 
                               .SetConfiguration(Configuration)
-                              .EnableNoRestore()
-                        )
+                              .EnableNoRestore())
         );
         
     Target Test => _ => _
@@ -93,7 +113,7 @@ class Build : NukeBuild
         .Executes(() => DotNetPack(x => x.SetProject(SolutionFile)
                                          .SetConfiguration("Release")
                                          .SetAssemblyVersion("0.1.2") // TODO: 
-                                         .SetVersion("0.1.2") // TODO: 
+                                         .SetVersion("0.1.2") // TODO: nupkg version
                                          .SetOutputDirectory(PackageDirectory)
                         ));
 

@@ -79,6 +79,7 @@
               "ConsolidateCoverage",
               "Pack",
               "Restore",
+              "Start",
               "Stryker",
               "Test"
             ]
@@ -97,6 +98,7 @@
               "ConsolidateCoverage",
               "Pack",
               "Restore",
+              "Start",
               "Stryker",
               "Test"
             ]
