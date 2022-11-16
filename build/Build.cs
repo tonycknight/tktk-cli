@@ -85,7 +85,7 @@ class Build : NukeBuild
     Target ConsolidateCoverage => _ => _
         .DependsOn(Test)
         .Executes(() => 
-            DotNet?.Invoke("reportgenerator -reports:./test/**/coverage.info -reporttypes:Html -targetdir:./publish/codecoverage")
+            DotNet?.Invoke("reportgenerator -reports:./test/**/coverage.json -reporttypes:Html -targetdir:./publish/codecoverage")
                     );
 
     Target Pack => _ => _

@@ -11,3 +11,5 @@ FluentAssertions
 System.IdentityModel.Tokens.Jwt
 spectre.console
 McMaster.Extensions.CommandLineUtils
+System.Net.Http
+System.Text.RegularExpressions
