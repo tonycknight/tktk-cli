@@ -50,11 +50,11 @@ class Build : NukeBuild
     Target Start => _ => _
         .Executes(() =>
         {
-            Log.Information("GitVersion.MajorMinorPatch = {Value}", GitVersion.MajorMinorPatch);
-            Log.Information("GitVersion.FullSemVer = {Value}", GitVersion.FullSemVer);
-            Log.Information("GitVersion.NuGetVersion = {Value}", GitVersion.NuGetVersion);
-            Log.Information("GitVersion.NuGetPreReleaseTag = {Value}", GitVersion.NuGetPreReleaseTag);            
-            Log.Information("GitVersion.FullBuildMetaData = {Value}", GitVersion.FullBuildMetaData.ToString());
+            Log.Information("GitVersion.MajorMinorPatch = {Value}", GitVersion?.MajorMinorPatch);
+            Log.Information("GitVersion.FullSemVer = {Value}", GitVersion?.FullSemVer);
+            Log.Information("GitVersion.NuGetVersion = {Value}", GitVersion?.NuGetVersion);
+            Log.Information("GitVersion.NuGetPreReleaseTag = {Value}", GitVersion?.NuGetPreReleaseTag);            
+            Log.Information("GitVersion.FullBuildMetaData = {Value}", GitVersion?.FullBuildMetaData.ToString());
 
             Log.Information("GHA.RunNumber = {Value}", Gha?.RunNumber);
             Log.Information("GHA.RunId = {Value}", Gha?.RunId);
