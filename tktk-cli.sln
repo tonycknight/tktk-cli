@@ -26,12 +26,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tk.Toolkit.Cli", "src\Tk.To
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tk.Toolkit.Cli.Tests.Unit", "test\Tk.Toolkit.Cli.Tests.Unit\Tk.Toolkit.Cli.Tests.Unit.csproj", "{83CBAF2E-C84B-463B-9396-28F2463AED83}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "build\_build.csproj", "{9280D547-62D4-4F4C-B753-C9E242B4F038}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9280D547-62D4-4F4C-B753-C9E242B4F038}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9280D547-62D4-4F4C-B753-C9E242B4F038}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16BE1969-F7C7-4F3D-B17B-B63DA13C8D62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{16BE1969-F7C7-4F3D-B17B-B63DA13C8D62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16BE1969-F7C7-4F3D-B17B-B63DA13C8D62}.Release|Any CPU.ActiveCfg = Release|Any CPU

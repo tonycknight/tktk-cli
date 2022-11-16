@@ -1,0 +1,2623 @@
+{
+  "tktk.dll": {
+    "C:\\repos\\tonycknight\\tktk-cli\\src\\Tk.Toolkit.Cli\\Extensions.cs": {
+      "Tk.Toolkit.Cli.Extensions": {
+        "System.Int32 Tk.Toolkit.Cli.Extensions::ApplyDefault(System.Int32,System.Func`2<System.Int32,System.Boolean>,System.Int32)": {
+          "Lines": {
+            "8": 811
+          },
+          "Branches": [
+            {
+              "Line": 8,
+              "Offset": 7,
+              "EndOffset": 9,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 511
+            },
+            {
+              "Line": 8,
+              "Offset": 7,
+              "EndOffset": 12,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 300
+            }
+          ]
+        },
+        "Spectre.Console.Table Tk.Toolkit.Cli.Extensions::ToSpectreColumns(System.Collections.Generic.IEnumerable`1<System.ValueTuple`2<System.String,System.String>>)": {
+          "Lines": {
+            "11": 200,
+            "12": 200,
+            "13": 200,
+            "14": 200,
+            "15": 200,
+            "17": 5672,
+            "18": 2536,
+            "19": 2536,
+            "20": 2536,
+            "22": 200,
+            "23": 200
+          },
+          "Branches": [
+            {
+              "Line": 17,
+              "Offset": 130,
+              "EndOffset": 59,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 2536
+            },
+            {
+              "Line": 17,
+              "Offset": 130,
+              "EndOffset": 132,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 200
+            }
+          ]
+        },
+        "Spectre.Console.Table Tk.Toolkit.Cli.Extensions::ToSpectreList(System.Collections.Generic.IEnumerable`1<System.String>)": {
+          "Lines": {
+            "26": 508,
+            "27": 508,
+            "28": 508,
+            "29": 508,
+            "30": 508,
+            "32": 15464,
+            "33": 6970,
+            "34": 6970,
+            "35": 6970,
+            "37": 508,
+            "38": 508
+          },
+          "Branches": [
+            {
+              "Line": 32,
+              "Offset": 97,
+              "EndOffset": 51,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 6970
+            },
+            {
+              "Line": 34,
+              "Offset": 75,
+              "EndOffset": 77,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 34,
+              "Offset": 75,
+              "EndOffset": 83,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 6970
+            },
+            {
+              "Line": 32,
+              "Offset": 97,
+              "EndOffset": 99,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 508
+            }
+          ]
+        },
+        "System.String Tk.Toolkit.Cli.Extensions::TrimPrefix(System.String,System.String)": {
+          "Lines": {
+            "42": 1800,
+            "43": 1800,
+            "44": 1800
+          },
+          "Branches": [
+            {
+              "Line": 42,
+              "Offset": 8,
+              "EndOffset": 10,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 42,
+              "Offset": 8,
+              "EndOffset": 13,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1800
+            }
+          ]
+        },
+        "System.String Tk.Toolkit.Cli.Extensions::EnsurePrefixed(System.String,System.String)": {
+          "Lines": {
+            "47": 1801,
+            "48": 1801,
+            "49": 1801
+          },
+          "Branches": [
+            {
+              "Line": 47,
+              "Offset": 8,
+              "EndOffset": 10,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1800
+            },
+            {
+              "Line": 47,
+              "Offset": 8,
+              "EndOffset": 19,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        }
+      }
+    },
+    "C:\\repos\\tonycknight\\tktk-cli\\src\\Tk.Toolkit.Cli\\ProgramBootstrap.cs": {
+      "Tk.Toolkit.Cli.ProgramBootstrap": {
+        "System.IServiceProvider Tk.Toolkit.Cli.ProgramBootstrap::CreateServiceCollection()": {
+          "Lines": {
+            "10": 8,
+            "11": 8,
+            "12": 8,
+            "13": 8,
+            "14": 8,
+            "15": 8,
+            "16": 8
+          },
+          "Branches": []
+        },
+        "System.String Tk.Toolkit.Cli.ProgramBootstrap::GetAppVersion()": {
+          "Lines": {
+            "19": 1,
+            "20": 1
+          },
+          "Branches": [
+            {
+              "Line": 19,
+              "Offset": 11,
+              "EndOffset": 13,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 19,
+              "Offset": 11,
+              "EndOffset": 17,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        },
+        "System.Threading.Tasks.Task`1<System.String> Tk.Toolkit.Cli.ProgramBootstrap::GetCurrentNugetVersion()": {
+          "Lines": {
+            "23": 1
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\repos\\tonycknight\\tktk-cli\\src\\Tk.Toolkit.Cli\\Waffle\\GenContext.cs": {
+      "Tk.Toolkit.Cli.Waffle.GenContext": {
+        "Tk.Toolkit.Cli.Waffle.IRng Tk.Toolkit.Cli.Waffle.GenContext::get_Rng()": {
+          "Lines": {
+            "11": 2116854
+          },
+          "Branches": []
+        },
+        "System.Int32 Tk.Toolkit.Cli.Waffle.GenContext::get_OrdinalSequence()": {
+          "Lines": {
+            "13": 4950
+          },
+          "Branches": []
+        },
+        "System.String Tk.Toolkit.Cli.Waffle.GenContext::get_Title()": {
+          "Lines": {
+            "15": 35820
+          },
+          "Branches": []
+        },
+        "Tk.Toolkit.Cli.Waffle.RenderMode Tk.Toolkit.Cli.Waffle.GenContext::get_Rendering()": {
+          "Lines": {
+            "17": 2218512
+          },
+          "Branches": []
+        },
+        "Tk.Toolkit.Cli.Waffle.IPhraseProvider Tk.Toolkit.Cli.Waffle.GenContext::get_Phrases()": {
+          "Lines": {
+            "18": 2113534
+          },
+          "Branches": []
+        },
+        "System.Void Tk.Toolkit.Cli.Waffle.GenContext::.ctor(Tk.Toolkit.Cli.Waffle.IRng,Tk.Toolkit.Cli.Waffle.IPhraseProvider)": {
+          "Lines": {
+            "5": 13100,
+            "6": 13100,
+            "7": 13100,
+            "8": 13100,
+            "9": 13100
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\repos\\tonycknight\\tktk-cli\\src\\Tk.Toolkit.Cli\\Waffle\\PhraseProvider.cs": {
+      "Tk.Toolkit.Cli.Waffle.PhraseProvider": {
+        "System.String[] Tk.Toolkit.Cli.Waffle.PhraseProvider::GetPhrases(Tk.Toolkit.Cli.Waffle.PhraseKind)": {
+          "Lines": {
+            "588": 2113634,
+            "589": 2113634,
+            "590": 2113634,
+            "591": 40493,
+            "592": 9751,
+            "593": 9748,
+            "594": 106565,
+            "595": 26595,
+            "596": 140856,
+            "597": 138652,
+            "598": 107581,
+            "599": 327631,
+            "600": 96041,
+            "601": 75241,
+            "602": 88341,
+            "603": 3304,
+            "604": 6621,
+            "605": 134874,
+            "606": 197676,
+            "607": 258715,
+            "608": 238893,
+            "609": 106056,
+            "610": 0,
+            "611": 2113634,
+            "612": 2113634
+          },
+          "Branches": [
+            {
+              "Line": 589,
+              "Offset": 6,
+              "EndOffset": 92,
+              "Path": 6,
+              "Ordinal": 6,
+              "Hits": 40493
+            },
+            {
+              "Line": 589,
+              "Offset": 6,
+              "EndOffset": 103,
+              "Path": 14,
+              "Ordinal": 14,
+              "Hits": 9751
+            },
+            {
+              "Line": 589,
+              "Offset": 6,
+              "EndOffset": 114,
+              "Path": 15,
+              "Ordinal": 15,
+              "Hits": 9748
+            },
+            {
+              "Line": 589,
+              "Offset": 6,
+              "EndOffset": 125,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 106565
+            },
+            {
+              "Line": 589,
+              "Offset": 6,
+              "EndOffset": 136,
+              "Path": 7,
+              "Ordinal": 7,
+              "Hits": 26595
+            },
+            {
+              "Line": 589,
+              "Offset": 6,
+              "EndOffset": 144,
+              "Path": 5,
+              "Ordinal": 5,
+              "Hits": 140856
+            },
+            {
+              "Line": 589,
+              "Offset": 6,
+              "EndOffset": 152,
+              "Path": 3,
+              "Ordinal": 3,
+              "Hits": 138652
+            },
+            {
+              "Line": 589,
+              "Offset": 6,
+              "EndOffset": 160,
+              "Path": 13,
+              "Ordinal": 13,
+              "Hits": 107581
+            },
+            {
+              "Line": 589,
+              "Offset": 6,
+              "EndOffset": 168,
+              "Path": 16,
+              "Ordinal": 16,
+              "Hits": 327631
+            },
+            {
+              "Line": 589,
+              "Offset": 6,
+              "EndOffset": 176,
+              "Path": 11,
+              "Ordinal": 11,
+              "Hits": 96041
+            },
+            {
+              "Line": 589,
+              "Offset": 6,
+              "EndOffset": 184,
+              "Path": 18,
+              "Ordinal": 18,
+              "Hits": 75241
+            },
+            {
+              "Line": 589,
+              "Offset": 6,
+              "EndOffset": 192,
+              "Path": 19,
+              "Ordinal": 19,
+              "Hits": 88341
+            },
+            {
+              "Line": 589,
+              "Offset": 6,
+              "EndOffset": 200,
+              "Path": 17,
+              "Ordinal": 17,
+              "Hits": 3304
+            },
+            {
+              "Line": 589,
+              "Offset": 6,
+              "EndOffset": 208,
+              "Path": 2,
+              "Ordinal": 2,
+              "Hits": 6621
+            },
+            {
+              "Line": 589,
+              "Offset": 6,
+              "EndOffset": 216,
+              "Path": 4,
+              "Ordinal": 4,
+              "Hits": 134874
+            },
+            {
+              "Line": 589,
+              "Offset": 6,
+              "EndOffset": 224,
+              "Path": 8,
+              "Ordinal": 8,
+              "Hits": 197676
+            },
+            {
+              "Line": 589,
+              "Offset": 6,
+              "EndOffset": 232,
+              "Path": 9,
+              "Ordinal": 9,
+              "Hits": 258715
+            },
+            {
+              "Line": 589,
+              "Offset": 6,
+              "EndOffset": 240,
+              "Path": 10,
+              "Ordinal": 10,
+              "Hits": 238893
+            },
+            {
+              "Line": 589,
+              "Offset": 6,
+              "EndOffset": 248,
+              "Path": 12,
+              "Ordinal": 12,
+              "Hits": 106056
+            },
+            {
+              "Line": 589,
+              "Offset": 6,
+              "EndOffset": 256,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void Tk.Toolkit.Cli.Waffle.PhraseProvider::.cctor()": {
+          "Lines": {
+            "5": 1,
+            "6": 1,
+            "7": 1,
+            "8": 1,
+            "9": 1,
+            "10": 1,
+            "11": 1,
+            "12": 1,
+            "13": 1,
+            "14": 1,
+            "15": 1,
+            "16": 1,
+            "17": 1,
+            "18": 1,
+            "19": 1,
+            "20": 1,
+            "21": 1,
+            "22": 1,
+            "23": 1,
+            "24": 1,
+            "25": 1,
+            "26": 1,
+            "27": 1,
+            "28": 1,
+            "29": 1,
+            "30": 1,
+            "31": 1,
+            "32": 1,
+            "33": 1,
+            "34": 1,
+            "35": 1,
+            "36": 1,
+            "37": 1,
+            "38": 1,
+            "39": 1,
+            "40": 1,
+            "41": 1,
+            "42": 1,
+            "43": 1,
+            "44": 1,
+            "45": 1,
+            "46": 1,
+            "47": 1,
+            "48": 1,
+            "49": 1,
+            "50": 1,
+            "51": 1,
+            "52": 1,
+            "53": 1,
+            "54": 1,
+            "55": 1,
+            "56": 1,
+            "57": 1,
+            "58": 1,
+            "59": 1,
+            "60": 1,
+            "61": 1,
+            "62": 1,
+            "63": 1,
+            "64": 1,
+            "65": 1,
+            "66": 1,
+            "67": 1,
+            "68": 1,
+            "69": 1,
+            "70": 1,
+            "71": 1,
+            "72": 1,
+            "73": 1,
+            "74": 1,
+            "75": 1,
+            "76": 1,
+            "77": 1,
+            "78": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "83": 1,
+            "84": 1,
+            "85": 1,
+            "86": 1,
+            "87": 1,
+            "88": 1,
+            "89": 1,
+            "90": 1,
+            "91": 1,
+            "92": 1,
+            "93": 1,
+            "94": 1,
+            "95": 1,
+            "96": 1,
+            "97": 1,
+            "98": 1,
+            "99": 1,
+            "100": 1,
+            "101": 1,
+            "102": 1,
+            "103": 1,
+            "104": 1,
+            "105": 1,
+            "106": 1,
+            "107": 1,
+            "108": 1,
+            "109": 1,
+            "110": 1,
+            "111": 1,
+            "112": 1,
+            "113": 1,
+            "114": 1,
+            "115": 1,
+            "116": 1,
+            "117": 1,
+            "118": 1,
+            "119": 1,
+            "120": 1,
+            "121": 1,
+            "122": 1,
+            "123": 1,
+            "124": 1,
+            "125": 1,
+            "126": 1,
+            "127": 1,
+            "129": 1,
+            "130": 1,
+            "131": 1,
+            "132": 1,
+            "134": 1,
+            "135": 1,
+            "136": 1,
+            "137": 1,
+            "138": 1,
+            "139": 1,
+            "140": 1,
+            "141": 1,
+            "142": 1,
+            "143": 1,
+            "144": 1,
+            "145": 1,
+            "146": 1,
+            "147": 1,
+            "148": 1,
+            "149": 1,
+            "150": 1,
+            "151": 1,
+            "152": 1,
+            "153": 1,
+            "154": 1,
+            "155": 1,
+            "156": 1,
+            "157": 1,
+            "158": 1,
+            "159": 1,
+            "160": 1,
+            "161": 1,
+            "162": 1,
+            "163": 1,
+            "164": 1,
+            "165": 1,
+            "166": 1,
+            "167": 1,
+            "168": 1,
+            "169": 1,
+            "170": 1,
+            "171": 1,
+            "172": 1,
+            "173": 1,
+            "174": 1,
+            "175": 1,
+            "176": 1,
+            "177": 1,
+            "178": 1,
+            "179": 1,
+            "180": 1,
+            "181": 1,
+            "182": 1,
+            "183": 1,
+            "184": 1,
+            "185": 1,
+            "186": 1,
+            "187": 1,
+            "188": 1,
+            "189": 1,
+            "190": 1,
+            "191": 1,
+            "192": 1,
+            "193": 1,
+            "194": 1,
+            "195": 1,
+            "197": 1,
+            "198": 1,
+            "199": 1,
+            "200": 1,
+            "201": 1,
+            "202": 1,
+            "203": 1,
+            "204": 1,
+            "205": 1,
+            "206": 1,
+            "207": 1,
+            "208": 1,
+            "209": 1,
+            "210": 1,
+            "211": 1,
+            "212": 1,
+            "213": 1,
+            "214": 1,
+            "215": 1,
+            "216": 1,
+            "217": 1,
+            "218": 1,
+            "219": 1,
+            "220": 1,
+            "221": 1,
+            "222": 1,
+            "223": 1,
+            "224": 1,
+            "225": 1,
+            "226": 1,
+            "227": 1,
+            "228": 1,
+            "229": 1,
+            "230": 1,
+            "231": 1,
+            "232": 1,
+            "233": 1,
+            "234": 1,
+            "235": 1,
+            "236": 1,
+            "237": 1,
+            "238": 1,
+            "239": 1,
+            "240": 1,
+            "241": 1,
+            "242": 1,
+            "243": 1,
+            "244": 1,
+            "245": 1,
+            "246": 1,
+            "247": 1,
+            "248": 1,
+            "249": 1,
+            "250": 1,
+            "251": 1,
+            "252": 1,
+            "253": 1,
+            "254": 1,
+            "255": 1,
+            "256": 1,
+            "257": 1,
+            "258": 1,
+            "259": 1,
+            "260": 1,
+            "261": 1,
+            "262": 1,
+            "263": 1,
+            "264": 1,
+            "265": 1,
+            "266": 1,
+            "267": 1,
+            "268": 1,
+            "269": 1,
+            "270": 1,
+            "271": 1,
+            "272": 1,
+            "273": 1,
+            "274": 1,
+            "275": 1,
+            "276": 1,
+            "277": 1,
+            "278": 1,
+            "279": 1,
+            "280": 1,
+            "281": 1,
+            "282": 1,
+            "283": 1,
+            "284": 1,
+            "285": 1,
+            "286": 1,
+            "287": 1,
+            "288": 1,
+            "289": 1,
+            "290": 1,
+            "291": 1,
+            "292": 1,
+            "293": 1,
+            "294": 1,
+            "295": 1,
+            "297": 1,
+            "298": 1,
+            "299": 1,
+            "300": 1,
+            "301": 1,
+            "302": 1,
+            "303": 1,
+            "304": 1,
+            "305": 1,
+            "306": 1,
+            "307": 1,
+            "308": 1,
+            "309": 1,
+            "310": 1,
+            "311": 1,
+            "312": 1,
+            "313": 1,
+            "314": 1,
+            "315": 1,
+            "316": 1,
+            "317": 1,
+            "318": 1,
+            "319": 1,
+            "320": 1,
+            "321": 1,
+            "322": 1,
+            "323": 1,
+            "324": 1,
+            "325": 1,
+            "326": 1,
+            "327": 1,
+            "328": 1,
+            "329": 1,
+            "330": 1,
+            "331": 1,
+            "332": 1,
+            "333": 1,
+            "334": 1,
+            "335": 1,
+            "337": 1,
+            "338": 1,
+            "339": 1,
+            "340": 1,
+            "341": 1,
+            "342": 1,
+            "343": 1,
+            "344": 1,
+            "345": 1,
+            "346": 1,
+            "347": 1,
+            "349": 1,
+            "350": 1,
+            "351": 1,
+            "352": 1,
+            "353": 1,
+            "354": 1,
+            "355": 1,
+            "356": 1,
+            "357": 1,
+            "358": 1,
+            "359": 1,
+            "360": 1,
+            "361": 1,
+            "362": 1,
+            "363": 1,
+            "364": 1,
+            "365": 1,
+            "366": 1,
+            "367": 1,
+            "369": 1,
+            "370": 1,
+            "371": 1,
+            "372": 1,
+            "373": 1,
+            "374": 1,
+            "375": 1,
+            "376": 1,
+            "377": 1,
+            "378": 1,
+            "379": 1,
+            "380": 1,
+            "381": 1,
+            "382": 1,
+            "383": 1,
+            "384": 1,
+            "385": 1,
+            "386": 1,
+            "387": 1,
+            "388": 1,
+            "389": 1,
+            "390": 1,
+            "392": 1,
+            "393": 1,
+            "394": 1,
+            "395": 1,
+            "396": 1,
+            "397": 1,
+            "398": 1,
+            "399": 1,
+            "400": 1,
+            "401": 1,
+            "402": 1,
+            "403": 1,
+            "404": 1,
+            "405": 1,
+            "406": 1,
+            "407": 1,
+            "408": 1,
+            "409": 1,
+            "410": 1,
+            "411": 1,
+            "412": 1,
+            "413": 1,
+            "414": 1,
+            "415": 1,
+            "416": 1,
+            "417": 1,
+            "418": 1,
+            "419": 1,
+            "420": 1,
+            "421": 1,
+            "422": 1,
+            "423": 1,
+            "424": 1,
+            "425": 1,
+            "426": 1,
+            "427": 1,
+            "428": 1,
+            "429": 1,
+            "430": 1,
+            "431": 1,
+            "432": 1,
+            "434": 1,
+            "435": 1,
+            "436": 1,
+            "437": 1,
+            "438": 1,
+            "439": 1,
+            "440": 1,
+            "441": 1,
+            "442": 1,
+            "443": 1,
+            "444": 1,
+            "445": 1,
+            "446": 1,
+            "447": 1,
+            "448": 1,
+            "449": 1,
+            "450": 1,
+            "451": 1,
+            "452": 1,
+            "453": 1,
+            "455": 1,
+            "456": 1,
+            "457": 1,
+            "458": 1,
+            "459": 1,
+            "460": 1,
+            "461": 1,
+            "462": 1,
+            "463": 1,
+            "464": 1,
+            "465": 1,
+            "466": 1,
+            "467": 1,
+            "468": 1,
+            "469": 1,
+            "470": 1,
+            "471": 1,
+            "472": 1,
+            "473": 1,
+            "474": 1,
+            "475": 1,
+            "476": 1,
+            "477": 1,
+            "478": 1,
+            "479": 1,
+            "480": 1,
+            "481": 1,
+            "482": 1,
+            "483": 1,
+            "484": 1,
+            "485": 1,
+            "486": 1,
+            "487": 1,
+            "488": 1,
+            "489": 1,
+            "490": 1,
+            "491": 1,
+            "492": 1,
+            "493": 1,
+            "494": 1,
+            "495": 1,
+            "496": 1,
+            "497": 1,
+            "498": 1,
+            "499": 1,
+            "500": 1,
+            "501": 1,
+            "502": 1,
+            "503": 1,
+            "504": 1,
+            "505": 1,
+            "506": 1,
+            "508": 1,
+            "509": 1,
+            "510": 1,
+            "511": 1,
+            "512": 1,
+            "513": 1,
+            "514": 1,
+            "515": 1,
+            "516": 1,
+            "517": 1,
+            "518": 1,
+            "519": 1,
+            "520": 1,
+            "521": 1,
+            "522": 1,
+            "523": 1,
+            "524": 1,
+            "525": 1,
+            "526": 1,
+            "528": 1,
+            "529": 1,
+            "530": 1,
+            "531": 1,
+            "532": 1,
+            "533": 1,
+            "534": 1,
+            "535": 1,
+            "536": 1,
+            "537": 1,
+            "538": 1,
+            "539": 1,
+            "540": 1,
+            "541": 1,
+            "542": 1,
+            "543": 1,
+            "544": 1,
+            "546": 1,
+            "547": 1,
+            "548": 1,
+            "549": 1,
+            "550": 1,
+            "551": 1,
+            "553": 1,
+            "554": 1,
+            "555": 1,
+            "556": 1,
+            "557": 1,
+            "558": 1,
+            "559": 1,
+            "561": 1,
+            "562": 1,
+            "563": 1,
+            "564": 1,
+            "565": 1,
+            "566": 1,
+            "567": 1,
+            "568": 1,
+            "569": 1,
+            "570": 1,
+            "572": 1,
+            "573": 1,
+            "574": 1,
+            "575": 1,
+            "577": 1,
+            "578": 1,
+            "579": 1,
+            "580": 1,
+            "582": 1,
+            "583": 1,
+            "584": 1,
+            "585": 1
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\repos\\tonycknight\\tktk-cli\\src\\Tk.Toolkit.Cli\\Waffle\\RenderingExtensions.cs": {
+      "Tk.Toolkit.Cli.Waffle.RenderingExtensions": {
+        "System.String Tk.Toolkit.Cli.Waffle.RenderingExtensions::Render(System.String,Tk.Toolkit.Cli.Waffle.RenderMode)": {
+          "Lines": {
+            "17": 2205427,
+            "18": 2205427,
+            "19": 2205427,
+            "20": 108065923,
+            "21": 50724821,
+            "22": 50724821,
+            "23": 50724821,
+            "25": 2205427,
+            "26": 2205427
+          },
+          "Branches": [
+            {
+              "Line": 20,
+              "Offset": 59,
+              "EndOffset": 20,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 50724821
+            },
+            {
+              "Line": 20,
+              "Offset": 59,
+              "EndOffset": 61,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 2205427
+            }
+          ]
+        },
+        "System.Collections.Generic.Dictionary`2<System.String,System.String> Tk.Toolkit.Cli.Waffle.RenderingExtensions::GetRenderMap(Tk.Toolkit.Cli.Waffle.RenderMode)": {
+          "Lines": {
+            "28": 2205427,
+            "29": 2205427,
+            "30": 587290,
+            "31": 692875,
+            "32": 925262,
+            "33": 2205427
+          },
+          "Branches": [
+            {
+              "Line": 28,
+              "Offset": 6,
+              "EndOffset": 10,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1618137
+            },
+            {
+              "Line": 28,
+              "Offset": 6,
+              "EndOffset": 16,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 587290
+            },
+            {
+              "Line": 28,
+              "Offset": 12,
+              "EndOffset": 24,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 692875
+            },
+            {
+              "Line": 28,
+              "Offset": 12,
+              "EndOffset": 32,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 925262
+            }
+          ]
+        },
+        "System.Collections.Generic.Dictionary`2<System.String,System.String> Tk.Toolkit.Cli.Waffle.RenderingExtensions::MarkdownTranslation()": {
+          "Lines": {
+            "36": 1,
+            "37": 1,
+            "38": 1,
+            "39": 1,
+            "40": 1,
+            "41": 1,
+            "42": 1,
+            "43": 1,
+            "44": 1,
+            "45": 1,
+            "46": 1,
+            "47": 1,
+            "48": 1,
+            "49": 1,
+            "50": 1,
+            "51": 1,
+            "52": 1,
+            "53": 1,
+            "54": 1,
+            "55": 1,
+            "56": 1,
+            "57": 1,
+            "58": 1,
+            "59": 1,
+            "60": 1,
+            "61": 1
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.Dictionary`2<System.String,System.String> Tk.Toolkit.Cli.Waffle.RenderingExtensions::HtmlTranslation()": {
+          "Lines": {
+            "64": 1,
+            "65": 1,
+            "66": 1,
+            "67": 1,
+            "68": 1,
+            "69": 1,
+            "70": 1,
+            "71": 1,
+            "72": 1,
+            "73": 1,
+            "74": 1,
+            "75": 1,
+            "76": 1,
+            "77": 1,
+            "78": 1,
+            "79": 1,
+            "80": 1,
+            "81": 1,
+            "82": 1,
+            "83": 1,
+            "84": 1,
+            "85": 1,
+            "86": 1,
+            "87": 1,
+            "88": 1,
+            "89": 1
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.Dictionary`2<System.String,System.String> Tk.Toolkit.Cli.Waffle.RenderingExtensions::TextTranslation()": {
+          "Lines": {
+            "92": 1,
+            "93": 1,
+            "94": 1,
+            "95": 1,
+            "96": 1,
+            "97": 1,
+            "98": 1,
+            "99": 1,
+            "100": 1,
+            "101": 1,
+            "102": 1,
+            "103": 1,
+            "104": 1,
+            "105": 1,
+            "106": 1,
+            "107": 1,
+            "108": 1,
+            "109": 1,
+            "110": 1,
+            "111": 1,
+            "112": 1,
+            "113": 1,
+            "114": 1,
+            "115": 1,
+            "116": 1,
+            "117": 1
+          },
+          "Branches": []
+        },
+        "System.Void Tk.Toolkit.Cli.Waffle.RenderingExtensions::.cctor()": {
+          "Lines": {
+            "12": 1,
+            "13": 1,
+            "14": 1
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\repos\\tonycknight\\tktk-cli\\src\\Tk.Toolkit.Cli\\Waffle\\Rng.cs": {
+      "Tk.Toolkit.Cli.Waffle.Rng": {
+        "System.Int32 Tk.Toolkit.Cli.Waffle.Rng::Pick(System.Int32)": {
+          "Lines": {
+            "17": 2063050
+          },
+          "Branches": []
+        },
+        "System.String Tk.Toolkit.Cli.Waffle.Rng::Pick(System.Collections.Generic.IList`1<System.String>)": {
+          "Lines": {
+            "19": 2056934
+          },
+          "Branches": []
+        },
+        "System.DateTime Tk.Toolkit.Cli.Waffle.Rng::PickDate()": {
+          "Lines": {
+            "21": 6116
+          },
+          "Branches": []
+        },
+        "System.Void Tk.Toolkit.Cli.Waffle.Rng::.ctor()": {
+          "Lines": {
+            "13": 0
+          },
+          "Branches": []
+        },
+        "System.Void Tk.Toolkit.Cli.Waffle.Rng::.ctor(System.Int32)": {
+          "Lines": {
+            "15": 24200
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\repos\\tonycknight\\tktk-cli\\src\\Tk.Toolkit.Cli\\Waffle\\WaffleGenerator.cs": {
+      "Tk.Toolkit.Cli.Waffle.WaffleGenerator": {
+        "System.Text.StringBuilder Tk.Toolkit.Cli.Waffle.WaffleGenerator::Generate(System.Int32,System.Boolean,Tk.Toolkit.Cli.Waffle.RenderMode)": {
+          "Lines": {
+            "14": 13100,
+            "15": 13100,
+            "16": 13100,
+            "17": 13100,
+            "18": 13100,
+            "19": 13100,
+            "21": 13100,
+            "22": 6620,
+            "23": 6620,
+            "25": 6620,
+            "26": 6620,
+            "27": 6620,
+            "29": 6620,
+            "30": 6620,
+            "31": 6620,
+            "32": 6620,
+            "33": 6620,
+            "34": 6620,
+            "35": 6620,
+            "36": 6620,
+            "39": 202876,
+            "40": 88338,
+            "41": 88338,
+            "42": 75238,
+            "43": 75238,
+            "44": 75238,
+            "46": 88338,
+            "47": 88338,
+            "48": 88338,
+            "50": 13100,
+            "51": 13100
+          },
+          "Branches": [
+            {
+              "Line": 21,
+              "Offset": 35,
+              "EndOffset": 40,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 6620
+            },
+            {
+              "Line": 21,
+              "Offset": 35,
+              "EndOffset": 229,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 13100
+            },
+            {
+              "Line": 39,
+              "Offset": 317,
+              "EndOffset": 234,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 88338
+            },
+            {
+              "Line": 41,
+              "Offset": 244,
+              "EndOffset": 246,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 75238
+            },
+            {
+              "Line": 41,
+              "Offset": 244,
+              "EndOffset": 269,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 88338
+            },
+            {
+              "Line": 39,
+              "Offset": 317,
+              "EndOffset": 319,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 13100
+            }
+          ]
+        },
+        "System.Void Tk.Toolkit.Cli.Waffle.WaffleGenerator::.ctor(Tk.Toolkit.Cli.Waffle.IRng)": {
+          "Lines": {
+            "9": 26200
+          },
+          "Branches": []
+        },
+        "System.Void Tk.Toolkit.Cli.Waffle.WaffleGenerator::.ctor()": {
+          "Lines": {
+            "11": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\repos\\tonycknight\\tktk-cli\\src\\Tk.Toolkit.Cli\\Waffle\\WaffleGeneratorExtensions.cs": {
+      "Tk.Toolkit.Cli.Waffle.WaffleGeneratorExtensions": {
+        "System.String Tk.Toolkit.Cli.Waffle.WaffleGeneratorExtensions::TitleCaseWords(System.String)": {
+          "Lines": {
+            "7": 38494
+          },
+          "Branches": []
+        },
+        "System.Text.StringBuilder Tk.Toolkit.Cli.Waffle.WaffleGeneratorExtensions::EvaluatePhrase(System.Text.StringBuilder,Tk.Toolkit.Cli.Waffle.GenContext,System.String)": {
+          "Lines": {
+            "10": 2225052,
+            "11": 68027702,
+            "12": 31788799,
+            "13": 31788799,
+            "14": 1987992,
+            "15": 1987992,
+            "17": 1987992,
+            "18": 1987992,
+            "20": 1987992,
+            "21": 31874,
+            "22": 31874,
+            "23": 31874,
+            "24": 31874,
+            "25": 31874,
+            "27": 1987992,
+            "30": 1650,
+            "31": 1650,
+            "33": 327620,
+            "34": 327620,
+            "36": 26587,
+            "37": 26587,
+            "39": 40491,
+            "40": 40491,
+            "42": 9744,
+            "43": 9744,
+            "45": 9744,
+            "46": 9744,
+            "48": 107576,
+            "49": 107576,
+            "51": 6620,
+            "52": 6620,
+            "54": 106051,
+            "55": 106051,
+            "57": 106563,
+            "58": 106563,
+            "60": 138650,
+            "61": 138650,
+            "63": 134866,
+            "64": 134866,
+            "66": 140852,
+            "67": 140852,
+            "69": 197670,
+            "70": 197670,
+            "72": 258707,
+            "73": 258707,
+            "75": 238887,
+            "76": 238887,
+            "78": 96030,
+            "79": 96030,
+            "81": 9480,
+            "82": 9480,
+            "84": 23584,
+            "85": 23584,
+            "87": 6620,
+            "88": 6620,
+            "91": 1987992,
+            "92": 31874,
+            "93": 31874,
+            "94": 31874,
+            "95": 1987992,
+            "97": 29800807,
+            "98": 29800807,
+            "99": 29800807,
+            "100": 31788799,
+            "101": 2225052,
+            "102": 2225052
+          },
+          "Branches": [
+            {
+              "Line": 11,
+              "Offset": 811,
+              "EndOffset": 8,
+              "Path": 1,
+              "Ordinal": 45,
+              "Hits": 31788799
+            },
+            {
+              "Line": 13,
+              "Offset": 18,
+              "EndOffset": 20,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1987992
+            },
+            {
+              "Line": 13,
+              "Offset": 18,
+              "EndOffset": 33,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 29800807
+            },
+            {
+              "Line": 13,
+              "Offset": 36,
+              "EndOffset": 41,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 1987992
+            },
+            {
+              "Line": 20,
+              "Offset": 59,
+              "EndOffset": 61,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 31874
+            },
+            {
+              "Line": 20,
+              "Offset": 59,
+              "EndOffset": 74,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 1956118
+            },
+            {
+              "Line": 20,
+              "Offset": 79,
+              "EndOffset": 81,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 31874
+            },
+            {
+              "Line": 20,
+              "Offset": 79,
+              "EndOffset": 95,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 1987992
+            },
+            {
+              "Line": 27,
+              "Offset": 112,
+              "EndOffset": 114,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 1312225
+            },
+            {
+              "Line": 27,
+              "Offset": 119,
+              "EndOffset": 142,
+              "Path": 0,
+              "Ordinal": 10,
+              "Hits": 520931
+            },
+            {
+              "Line": 27,
+              "Offset": 112,
+              "EndOffset": 173,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 675767
+            },
+            {
+              "Line": 27,
+              "Offset": 178,
+              "EndOffset": 261,
+              "Path": 0,
+              "Ordinal": 20,
+              "Hits": 6620
+            },
+            {
+              "Line": 27,
+              "Offset": 178,
+              "EndOffset": 275,
+              "Path": 1,
+              "Ordinal": 21,
+              "Hits": 1650
+            },
+            {
+              "Line": 27,
+              "Offset": 178,
+              "EndOffset": 288,
+              "Path": 2,
+              "Ordinal": 22,
+              "Hits": 327620
+            },
+            {
+              "Line": 27,
+              "Offset": 178,
+              "EndOffset": 314,
+              "Path": 3,
+              "Ordinal": 23,
+              "Hits": 26587
+            },
+            {
+              "Line": 27,
+              "Offset": 178,
+              "EndOffset": 339,
+              "Path": 4,
+              "Ordinal": 24,
+              "Hits": 40491
+            },
+            {
+              "Line": 27,
+              "Offset": 178,
+              "EndOffset": 364,
+              "Path": 5,
+              "Ordinal": 25,
+              "Hits": 9744
+            },
+            {
+              "Line": 27,
+              "Offset": 178,
+              "EndOffset": 390,
+              "Path": 18,
+              "Ordinal": 38,
+              "Hits": 9744
+            },
+            {
+              "Line": 27,
+              "Offset": 178,
+              "EndOffset": 416,
+              "Path": 14,
+              "Ordinal": 34,
+              "Hits": 107576
+            },
+            {
+              "Line": 27,
+              "Offset": 265,
+              "EndOffset": 442,
+              "Path": 1,
+              "Ordinal": 41,
+              "Hits": 6620
+            },
+            {
+              "Line": 27,
+              "Offset": 178,
+              "EndOffset": 455,
+              "Path": 7,
+              "Ordinal": 27,
+              "Hits": 106051
+            },
+            {
+              "Line": 27,
+              "Offset": 147,
+              "EndOffset": 481,
+              "Path": 1,
+              "Ordinal": 16,
+              "Hits": 106563
+            },
+            {
+              "Line": 27,
+              "Offset": 147,
+              "EndOffset": 506,
+              "Path": 2,
+              "Ordinal": 17,
+              "Hits": 138650
+            },
+            {
+              "Line": 27,
+              "Offset": 147,
+              "EndOffset": 531,
+              "Path": 3,
+              "Ordinal": 18,
+              "Hits": 134866
+            },
+            {
+              "Line": 27,
+              "Offset": 147,
+              "EndOffset": 556,
+              "Path": 4,
+              "Ordinal": 19,
+              "Hits": 140852
+            },
+            {
+              "Line": 27,
+              "Offset": 119,
+              "EndOffset": 581,
+              "Path": 1,
+              "Ordinal": 11,
+              "Hits": 197670
+            },
+            {
+              "Line": 27,
+              "Offset": 119,
+              "EndOffset": 606,
+              "Path": 2,
+              "Ordinal": 12,
+              "Hits": 258707
+            },
+            {
+              "Line": 27,
+              "Offset": 119,
+              "EndOffset": 628,
+              "Path": 3,
+              "Ordinal": 13,
+              "Hits": 238887
+            },
+            {
+              "Line": 27,
+              "Offset": 119,
+              "EndOffset": 651,
+              "Path": 4,
+              "Ordinal": 14,
+              "Hits": 96030
+            },
+            {
+              "Line": 27,
+              "Offset": 178,
+              "EndOffset": 674,
+              "Path": 19,
+              "Ordinal": 39,
+              "Hits": 9480
+            },
+            {
+              "Line": 27,
+              "Offset": 178,
+              "EndOffset": 689,
+              "Path": 13,
+              "Ordinal": 33,
+              "Hits": 23584
+            },
+            {
+              "Line": 27,
+              "Offset": 178,
+              "EndOffset": 714,
+              "Path": 15,
+              "Ordinal": 35,
+              "Hits": 6620
+            },
+            {
+              "Line": 27,
+              "Offset": 147,
+              "EndOffset": 736,
+              "Path": 0,
+              "Ordinal": 15,
+              "Hits": 1987992
+            },
+            {
+              "Line": 27,
+              "Offset": 178,
+              "EndOffset": 736,
+              "Path": 6,
+              "Ordinal": 26,
+              "Hits": 1987992
+            },
+            {
+              "Line": 27,
+              "Offset": 178,
+              "EndOffset": 736,
+              "Path": 8,
+              "Ordinal": 28,
+              "Hits": 1987992
+            },
+            {
+              "Line": 27,
+              "Offset": 178,
+              "EndOffset": 736,
+              "Path": 9,
+              "Ordinal": 29,
+              "Hits": 1987992
+            },
+            {
+              "Line": 27,
+              "Offset": 178,
+              "EndOffset": 736,
+              "Path": 10,
+              "Ordinal": 30,
+              "Hits": 1987992
+            },
+            {
+              "Line": 27,
+              "Offset": 178,
+              "EndOffset": 736,
+              "Path": 11,
+              "Ordinal": 31,
+              "Hits": 1987992
+            },
+            {
+              "Line": 27,
+              "Offset": 178,
+              "EndOffset": 736,
+              "Path": 12,
+              "Ordinal": 32,
+              "Hits": 1987992
+            },
+            {
+              "Line": 27,
+              "Offset": 178,
+              "EndOffset": 736,
+              "Path": 16,
+              "Ordinal": 36,
+              "Hits": 1987992
+            },
+            {
+              "Line": 27,
+              "Offset": 178,
+              "EndOffset": 736,
+              "Path": 17,
+              "Ordinal": 37,
+              "Hits": 1987992
+            },
+            {
+              "Line": 27,
+              "Offset": 265,
+              "EndOffset": 736,
+              "Path": 0,
+              "Ordinal": 40,
+              "Hits": 1987992
+            },
+            {
+              "Line": 91,
+              "Offset": 741,
+              "EndOffset": 743,
+              "Path": 0,
+              "Ordinal": 42,
+              "Hits": 31874
+            },
+            {
+              "Line": 91,
+              "Offset": 741,
+              "EndOffset": 774,
+              "Path": 1,
+              "Ordinal": 43,
+              "Hits": 1987992
+            },
+            {
+              "Line": 13,
+              "Offset": 36,
+              "EndOffset": 777,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 29800807
+            },
+            {
+              "Line": 11,
+              "Offset": 811,
+              "EndOffset": 816,
+              "Path": 0,
+              "Ordinal": 44,
+              "Hits": 2225052
+            }
+          ]
+        },
+        "System.Text.StringBuilder Tk.Toolkit.Cli.Waffle.WaffleGeneratorExtensions::EvaluateRandomPhrase(System.Text.StringBuilder,Tk.Toolkit.Cli.Waffle.GenContext,System.String[])": {
+          "Lines": {
+            "105": 2110234,
+            "106": 2110234,
+            "108": 2110234,
+            "109": 2110234
+          },
+          "Branches": []
+        },
+        "System.Text.StringBuilder Tk.Toolkit.Cli.Waffle.WaffleGeneratorExtensions::EvaluateOrdinalSequence(System.Text.StringBuilder,Tk.Toolkit.Cli.Waffle.GenContext)": {
+          "Lines": {
+            "112": 1650,
+            "113": 1650,
+            "114": 0,
+            "115": 0,
+            "116": 0,
+            "118": 1650,
+            "120": 1650,
+            "121": 1650
+          },
+          "Branches": [
+            {
+              "Line": 113,
+              "Offset": 29,
+              "EndOffset": 31,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 113,
+              "Offset": 29,
+              "EndOffset": 41,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1650
+            }
+          ]
+        },
+        "System.Text.StringBuilder Tk.Toolkit.Cli.Waffle.WaffleGeneratorExtensions::AppendRandomYear(System.Text.StringBuilder,Tk.Toolkit.Cli.Waffle.GenContext)": {
+          "Lines": {
+            "124": 6620,
+            "125": 6620,
+            "126": 6620,
+            "127": 6620
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\repos\\tonycknight\\tktk-cli\\src\\Tk.Toolkit.Cli\\Passwords\\CryptoPasswordGenerator.cs": {
+      "Tk.Toolkit.Cli.Passwords.CryptoPasswordGenerator": {
+        "System.String Tk.Toolkit.Cli.Passwords.CryptoPasswordGenerator::Generate(System.Int32)": {
+          "Lines": {
+            "9": 220
+          },
+          "Branches": []
+        },
+        "System.String Tk.Toolkit.Cli.Passwords.CryptoPasswordGenerator::GenerateRandomPassword(System.Int32)": {
+          "Lines": {
+            "12": 220,
+            "13": 220,
+            "14": 5641,
+            "15": 5641,
+            "16": 220,
+            "18": 220,
+            "19": 220
+          },
+          "Branches": []
+        },
+        "System.Void Tk.Toolkit.Cli.Passwords.CryptoPasswordGenerator::.ctor()": {
+          "Lines": {
+            "7": 208
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\repos\\tonycknight\\tktk-cli\\src\\Tk.Toolkit.Cli\\Jwts\\JwtParser.cs": {
+      "Tk.Toolkit.Cli.Jwts.JwtParser": {
+        "System.Collections.Generic.IEnumerable`1<System.ValueTuple`2<System.String,System.String>> Tk.Toolkit.Cli.Jwts.JwtParser::Parse(System.String)": {
+          "Lines": {
+            "8": 300,
+            "9": 300,
+            "11": 200,
+            "12": 200
+          },
+          "Branches": []
+        },
+        "System.IdentityModel.Tokens.Jwt.JwtSecurityToken Tk.Toolkit.Cli.Jwts.JwtParser::Decode(System.String)": {
+          "Lines": {
+            "15": 300,
+            "18": 300,
+            "19": 300,
+            "21": 300,
+            "22": 200
+          },
+          "Branches": [
+            {
+              "Line": 19,
+              "Offset": 15,
+              "EndOffset": 17,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 200
+            },
+            {
+              "Line": 19,
+              "Offset": 15,
+              "EndOffset": 20,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 100
+            }
+          ]
+        },
+        "System.Collections.Generic.IEnumerable`1<System.ValueTuple`2<System.String,System.String>> Tk.Toolkit.Cli.Jwts.JwtParser::Format(System.IdentityModel.Tokens.Jwt.JwtSecurityToken)": {
+          "Lines": {
+            "25": 200,
+            "26": 1200,
+            "27": 400,
+            "30": 200,
+            "31": 200,
+            "32": 200,
+            "33": 200,
+            "34": 200,
+            "35": 200,
+            "36": 200,
+            "37": 200,
+            "38": 200,
+            "39": 200,
+            "40": 200,
+            "41": 200,
+            "42": 2600,
+            "43": 2400,
+            "45": 200,
+            "46": 200
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\repos\\tonycknight\\tktk-cli\\src\\Tk.Toolkit.Cli\\Conversions\\NumericValue.cs": {
+      "Tk.Toolkit.Cli.Conversions.NumericValue": {
+        "System.String Tk.Toolkit.Cli.Conversions.NumericValue::get_Value()": {
+          "Lines": {
+            "7": 3401
+          },
+          "Branches": []
+        },
+        "System.Void Tk.Toolkit.Cli.Conversions.NumericValue::.ctor(System.String)": {
+          "Lines": {
+            "5": 6204
+          },
+          "Branches": []
+        }
+      },
+      "Tk.Toolkit.Cli.Conversions.DecimalValue": {
+        "System.String Tk.Toolkit.Cli.Conversions.DecimalValue::TrimValue()": {
+          "Lines": {
+            "16": 0
+          },
+          "Branches": []
+        },
+        "System.Void Tk.Toolkit.Cli.Conversions.DecimalValue::.ctor(System.String)": {
+          "Lines": {
+            "13": 1300,
+            "14": 1300,
+            "15": 1300
+          },
+          "Branches": []
+        }
+      },
+      "Tk.Toolkit.Cli.Conversions.HexadecimalValue": {
+        "System.String Tk.Toolkit.Cli.Conversions.HexadecimalValue::TrimValue()": {
+          "Lines": {
+            "26": 800
+          },
+          "Branches": []
+        },
+        "System.Void Tk.Toolkit.Cli.Conversions.HexadecimalValue::.ctor(System.String)": {
+          "Lines": {
+            "23": 901,
+            "24": 901,
+            "25": 901
+          },
+          "Branches": []
+        }
+      },
+      "Tk.Toolkit.Cli.Conversions.BinaryValue": {
+        "System.String Tk.Toolkit.Cli.Conversions.BinaryValue::TrimValue()": {
+          "Lines": {
+            "36": 400
+          },
+          "Branches": []
+        },
+        "System.Void Tk.Toolkit.Cli.Conversions.BinaryValue::.ctor(System.String)": {
+          "Lines": {
+            "33": 900,
+            "34": 900,
+            "35": 900
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\repos\\tonycknight\\tktk-cli\\src\\Tk.Toolkit.Cli\\Conversions\\NumericValueConverter.cs": {
+      "Tk.Toolkit.Cli.Conversions.NumericValueConverter": {
+        "System.Collections.Generic.IEnumerable`1<Tk.Toolkit.Cli.Conversions.NumericValue> Tk.Toolkit.Cli.Conversions.NumericValueConverter::Convert(Tk.Toolkit.Cli.Conversions.NumericValue)": {
+          "Lines": {
+            "8": 901,
+            "9": 901,
+            "10": 300,
+            "11": 300,
+            "12": 300,
+            "13": 300,
+            "14": 300,
+            "15": 300,
+            "17": 601,
+            "18": 400,
+            "19": 400,
+            "20": 400,
+            "21": 400,
+            "22": 400,
+            "23": 400,
+            "25": 201,
+            "26": 200,
+            "27": 200,
+            "28": 200,
+            "29": 200,
+            "30": 200,
+            "31": 200,
+            "33": 1,
+            "34": 900
+          },
+          "Branches": [
+            {
+              "Line": 9,
+              "Offset": 14,
+              "EndOffset": 16,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 300
+            },
+            {
+              "Line": 9,
+              "Offset": 14,
+              "EndOffset": 49,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 601
+            },
+            {
+              "Line": 17,
+              "Offset": 64,
+              "EndOffset": 66,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 400
+            },
+            {
+              "Line": 17,
+              "Offset": 64,
+              "EndOffset": 96,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 201
+            },
+            {
+              "Line": 25,
+              "Offset": 113,
+              "EndOffset": 115,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 200
+            },
+            {
+              "Line": 25,
+              "Offset": 113,
+              "EndOffset": 147,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 1
+            }
+          ]
+        },
+        "Tk.Toolkit.Cli.Conversions.NumericValue Tk.Toolkit.Cli.Conversions.NumericValueConverter::Parse(System.String)": {
+          "Lines": {
+            "37": 1001,
+            "39": 1001,
+            "40": 300,
+            "41": 300,
+            "45": 701,
+            "46": 400,
+            "47": 400,
+            "48": 400,
+            "49": 400,
+            "50": 400,
+            "52": 0,
+            "54": 301,
+            "55": 200,
+            "56": 200,
+            "58": 200,
+            "59": 200,
+            "60": 200,
+            "62": 0,
+            "63": 0,
+            "64": 0,
+            "65": 0,
+            "67": 101,
+            "69": 900
+          },
+          "Branches": [
+            {
+              "Line": 39,
+              "Offset": 13,
+              "EndOffset": 15,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 300
+            },
+            {
+              "Line": 39,
+              "Offset": 13,
+              "EndOffset": 34,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 701
+            },
+            {
+              "Line": 45,
+              "Offset": 48,
+              "EndOffset": 50,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 400
+            },
+            {
+              "Line": 48,
+              "Offset": 82,
+              "EndOffset": 84,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 400
+            },
+            {
+              "Line": 48,
+              "Offset": 82,
+              "EndOffset": 94,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 45,
+              "Offset": 48,
+              "EndOffset": 95,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 301
+            },
+            {
+              "Line": 54,
+              "Offset": 111,
+              "EndOffset": 113,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 200
+            },
+            {
+              "Line": 54,
+              "Offset": 111,
+              "EndOffset": 152,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 101
+            }
+          ]
+        },
+        "Tk.Toolkit.Cli.Conversions.NumericValue Tk.Toolkit.Cli.Conversions.NumericValueConverter::ConvertDecToHex(Tk.Toolkit.Cli.Conversions.DecimalValue)": {
+          "Lines": {
+            "71": 300
+          },
+          "Branches": []
+        },
+        "Tk.Toolkit.Cli.Conversions.NumericValue Tk.Toolkit.Cli.Conversions.NumericValueConverter::ConvertToDec(System.Int64)": {
+          "Lines": {
+            "73": 1000
+          },
+          "Branches": []
+        },
+        "Tk.Toolkit.Cli.Conversions.NumericValue Tk.Toolkit.Cli.Conversions.NumericValueConverter::ConvertToHex(System.Int64)": {
+          "Lines": {
+            "75": 500
+          },
+          "Branches": []
+        },
+        "Tk.Toolkit.Cli.Conversions.NumericValue Tk.Toolkit.Cli.Conversions.NumericValueConverter::ConvertToBin(System.Int64)": {
+          "Lines": {
+            "77": 700
+          },
+          "Branches": []
+        },
+        "Tk.Toolkit.Cli.Conversions.NumericValue Tk.Toolkit.Cli.Conversions.NumericValueConverter::ConvertHexToDec(Tk.Toolkit.Cli.Conversions.HexadecimalValue)": {
+          "Lines": {
+            "80": 400,
+            "81": 400,
+            "83": 400,
+            "84": 400
+          },
+          "Branches": []
+        },
+        "Tk.Toolkit.Cli.Conversions.NumericValue Tk.Toolkit.Cli.Conversions.NumericValueConverter::ConvertBinToHex(Tk.Toolkit.Cli.Conversions.BinaryValue)": {
+          "Lines": {
+            "87": 200,
+            "88": 200,
+            "90": 200,
+            "91": 200
+          },
+          "Branches": []
+        },
+        "Tk.Toolkit.Cli.Conversions.NumericValue Tk.Toolkit.Cli.Conversions.NumericValueConverter::ConvertBinToDec(Tk.Toolkit.Cli.Conversions.BinaryValue)": {
+          "Lines": {
+            "94": 200,
+            "95": 200,
+            "96": 200,
+            "97": 200
+          },
+          "Branches": []
+        },
+        "Tk.Toolkit.Cli.Conversions.NumericValue Tk.Toolkit.Cli.Conversions.NumericValueConverter::ConvertDecToBin(Tk.Toolkit.Cli.Conversions.DecimalValue)": {
+          "Lines": {
+            "99": 700
+          },
+          "Branches": []
+        },
+        "Tk.Toolkit.Cli.Conversions.NumericValue Tk.Toolkit.Cli.Conversions.NumericValueConverter::ConvertHexToBin(Tk.Toolkit.Cli.Conversions.HexadecimalValue)": {
+          "Lines": {
+            "102": 400,
+            "103": 400,
+            "104": 400,
+            "105": 400,
+            "106": 400
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\repos\\tonycknight\\tktk-cli\\src\\Tk.Toolkit.Cli\\Commands\\CommandExtensions.cs": {
+      "Tk.Toolkit.Cli.Commands.CommandExtensions": {
+        "System.Int32 Tk.Toolkit.Cli.Commands.CommandExtensions::ToReturnCode(System.Boolean)": {
+          "Lines": {
+            "8": 1725
+          },
+          "Branches": [
+            {
+              "Line": 8,
+              "Offset": 1,
+              "EndOffset": 3,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 113
+            },
+            {
+              "Line": 8,
+              "Offset": 1,
+              "EndOffset": 6,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1612
+            }
+          ]
+        }
+      }
+    },
+    "C:\\repos\\tonycknight\\tktk-cli\\src\\Tk.Toolkit.Cli\\Commands\\ConvertNumberCommand.cs": {
+      "Tk.Toolkit.Cli.Commands.ConvertNumberCommand": {
+        "System.String Tk.Toolkit.Cli.Commands.ConvertNumberCommand::get_Value()": {
+          "Lines": {
+            "20": 4
+          },
+          "Branches": []
+        },
+        "System.Int32 Tk.Toolkit.Cli.Commands.ConvertNumberCommand::OnExecute()": {
+          "Lines": {
+            "23": 2,
+            "25": 2,
+            "26": 2,
+            "27": 1,
+            "28": 1,
+            "29": 1,
+            "32": 1,
+            "34": 1,
+            "35": 1,
+            "36": 1,
+            "38": 1,
+            "40": 1,
+            "42": 0,
+            "43": 0,
+            "44": 0,
+            "45": 0,
+            "47": 2
+          },
+          "Branches": [
+            {
+              "Line": 26,
+              "Offset": 15,
+              "EndOffset": 17,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 26,
+              "Offset": 15,
+              "EndOffset": 53,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        },
+        "System.Void Tk.Toolkit.Cli.Commands.ConvertNumberCommand::.ctor(Spectre.Console.IAnsiConsole,Tk.Toolkit.Cli.Conversions.INumericValueConverter)": {
+          "Lines": {
+            "13": 2,
+            "14": 2,
+            "15": 2,
+            "16": 2,
+            "17": 2
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\repos\\tonycknight\\tktk-cli\\src\\Tk.Toolkit.Cli\\Commands\\DecodeJwtCommand.cs": {
+      "Tk.Toolkit.Cli.Commands.DecodeJwtCommand": {
+        "System.String Tk.Toolkit.Cli.Commands.DecodeJwtCommand::get_Jwt()": {
+          "Lines": {
+            "21": 602
+          },
+          "Branches": []
+        },
+        "System.Int32 Tk.Toolkit.Cli.Commands.DecodeJwtCommand::OnExecute()": {
+          "Lines": {
+            "24": 201,
+            "26": 201,
+            "27": 201,
+            "28": 1,
+            "29": 1,
+            "30": 1,
+            "33": 200,
+            "34": 0,
+            "35": 200,
+            "37": 100,
+            "39": 100,
+            "41": 100,
+            "42": 100,
+            "43": 100,
+            "44": 100,
+            "46": 201
+          },
+          "Branches": [
+            {
+              "Line": 27,
+              "Offset": 15,
+              "EndOffset": 17,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 27,
+              "Offset": 15,
+              "EndOffset": 50,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 200
+            }
+          ]
+        },
+        "System.Void Tk.Toolkit.Cli.Commands.DecodeJwtCommand::.ctor(Spectre.Console.IAnsiConsole,Tk.Toolkit.Cli.Jwts.IJwtParser)": {
+          "Lines": {
+            "14": 201,
+            "15": 201,
+            "16": 201,
+            "17": 201,
+            "18": 201
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\repos\\tonycknight\\tktk-cli\\src\\Tk.Toolkit.Cli\\Commands\\EpochCommand.cs": {
+      "Tk.Toolkit.Cli.Commands.EpochCommand": {
+        "System.String Tk.Toolkit.Cli.Commands.EpochCommand::get_Value()": {
+          "Lines": {
+            "17": 38
+          },
+          "Branches": []
+        },
+        "System.Int32 Tk.Toolkit.Cli.Commands.EpochCommand::OnExecute()": {
+          "Lines": {
+            "20": 12,
+            "22": 12,
+            "23": 12,
+            "24": 6,
+            "25": 6,
+            "26": 6,
+            "29": 6,
+            "30": 1,
+            "31": 1,
+            "32": 1,
+            "35": 5,
+            "36": 2,
+            "37": 2,
+            "38": 2,
+            "41": 3,
+            "42": 1,
+            "43": 1,
+            "44": 1,
+            "47": 2,
+            "48": 0,
+            "49": 0,
+            "50": 0,
+            "52": 2,
+            "53": 2,
+            "54": 12
+          },
+          "Branches": [
+            {
+              "Line": 23,
+              "Offset": 15,
+              "EndOffset": 17,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 6
+            },
+            {
+              "Line": 23,
+              "Offset": 15,
+              "EndOffset": 53,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 6
+            },
+            {
+              "Line": 29,
+              "Offset": 70,
+              "EndOffset": 72,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 1
+            },
+            {
+              "Line": 29,
+              "Offset": 70,
+              "EndOffset": 117,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 5
+            },
+            {
+              "Line": 35,
+              "Offset": 134,
+              "EndOffset": 136,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 2
+            },
+            {
+              "Line": 35,
+              "Offset": 134,
+              "EndOffset": 174,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 3
+            },
+            {
+              "Line": 41,
+              "Offset": 199,
+              "EndOffset": 201,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 1
+            },
+            {
+              "Line": 41,
+              "Offset": 199,
+              "EndOffset": 246,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 2
+            }
+          ]
+        },
+        "System.Void Tk.Toolkit.Cli.Commands.EpochCommand::.ctor(Spectre.Console.IAnsiConsole)": {
+          "Lines": {
+            "11": 12,
+            "12": 12,
+            "13": 12,
+            "14": 12
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\repos\\tonycknight\\tktk-cli\\src\\Tk.Toolkit.Cli\\Commands\\GuidGeneratorCommand.cs": {
+      "Tk.Toolkit.Cli.Commands.GuidGeneratorCommand": {
+        "System.Int32 Tk.Toolkit.Cli.Commands.GuidGeneratorCommand::get_Generations()": {
+          "Lines": {
+            "19": 609
+          },
+          "Branches": []
+        },
+        "System.Int32 Tk.Toolkit.Cli.Commands.GuidGeneratorCommand::OnExecute()": {
+          "Lines": {
+            "22": 203,
+            "23": 406,
+            "25": 203,
+            "26": 3233,
+            "28": 203,
+            "30": 203,
+            "32": 203,
+            "33": 203
+          },
+          "Branches": []
+        },
+        "System.Void Tk.Toolkit.Cli.Commands.GuidGeneratorCommand::.ctor(Spectre.Console.IAnsiConsole)": {
+          "Lines": {
+            "13": 204,
+            "14": 204,
+            "15": 204,
+            "16": 204
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\repos\\tonycknight\\tktk-cli\\src\\Tk.Toolkit.Cli\\Commands\\PasswordGeneratorCommand.cs": {
+      "Tk.Toolkit.Cli.Commands.PasswordGeneratorCommand": {
+        "System.Int32 Tk.Toolkit.Cli.Commands.PasswordGeneratorCommand::get_Generations()": {
+          "Lines": {
+            "23": 614
+          },
+          "Branches": []
+        },
+        "System.Int32 Tk.Toolkit.Cli.Commands.PasswordGeneratorCommand::get_PwLength()": {
+          "Lines": {
+            "26": 513
+          },
+          "Branches": []
+        },
+        "System.Int32 Tk.Toolkit.Cli.Commands.PasswordGeneratorCommand::OnExecute()": {
+          "Lines": {
+            "29": 204,
+            "30": 408,
+            "31": 408,
+            "33": 204,
+            "34": 1667,
+            "35": 204,
+            "37": 204,
+            "39": 204,
+            "40": 204
+          },
+          "Branches": []
+        },
+        "System.Void Tk.Toolkit.Cli.Commands.PasswordGeneratorCommand::.ctor(Spectre.Console.IAnsiConsole,Tk.Toolkit.Cli.Passwords.IPasswordGenerator)": {
+          "Lines": {
+            "16": 206,
+            "17": 206,
+            "18": 206,
+            "19": 206,
+            "20": 206
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\repos\\tonycknight\\tktk-cli\\src\\Tk.Toolkit.Cli\\Commands\\WaffleGeneratorCommand.cs": {
+      "Tk.Toolkit.Cli.Commands.GenerateWaffleCommand": {
+        "System.Int32 Tk.Toolkit.Cli.Commands.GenerateWaffleCommand::get_Paragraphs()": {
+          "Lines": {
+            "18": 3300
+          },
+          "Branches": []
+        },
+        "System.Boolean Tk.Toolkit.Cli.Commands.GenerateWaffleCommand::get_IncludeTitle()": {
+          "Lines": {
+            "21": 2200
+          },
+          "Branches": []
+        },
+        "System.Nullable`1<System.Int32> Tk.Toolkit.Cli.Commands.GenerateWaffleCommand::get_Seed()": {
+          "Lines": {
+            "24": 3300
+          },
+          "Branches": []
+        },
+        "Tk.Toolkit.Cli.Waffle.RenderMode Tk.Toolkit.Cli.Commands.GenerateWaffleCommand::get_Render()": {
+          "Lines": {
+            "27": 2200
+          },
+          "Branches": []
+        },
+        "System.Int32 Tk.Toolkit.Cli.Commands.GenerateWaffleCommand::OnExecute()": {
+          "Lines": {
+            "30": 1100,
+            "31": 1100,
+            "32": 1100,
+            "34": 1100,
+            "36": 1100,
+            "38": 1100,
+            "39": 1100
+          },
+          "Branches": [
+            {
+              "Line": 31,
+              "Offset": 15,
+              "EndOffset": 17,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 31,
+              "Offset": 15,
+              "EndOffset": 24,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1100
+            }
+          ]
+        },
+        "System.Void Tk.Toolkit.Cli.Commands.GenerateWaffleCommand::.ctor(Spectre.Console.IAnsiConsole)": {
+          "Lines": {
+            "12": 1100,
+            "13": 1100,
+            "14": 1100,
+            "15": 1100
+          },
+          "Branches": []
+        }
+      }
+    }
+  }
+}
