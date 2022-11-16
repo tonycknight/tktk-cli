@@ -2,20 +2,20 @@ source https://api.nuget.org/v3/index.json
 
 storage: none
 framework: net6.0, net5.0, netstandard2.0, netstandard2.1
-nuget coverlet.collector 3.1.2
-nuget coverlet.msbuild 3.1.2
+nuget coverlet.collector
+nuget coverlet.msbuild
 nuget crayon 2.0.64
 nuget FluentAssertions
-nuget FsCheck.XUnit 2.16.4
+nuget FsCheck.XUnit
 nuget FSharp.Core 6.0.3
-nuget FsUnit.Xunit 4.2.0
+nuget FsUnit.Xunit
 nuget McMaster.Extensions.CommandLineUtils 4.0.1
 nuget Microsoft.Extensions.DependencyInjection
-nuget Microsoft.NET.Test.Sdk 16.11.0
-nuget nsubstitute 4.3.0
+nuget Microsoft.NET.Test.Sdk
+nuget nsubstitute
 nuget NuGet.Protocol
 nuget spectre.console
 nuget System.IdentityModel.Tokens.Jwt
 nuget Tk.Extensions
-nuget xunit 2.4.1
-nuget xunit.runner.visualstudio 2.4.3
+nuget xunit
+nuget xunit.runner.visualstudio
