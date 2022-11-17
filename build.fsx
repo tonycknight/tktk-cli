@@ -130,7 +130,7 @@ Target.create "Stryker" (fun _ ->
 )
 
 Target.create "Consolidate code coverage" (fun _ ->  
-    let args = sprintf @"-reports:""./test/**/coverage.json"" -targetdir:""./%s/codecoverage"" -reporttypes:""Html""" publishDir
+    let args = sprintf @"-reports:""./test/**/coverage.info"" -targetdir:""./%s/codecoverage"" -reporttypes:""Html""" publishDir
     let result = DotNet.exec id "reportgenerator" args
   
     if not result.OK then failwithf "reportgenerator failed!"  
