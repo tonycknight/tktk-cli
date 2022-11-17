@@ -130,9 +130,10 @@ Target.create "Stryker" (fun _ ->
 )
 
 Target.create "Consolidate code coverage" (fun _ ->  
+    
     let args = sprintf @"-reports:""./test/**/coverage.info"" -targetdir:""./%s/codecoverage"" -reporttypes:""Html""" publishDir
     let result = DotNet.exec id "reportgenerator" args
-  
+    
     if not result.OK then failwithf "reportgenerator failed!"  
 )
 
@@ -161,7 +162,8 @@ Target.create "All" ignore
 "Stryker"
 ==> "All"
 
-"Consolidate code coverage"
+//"Consolidate code coverage"
+"Unit Tests"
 ==> "All"
 
 Target.runOrDefault "All"
