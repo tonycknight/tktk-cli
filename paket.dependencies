@@ -16,8 +16,8 @@ nuget nsubstitute
 nuget NuGet.Protocol
 nuget spectre.console
 nuget System.IdentityModel.Tokens.Jwt
-nuget System.Net.Http 4.3.0
-nuget System.Text.RegularExpressions 4.3.0
+nuget System.Net.Http 4.3.4
+nuget System.Text.RegularExpressions 4.3.1
 nuget Tk.Extensions
 nuget xunit
 nuget xunit.runner.visualstudio
