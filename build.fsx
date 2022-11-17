@@ -162,6 +162,9 @@ Target.create "All" ignore
 "Stryker"
 ==> "All"
 
+"Restore"
+  ==> "SCA"
+
 //"Consolidate code coverage"
 "Unit Tests"
 ==> "All"
