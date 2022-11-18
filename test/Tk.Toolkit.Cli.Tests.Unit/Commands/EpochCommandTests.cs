@@ -1,11 +1,7 @@
-﻿using System;
-using System.Threading.Tasks;
-using FluentAssertions;
-using FsCheck;
+﻿using FluentAssertions;
 using NSubstitute;
 using Spectre.Console;
 using Tk.Toolkit.Cli.Commands;
-using Tk.Toolkit.Cli.Conversions;
 using Xunit;
 
 
@@ -22,7 +18,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
             var console = Substitute.For<IAnsiConsole>();
             var cmd = new EpochCommand(console)
             {
-                Value = value
+                Values = new[] { value }
             };
 
             var rc = cmd.OnExecute();
@@ -39,7 +35,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
             
             var cmd = new EpochCommand(console)
             {
-                Value = 1234.ToString(),
+                Values = new[] { 1234.ToString() },
             };
 
             var rc = cmd.OnExecute();
@@ -59,7 +55,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
 
             var cmd = new EpochCommand(console)
             {
-                Value = value,
+                Values = new[] { value },
             };
 
             var rc = cmd.OnExecute();
@@ -72,13 +68,14 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
         [InlineData("now")]
         [InlineData("1970-01-01T01:01:00")]
         [InlineData("2022-01-01T01:23:56")]
-        public void OnExecute_ValidDatePassed_ReturnsOk(string value)
+        [InlineData("2022-01-01", "01:23:56")]
+        public void OnExecute_ValidDatePassed_ReturnsOk(params string[] values)
         {
             var console = Substitute.For<IAnsiConsole>();
 
             var cmd = new EpochCommand(console)
             {
-                Value = value,
+                Values = values,
             };
 
             var rc = cmd.OnExecute();
@@ -97,7 +94,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
 
             var cmd = new EpochCommand(console)
             {
-                Value = value,
+                Values = new[] { value },
             };
 
             var rc = cmd.OnExecute();
