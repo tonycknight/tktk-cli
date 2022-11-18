@@ -169,4 +169,7 @@ Target.create "All" ignore
 "Unit Tests"
 ==> "All"
 
+"SCA"
+==> "All"
+
 Target.runOrDefault "All"
