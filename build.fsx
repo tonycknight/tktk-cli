@@ -1,4 +1,8 @@
 #r "paket:
+nuget Microsoft.Build 17.3.2
+nuget Microsoft.Build.Framework 17.3.2
+nuget Microsoft.Build.Tasks.Core 17.3.2
+nuget Microsoft.Build.Utilities.Core 17.3.2
 nuget Fake.IO.FileSystem
 nuget Fake.DotNet.Cli
 nuget Fake.DotNet.MSBuild
@@ -61,7 +65,8 @@ let testOptions (opts: DotNet.TestOptions)=
                 Configuration = DotNet.BuildConfiguration.Debug;
                 Logger = Some "trx;LogFileName=test_results.trx";
                 Filter = Some "OS!=Windows";
-                MSBuildParams = { opts.MSBuildParams with Properties = properties } }
+                MSBuildParams = { opts.MSBuildParams with Properties = properties;
+                                                          DisableInternalBinLog = true } }
 
 let packOptions = fun (opts: DotNet.PackOptions) -> 
                                 { opts with 
@@ -102,9 +107,18 @@ Target.create "Build" (fun _ ->
 
 Target.create "Pack" (fun _ -> publishProjects |> Seq.iter (DotNet.pack packOptions ) )
 
+(*
 Target.create "Unit Tests" (fun _ ->
     !! "test/**/*.csproj"
     |> Seq.iter (DotNet.test testOptions)    
+)
+*)
+
+Target.create "Unit Tests" (fun _ ->    
+    let args = "--filter OS!=Windows --logger trx;LogFileName=test_results.trx --configuration Debug /p:CollectCoverage=true /p:CoverletOutput=./TestResults/coverage.info /p:CoverletOutputFormat=cobertura"
+    
+    let result = DotNet.exec id "test" args
+    if not result.OK then failwithf "dotnet test failed!"      
 )
 
 Target.create "Stryker" (fun _ ->
@@ -116,9 +130,10 @@ Target.create "Stryker" (fun _ ->
 )
 
 Target.create "Consolidate code coverage" (fun _ ->  
+    
     let args = sprintf @"-reports:""./test/**/coverage.info"" -targetdir:""./%s/codecoverage"" -reporttypes:""Html""" publishDir
     let result = DotNet.exec id "reportgenerator" args
-  
+    
     if not result.OK then failwithf "reportgenerator failed!"  
 )
 
@@ -147,7 +162,14 @@ Target.create "All" ignore
 "Stryker"
 ==> "All"
 
-"Consolidate code coverage"
+"Restore"
+  ==> "SCA"
+
+//"Consolidate code coverage"
+"Unit Tests"
+==> "All"
+
+"SCA"
 ==> "All"
 
 Target.runOrDefault "All"
