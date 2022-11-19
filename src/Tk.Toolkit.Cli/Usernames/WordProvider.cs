@@ -7,7 +7,7 @@
 
         public WordProvider() 
         {
-            _nouns = Resource.nouns.Split('\n');
+            _nouns = Resource.nouns.Split(Environment.NewLine);
             _adjectives = Resource.adjectives.Split(Environment.NewLine);
         }
 
