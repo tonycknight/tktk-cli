@@ -33,7 +33,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
             var rc = cmd.OnExecute();
 
             rc.Should().Be(0);
-            AssertTableOutputContainsPasswords(output, 5, 16);
+            AssertTableOutputContainsPasswords(output, 5, PasswordGeneratorCommand.DefaultPasswordLength);
         }
 
         [Property(Verbose = true)]
