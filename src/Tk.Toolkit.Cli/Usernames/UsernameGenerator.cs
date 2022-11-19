@@ -4,16 +4,12 @@ namespace Tk.Toolkit.Cli.Usernames
 {
     internal class UsernameGenerator : IUsernameGenerator
     {
-        private readonly Func<int, int> _pickRandom;
+        private readonly IRng _rng;
         private readonly IWordProvider _words;
 
-        public UsernameGenerator(IWordProvider words) : this(RandomNumberGenerator.GetInt32, words)
+        public UsernameGenerator(IRng rng, IWordProvider words) 
         {
-        }
-
-        internal UsernameGenerator(Func<int, int> pickRandom, IWordProvider words)
-        {
-            _pickRandom = pickRandom;
+            _rng = rng;
             _words = words;            
         }
 
@@ -33,9 +29,9 @@ namespace Tk.Toolkit.Cli.Usernames
 
             while(s == string.Empty)
             {
-                s = words[_pickRandom(words.Count)].Trim()
-                                                   .Replace("-", "")
-                                                   .Replace(" ", "");
+                s = _rng.Pick(words).Trim()
+                                    .Replace("-", "")
+                                    .Replace(" ", "");
             }
 
             return s;

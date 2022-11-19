@@ -8,6 +8,7 @@ namespace Tk.Toolkit.Cli
     {
         public static IServiceProvider CreateServiceCollection() =>
            new ServiceCollection()
+                .AddSingleton<IRng, Rng>()
                 .AddSingleton<Passwords.IPasswordGenerator, Passwords.CryptoPasswordGenerator>()
                 .AddSingleton<Usernames.IUsernameGenerator, Usernames.UsernameGenerator>()
                 .AddSingleton<Waffle.IPhraseProvider, Waffle.PhraseProvider>()

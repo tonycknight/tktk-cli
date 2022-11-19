@@ -10,7 +10,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Usernames
         [Property(Verbose = true)]
         public bool Generate_GeneratesNonEmptyString(PositiveInt x)
         {
-            var gen = new UsernameGenerator(new WordProvider());
+            var gen = new UsernameGenerator(new Rng(), new WordProvider());
 
             var un = gen.Generate();
 
@@ -20,7 +20,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Usernames
         [Property(Verbose = true, MaxTest = 1000)]
         public bool Generate_HasNoInvalidCharacters(PositiveInt x)
         {
-            var gen = new UsernameGenerator(new WordProvider());
+            var gen = new UsernameGenerator(new Rng(), new WordProvider());
             var un = gen.Generate();
             var cs = new[] { ' ', '-' };
 
