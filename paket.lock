@@ -405,7 +405,7 @@ NUGET
       System.Runtime.CompilerServices.Unsafe (>= 4.5.3) - restriction: || (&& (== net5.0) (>= net461)) (&& (== net5.0) (< netcoreapp2.1)) (&& (== net5.0) (< netstandard1.0)) (&& (== net5.0) (< netstandard2.0)) (&& (== net5.0) (>= wp8)) (&& (== net6.0) (>= net461)) (&& (== net6.0) (< netcoreapp2.1)) (&& (== net6.0) (< netstandard1.0)) (&& (== net6.0) (< netstandard2.0)) (&& (== net6.0) (>= wp8)) (== netstandard2.0) (== netstandard2.1)
     System.Windows.Extensions (6.0) - restriction: || (== net5.0) (== net6.0) (&& (== netstandard2.0) (>= netcoreapp3.1)) (&& (== netstandard2.1) (>= netcoreapp3.1))
       System.Drawing.Common (>= 6.0) - restriction: || (== net5.0) (== net6.0) (&& (== netstandard2.0) (>= netcoreapp3.1)) (&& (== netstandard2.1) (>= netcoreapp3.1))
-    Tk.Extensions (0.1.48)
+    Tk.Extensions (0.1.89)
       Newtonsoft.Json (>= 13.0.1) - restriction: || (&& (== net5.0) (>= net6.0)) (== net6.0) (&& (== netstandard2.0) (>= net6.0)) (&& (== netstandard2.1) (>= net6.0))
     xunit (2.4.2)
       xunit.analyzers (>= 1.0)

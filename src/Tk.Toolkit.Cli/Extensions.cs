@@ -47,5 +47,19 @@ namespace Tk.Toolkit.Cli
             => value.StartsWith(prefix, StringComparison.InvariantCultureIgnoreCase)
                 ? value
                 : $"{prefix}{value}";
+
+        public static IEnumerable<int> GetUniques(this IEnumerable<int> values)
+        {
+            var uniques = new HashSet<int>();
+
+            foreach(var x in values)
+            {
+                if (!uniques.Contains(x))
+                {
+                    uniques.Add(x);
+                    yield return x;
+                }
+            }
+        }
     }
 }

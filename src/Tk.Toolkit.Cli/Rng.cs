@@ -1,4 +1,4 @@
-﻿namespace Tk.Toolkit.Cli.Waffle
+﻿namespace Tk.Toolkit.Cli
 {
     internal interface IRng
     {
