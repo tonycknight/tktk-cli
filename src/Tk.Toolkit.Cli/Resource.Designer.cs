@@ -167,13 +167,7 @@ namespace Tk.Toolkit.Cli {
         ///act
         ///action
         ///activation
-        ///activist
-        ///activity
-        ///actor
-        ///actress
-        ///acupuncture
-        ///ad
-        ///ad [rest of string was truncated]&quot;;.
+        ///a [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string nouns {
             get {
