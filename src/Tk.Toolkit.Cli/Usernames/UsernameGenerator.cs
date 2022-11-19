@@ -1,21 +1,25 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Security.Cryptography;
 using System.Text;
+using Tk.Toolkit.Cli.Waffle;
 
 namespace Tk.Toolkit.Cli.Usernames
 {
     internal class UsernameGenerator : IUsernameGenerator
     {
-        private readonly string[] _names = GenerateNameList();
+        private readonly string[] _names;
         private readonly Func<int, int> _pickRandom;
+        private readonly IPhraseProvider _phrases;
 
-        public UsernameGenerator() : this(RandomNumberGenerator.GetInt32)
+        public UsernameGenerator(IPhraseProvider phrases) : this(RandomNumberGenerator.GetInt32, phrases)
         {
         }
 
-        internal UsernameGenerator(Func<int, int> pickRandom)
+        internal UsernameGenerator(Func<int, int> pickRandom, IPhraseProvider phrases)
         {
             _pickRandom = pickRandom;
+            _phrases = phrases;
+            _names = _phrases.GetPhrases(PhraseKind.FirstName);
         }
 
         public string Generate(int minLength) => GenerateRandomUsername(minLength);
@@ -32,6 +36,7 @@ namespace Tk.Toolkit.Cli.Usernames
                 {
                     return sb.ToString();
                 }
+
                 sb.Append(_names[index].ToLower());
             }
             
@@ -44,17 +49,6 @@ namespace Tk.Toolkit.Cli.Usernames
             {
                 yield return _pickRandom(_names.Length);
             }
-        }
-
-        [ExcludeFromCodeCoverage]
-        private static string[] GenerateNameList()
-        {
-            return new[] { 
-                "Abraham","Reginald","Cheryl","Michel","Innes","Ann","Marjorie","Matthew","Mark", "Luke", "John",
-                "Burt","Lionel","Humphrey","Andrew", "Jenny","Sheryl","Livia","Charlene","Winston","Heather","Michael","Sylvia","Albert",
-                "Anne","Meander","Dean","Dirk","Desmond","Akiko","Jolyon","Pierre","Saoirse","Éibhear","Muircheartach","Euripides","Debonaire",
-                "Gethsemane","Hermione"
-            };
         }
     }
 }

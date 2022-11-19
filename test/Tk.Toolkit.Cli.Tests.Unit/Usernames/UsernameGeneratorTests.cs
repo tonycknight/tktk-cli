@@ -1,6 +1,7 @@
 ﻿using FsCheck;
 using FsCheck.Xunit;
 using Tk.Toolkit.Cli.Usernames;
+using Tk.Toolkit.Cli.Waffle;
 
 namespace Tk.Toolkit.Cli.Tests.Unit.Usernames
 {
@@ -9,7 +10,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Usernames
         [Property(Verbose =true)]
         public bool Generate_GeneratesMinLengthValues(PositiveInt minLength)
         {
-            var gen = new UsernameGenerator();
+            var gen = new UsernameGenerator(new PhraseProvider());
 
             var un = gen.Generate(minLength.Get);
 
@@ -19,7 +20,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Usernames
         [Property(Verbose = true)]
         public bool Generate_GeneratesNonEmptyString(PositiveInt minLength)
         {
-            var gen = new UsernameGenerator();
+            var gen = new UsernameGenerator(new PhraseProvider());
 
             var un = gen.Generate(minLength.Get);
 

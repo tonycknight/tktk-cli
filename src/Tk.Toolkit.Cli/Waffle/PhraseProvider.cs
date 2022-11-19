@@ -554,7 +554,7 @@
             {
                 "Abraham","Reginald","Cheryl","Michel","Innes","Ann","Marjorie","Matthew","Mark", "Luke", "John",
                 "Burt","Lionel","Humphrey","Andrew", "Jenny","Sheryl","Livia","Charlene","Winston","Heather","Michael","Sylvia","Albert",
-                "Anne","Meander","Dean","Dirk","Desmond","Akiko","Jolyon","Pierre","Saoirse","Éibhear","Muircheartach","Euripides","Debonaire",
+                "Anne","Meander","Dean","Dirk","Desmond","Akiko","Jolyon","Pierre","Saoirse","Muircheartach","Euripides","Debonaire",
                 "Gethsemane","Hermione"
             };
 
