@@ -12,6 +12,7 @@ namespace Tk.Toolkit.Cli
     [Subcommand(typeof(ConvertNumberCommand))]
     [Subcommand(typeof(EpochCommand))]
     [Subcommand(typeof(GenerateWaffleCommand))]
+    [Subcommand(typeof(UsernameGeneratorCommand))]
     [Subcommand(typeof(AboutCommand))]
     public class Program
     {

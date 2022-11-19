@@ -31,7 +31,7 @@ namespace Tk.Toolkit.Cli.Usernames
                 {
                     return sb.ToString();
                 }
-                sb.Append(_names[index]);
+                sb.Append(_names[index].ToLower());
             }
             
             return sb.ToString();
