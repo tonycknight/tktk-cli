@@ -1,6 +1,5 @@
 ﻿using McMaster.Extensions.CommandLineUtils;
 using Tk.Toolkit.Cli.Passwords;
-using Tk.Extensions.Tasks;
 using Spectre.Console;
 
 namespace Tk.Toolkit.Cli.Commands
@@ -10,7 +9,7 @@ namespace Tk.Toolkit.Cli.Commands
     {
         private readonly IAnsiConsole _console;
         private readonly IPasswordGenerator _pwGenerator;
-        internal const int DefaultPasswordLength = 16;
+        internal const int DefaultPasswordLength = 32;
         internal const int DefaultPasswordCount = 5;
 
         public PasswordGeneratorCommand(IAnsiConsole console, IPasswordGenerator pwGenerator)
