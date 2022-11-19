@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace Tk.Toolkit.Cli.Usernames
@@ -45,17 +46,15 @@ namespace Tk.Toolkit.Cli.Usernames
             }
         }
 
+        [ExcludeFromCodeCoverage]
         private static string[] GenerateNameList()
         {
-            var names = new[] { 
-                "test", "name", "joe",
+            return new[] { 
                 "Abraham","Reginald","Cheryl","Michel","Innes","Ann","Marjorie","Matthew","Mark", "Luke", "John",
                 "Burt","Lionel","Humphrey","Andrew", "Jenny","Sheryl","Livia","Charlene","Winston","Heather","Michael","Sylvia","Albert",
                 "Anne","Meander","Dean","Dirk","Desmond","Akiko","Jolyon","Pierre","Saoirse","Éibhear","Muircheartach","Euripides","Debonaire",
                 "Gethsemane","Hermione"
             };
-
-            return names;
         }
     }
 }
