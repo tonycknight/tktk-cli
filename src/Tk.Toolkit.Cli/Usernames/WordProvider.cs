@@ -7,8 +7,8 @@
 
         public WordProvider() 
         {
-            _nouns = Resource.nouns.Split(Environment.NewLine);
-            _adjectives = Resource.adjectives.Split(Environment.NewLine);
+            _nouns = Resource.nouns.Split("\n");
+            _adjectives = Resource.adjectives.Split("\n");
         }
 
         public IList<string> GetAdjectives() => _adjectives;
