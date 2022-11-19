@@ -30,7 +30,7 @@ namespace Tk.Toolkit.Cli.Commands
             var pwLen = UnLength.ApplyDefault(x => x < 1, DefaultUsernameLength);
 
             var pws = Enumerable.Range(0, generations)
-                                .Select(_ => _unGenerator.Generate(pwLen))
+                                .Select(_ => _unGenerator.Generate())
                                 .ToSpectreList();
 
             _console.Write(pws);

@@ -2,6 +2,6 @@
 {
     internal interface IUsernameGenerator
     {
-        string Generate(int minLength);
+        string Generate();
     }
 }

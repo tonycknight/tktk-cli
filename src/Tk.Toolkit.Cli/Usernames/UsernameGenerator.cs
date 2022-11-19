@@ -1,54 +1,44 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System.Security.Cryptography;
-using System.Text;
-using Tk.Toolkit.Cli.Waffle;
+﻿using System.Security.Cryptography;
 
 namespace Tk.Toolkit.Cli.Usernames
 {
     internal class UsernameGenerator : IUsernameGenerator
     {
-        private readonly string[] _names;
         private readonly Func<int, int> _pickRandom;
-        private readonly IPhraseProvider _phrases;
+        private readonly IWordProvider _words;
 
-        public UsernameGenerator(IPhraseProvider phrases) : this(RandomNumberGenerator.GetInt32, phrases)
+        public UsernameGenerator(IWordProvider words) : this(RandomNumberGenerator.GetInt32, words)
         {
         }
 
-        internal UsernameGenerator(Func<int, int> pickRandom, IPhraseProvider phrases)
+        internal UsernameGenerator(Func<int, int> pickRandom, IWordProvider words)
         {
             _pickRandom = pickRandom;
-            _phrases = phrases;
-            _names = _phrases.GetPhrases(PhraseKind.FirstName);
+            _words = words;            
         }
 
-        public string Generate(int minLength) => GenerateRandomUsername(minLength);
+        public string Generate() => GenerateRandomUsername();
 
-        private string GenerateRandomUsername(int minLength)
-        {
-            var sb = new StringBuilder();
-            
-            var indexes = GetNameIndexes().GetUniques();
+        private string GenerateRandomUsername()
+        {                        
+            var noun = PickWord(_words.GetNouns());
+            var adj = PickWord(_words.GetAdjectives());
 
-            foreach ( var index in indexes ) 
-            {
-                if(sb.Length >= minLength)
-                {
-                    return sb.ToString();
-                }
-
-                sb.Append(_names[index].ToLower());
-            }
-            
-            return sb.ToString();
+            return $"{adj}{noun}";
         }
 
-        private IEnumerable<int> GetNameIndexes()
+        private string PickWord(IList<string> words)
         {
-            while (true)
+            var s = string.Empty;
+
+            while(s == string.Empty)
             {
-                yield return _pickRandom(_names.Length);
+                s = words[_pickRandom(words.Count)].Trim()
+                                                   .Replace("-", "")
+                                                   .Replace(" ", "");
             }
+
+            return s;
         }
     }
 }

@@ -18,4 +18,17 @@
     <RootNamespace>Tk.Toolkit.Cli</RootNamespace>
   </PropertyGroup>
   <Import Project="..\..\.paket\Paket.Restore.targets" />
+  <ItemGroup>
+    <Compile Update="Resource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
 </Project>

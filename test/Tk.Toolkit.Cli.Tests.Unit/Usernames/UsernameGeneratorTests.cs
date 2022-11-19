@@ -1,30 +1,30 @@
-﻿using FsCheck;
+﻿using System.Linq;
+using FsCheck;
 using FsCheck.Xunit;
 using Tk.Toolkit.Cli.Usernames;
-using Tk.Toolkit.Cli.Waffle;
 
 namespace Tk.Toolkit.Cli.Tests.Unit.Usernames
 {
     public class UsernameGeneratorTests
-    {
-        [Property(Verbose =true)]
-        public bool Generate_GeneratesMinLengthValues(PositiveInt minLength)
-        {
-            var gen = new UsernameGenerator(new PhraseProvider());
-
-            var un = gen.Generate(minLength.Get);
-
-            return un.Length >= minLength.Get;
-        }
-
+    {        
         [Property(Verbose = true)]
-        public bool Generate_GeneratesNonEmptyString(PositiveInt minLength)
+        public bool Generate_GeneratesNonEmptyString(PositiveInt x)
         {
-            var gen = new UsernameGenerator(new PhraseProvider());
+            var gen = new UsernameGenerator(new WordProvider());
 
-            var un = gen.Generate(minLength.Get);
+            var un = gen.Generate();
 
             return !string.IsNullOrWhiteSpace(un);
+        }
+
+        [Property(Verbose = true, MaxTest = 1000)]
+        public bool Generate_HasNoInvalidCharacters(PositiveInt x)
+        {
+            var gen = new UsernameGenerator(new WordProvider());
+            var un = gen.Generate();
+            var cs = new[] { ' ', '-' };
+
+            return !un.Any(c => cs.Contains(c));
         }
     }
 }
