@@ -27,7 +27,7 @@ namespace Tk.Toolkit.Cli.Commands
                 $"[yellow]Version {currentVersion} beta[/]",
                 $"[yellow]Repo:[/] [white]https://github.com/tonycknight/tktk-cli [/]",
             };
-            
+
             if (nugetVersion != null && currentVersion != nugetVersion)
             {
                 descLines.Add($"[magenta]An upgrade is available: {nugetVersion}[/]");
@@ -36,7 +36,7 @@ namespace Tk.Toolkit.Cli.Commands
             var desc = new Markup(descLines.Join(Environment.NewLine) + Environment.NewLine);
 
             _console.Write(desc);
-            
+
             app.Parent?.ShowHelp();
 
             return 0;

@@ -16,7 +16,7 @@ namespace Tk.Toolkit.Cli.Commands
 
         [Argument(0, Description = "The number or date/time to convert, or `now`.", Name = "value")]
         public IList<string>? Values { get; set; }
-        
+
 
         public int OnExecute()
         {
@@ -37,20 +37,20 @@ namespace Tk.Toolkit.Cli.Commands
                 }
 
                 if (DateTimeOffset.TryParse(value, out DateTimeOffset value2))
-                {                    
+                {
                     _console.WriteLine(value2.ToUnixTimeSeconds().ToString());
                     return true.ToReturnCode();
                 }
 
-                if(StringComparer.InvariantCultureIgnoreCase.Equals(value, "now"))
+                if (StringComparer.InvariantCultureIgnoreCase.Equals(value, "now"))
                 {
                     _console.WriteLine(DateTimeOffset.Now.ToUnixTimeSeconds().ToString());
                     return true.ToReturnCode();
                 }
 
             }
-            catch 
-            {                
+            catch
+            {
             }
 
             _console.Write(new Markup("[red]Invalid value.[/]"));

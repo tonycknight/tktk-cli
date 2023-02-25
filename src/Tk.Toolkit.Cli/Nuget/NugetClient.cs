@@ -7,13 +7,13 @@ namespace Tk.Toolkit.Cli.Nuget
 {
     [ExcludeFromCodeCoverage]
     internal class NugetClient : INugetClient
-    {        
+    {
         public async Task<string?> GetLatestNugetVersionAsync(string packageId, string? sourceUrl = null)
         {
             try
             {
                 sourceUrl ??= NuGetConstants.V3FeedUrl;
-                var logger = new NuGet.Common.NullLogger();                
+                var logger = new NuGet.Common.NullLogger();
                 var sourceRepository = Repository.Factory.GetCoreV3(new PackageSource(sourceUrl));
                 var mdr = sourceRepository.GetResource<MetadataResource>();
 

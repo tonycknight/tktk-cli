@@ -19,7 +19,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
         public void OnExecute_DefaultArgumnets_ReturnsError()
         {
             var console = Substitute.For<IAnsiConsole>();
-            
+
             var jwtParser = Substitute.For<IJwtParser>();
 
 
@@ -88,7 +88,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
 
 
         private void AssertTableOutputContainsText(Table? table, int colCount)
-        {            
+        {
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
             foreach (var row in table.Rows)
             {

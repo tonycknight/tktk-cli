@@ -143,10 +143,18 @@ Target.create "SCA" (fun _ ->
     if not result.OK then failwithf "dotnet sca failed!"      
 )
 
+Target.create "Check Style Rules" (fun _ ->
+    let args = "--verify-no-changes"
+    let result = DotNet.exec id "format" args
+    if not result.OK then failwithf "Style rule checks failed!"      
+)
+
+
 Target.create "All" ignore
 
 "Clean"
   ==> "Restore"
+  ==> "Check Style Rules"
   ==> "Build"
   ==> "Pack"
   ==> "Unit Tests"

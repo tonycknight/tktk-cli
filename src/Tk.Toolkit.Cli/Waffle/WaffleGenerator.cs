@@ -9,8 +9,8 @@ namespace Tk.Toolkit.Cli.Waffle
         public WaffleGenerator(IRng rng) => _rng = rng;
 
         public WaffleGenerator() : this(new Rng()) { }
-        
-        public StringBuilder Generate(int paragraphs, bool addHeader, RenderMode render) 
+
+        public StringBuilder Generate(int paragraphs, bool addHeader, RenderMode render)
         {
             var result = new StringBuilder();
             var ctx = new GenContext(_rng, new PhraseProvider())
@@ -21,7 +21,7 @@ namespace Tk.Toolkit.Cli.Waffle
             if (addHeader)
             {
                 var title = new StringBuilder();
-                
+
                 ctx.Title = title.EvaluatePhrase(ctx, "the |o of |2 |o")
                                  .ToString()
                                  .TitleCaseWords();

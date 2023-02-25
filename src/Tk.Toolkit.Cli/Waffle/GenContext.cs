@@ -9,7 +9,7 @@
         }
 
         public IRng Rng { get; }
-                
+
         public int OrdinalSequence { get; set; }
 
         public string Title { get; set; } = "";

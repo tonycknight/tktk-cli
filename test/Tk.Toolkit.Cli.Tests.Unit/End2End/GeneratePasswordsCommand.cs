@@ -4,7 +4,7 @@ using Xunit;
 namespace Tk.Toolkit.Cli.Tests.Unit.End2End
 {
     public class GeneratePasswordsCommand
-    {        
+    {
 
         [Fact]
         public void GeneratePasswords_ReturnsOk()

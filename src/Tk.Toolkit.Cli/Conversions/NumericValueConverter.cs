@@ -6,15 +6,15 @@ namespace Tk.Toolkit.Cli.Conversions
     {
         public IEnumerable<NumericValue> Convert(NumericValue value)
         {
-            if(value is DecimalValue dec)
+            if (value is DecimalValue dec)
             {
                 return new NumericValue[]
                 {
                     ConvertDecToHex(dec),
                     ConvertDecToBin(dec)
-                };                
+                };
             }
-            else if(value is HexadecimalValue hex)
+            else if (value is HexadecimalValue hex)
             {
                 return new NumericValue[]
                 {
@@ -22,9 +22,9 @@ namespace Tk.Toolkit.Cli.Conversions
                     ConvertHexToBin(hex),
                 };
             }
-            else if(value is BinaryValue bin)
+            else if (value is BinaryValue bin)
             {
-                return new NumericValue[] 
+                return new NumericValue[]
                 {
                     ConvertBinToDec(bin),
                     ConvertBinToHex(bin),
@@ -34,9 +34,9 @@ namespace Tk.Toolkit.Cli.Conversions
         }
 
         public NumericValue Parse(string value)
-        {   
-            
-            if(long.TryParse(value, NumberStyles.Integer, null, out long result))
+        {
+
+            if (long.TryParse(value, NumberStyles.Integer, null, out long result))
             {
                 return new DecimalValue(result.ToString());
             }
@@ -51,12 +51,12 @@ namespace Tk.Toolkit.Cli.Conversions
                 }
             }
 
-            if(value.StartsWith(BinaryValue.Prefix, StringComparison.InvariantCultureIgnoreCase))
+            if (value.StartsWith(BinaryValue.Prefix, StringComparison.InvariantCultureIgnoreCase))
             {
-                value = value.TrimPrefix(BinaryValue.Prefix);                
-                try 
-                { 
-                    var _ = System.Convert.ToInt64(value, 2);                    
+                value = value.TrimPrefix(BinaryValue.Prefix);
+                try
+                {
+                    var _ = System.Convert.ToInt64(value, 2);
                     return new BinaryValue(value);
                 }
                 catch (FormatException)
@@ -86,14 +86,14 @@ namespace Tk.Toolkit.Cli.Conversions
         private NumericValue ConvertBinToHex(BinaryValue value)
         {
             var val = value.TrimValue();
-            
-            return ConvertToHex(System.Convert.ToInt64(val, 2));            
+
+            return ConvertToHex(System.Convert.ToInt64(val, 2));
         }
 
         private NumericValue ConvertBinToDec(BinaryValue value)
         {
             var val = value.TrimValue();
-            return ConvertToDec(System.Convert.ToInt64(val, 2));            
+            return ConvertToDec(System.Convert.ToInt64(val, 2));
         }
 
         private NumericValue ConvertDecToBin(DecimalValue value) => ConvertToBin(long.Parse(value.Value));

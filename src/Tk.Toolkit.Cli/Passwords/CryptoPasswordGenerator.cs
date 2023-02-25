@@ -9,7 +9,7 @@ namespace Tk.Toolkit.Cli.Passwords
         public string Generate(int length) => GenerateRandomPassword(length);
 
         private string GenerateRandomPassword(int length)
-        {            
+        {
             var cs = Enumerable.Range(0, length)
                 .Select(_ => RandomNumberGenerator.GetInt32(0, _chars.Length))
                 .Select(x => _chars[x])

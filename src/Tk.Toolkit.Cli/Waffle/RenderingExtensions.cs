@@ -17,7 +17,7 @@
         {
             var map = mode.GetRenderMap();
             var result = value;
-            foreach(var kvp in map)
+            foreach (var kvp in map)
             {
                 result = result.Replace(kvp.Key, kvp.Value, StringComparison.CurrentCultureIgnoreCase);
             }

@@ -13,7 +13,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.End2End
         [InlineData("2022-01-01", "01:23:56")]
         public void Epoch_ReturnsOk(params string[] values)
         {
-            var rc = Program.Main(new[] { "epoch" }.Concat(values).ToArray() );
+            var rc = Program.Main(new[] { "epoch" }.Concat(values).ToArray());
 
             rc.Should().Be(0);
         }

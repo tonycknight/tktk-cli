@@ -5,7 +5,7 @@
         private readonly string[] _nouns;
         private readonly string[] _adjectives;
 
-        public WordProvider() 
+        public WordProvider()
         {
             _nouns = Resource.nouns.Split("\n");
             _adjectives = Resource.adjectives.Split("\n");

@@ -3,7 +3,7 @@
     internal abstract class NumericValue
     {
         public NumericValue(string value) => Value = value;
-        
+
         public string Value { get; }
         public abstract string TrimValue();
     }
@@ -21,7 +21,7 @@
         public const string Prefix = "0x";
 
         public HexadecimalValue(string value) : base(value.EnsurePrefixed(Prefix))
-        {            
+        {
         }
         public override string TrimValue() => Value.TrimPrefix(Prefix);
     }
