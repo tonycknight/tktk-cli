@@ -16,7 +16,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Jwts
             return Arb.Generate<Guid>()
                        .Select(g => handler.CreateJwtSecurityToken(audience: g.ToString(), issuer: Issuer))
                        .Select(jwt => handler.WriteToken(jwt))
-                       .ToArbitrary();           
+                       .ToArbitrary();
         }
     }
 }

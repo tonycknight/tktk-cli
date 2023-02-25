@@ -21,7 +21,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
                 var arg = cb[0] as Spectre.Console.Text;
                 outputs.Add((arg!.Length, arg.Lines));
             });
-            
+
             Func<GenerateWaffleCommand> cmd = () => new GenerateWaffleCommand(console)
             {
                 IncludeTitle = showTitle,
@@ -33,8 +33,8 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
                 .Select(_ => cmd())
                 .Select(c => c.OnExecute())
                 .ToList();
-                        
-            
+
+
             return outputs.GroupBy(x => x).Count() == 1;
         }
     }

@@ -4,7 +4,7 @@ namespace Tk.Toolkit.Cli
 {
     internal static class Extensions
     {
-        public static int ApplyDefault(this int value, Func<int, bool> applyDefault, int defaultValue) 
+        public static int ApplyDefault(this int value, Func<int, bool> applyDefault, int defaultValue)
             => applyDefault(value) ? defaultValue : value;
 
         public static Table ToSpectreColumns(this IEnumerable<(string, string)> keyValues)
@@ -14,7 +14,7 @@ namespace Tk.Toolkit.Cli
                 .HideHeaders()
                 .AddColumns("", "");
 
-            foreach(var t in keyValues)
+            foreach (var t in keyValues)
             {
                 result.AddRow($"[cyan]{Markup.Escape(t.Item1)}[/]", Markup.Escape(t.Item2));
             }
@@ -38,12 +38,12 @@ namespace Tk.Toolkit.Cli
         }
 
 
-        public static string TrimPrefix(this string value, string prefix) 
+        public static string TrimPrefix(this string value, string prefix)
             => value.StartsWith(prefix, StringComparison.InvariantCultureIgnoreCase)
                 ? value.Substring(prefix.Length)
                 : value;
 
-        public static string EnsurePrefixed(this string value, string prefix) 
+        public static string EnsurePrefixed(this string value, string prefix)
             => value.StartsWith(prefix, StringComparison.InvariantCultureIgnoreCase)
                 ? value
                 : $"{prefix}{value}";
@@ -52,7 +52,7 @@ namespace Tk.Toolkit.Cli
         {
             var uniques = new HashSet<int>();
 
-            foreach(var x in values)
+            foreach (var x in values)
             {
                 if (!uniques.Contains(x))
                 {

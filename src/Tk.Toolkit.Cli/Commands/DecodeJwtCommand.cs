@@ -17,7 +17,7 @@ namespace Tk.Toolkit.Cli.Commands
             _jwtParser = jwtParser;
         }
 
-        [Argument(0, Description ="The JWT to decode.", Name = "jwt")]
+        [Argument(0, Description = "The JWT to decode.", Name = "jwt")]
         public string? Jwt { get; set; }
 
         public int OnExecute()
@@ -29,7 +29,7 @@ namespace Tk.Toolkit.Cli.Commands
                     _console.Write(new Markup("[red]Missing JWT.[/]"));
                     return false.ToReturnCode();
                 }
-                
+
                 var lines = _jwtParser.Parse(this.Jwt)
                                       .Select(t => (t.Item1, t.Item2))
                                       .ToSpectreColumns();

@@ -16,7 +16,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
         [Fact]
         public void OnExecute_DefaultArgumnets_ReturnsOk()
         {
-            Table? output = null;            
+            Table? output = null;
             var pwGen = Substitute.For<IPasswordGenerator>();
             pwGen.Generate(Arg.Any<int>())
                 .Returns(ci => GeneratePassword(ci.ArgAt<int>(0)));
@@ -29,7 +29,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
                 });
 
             var cmd = new PasswordGeneratorCommand(console, pwGen);
-            
+
             var rc = cmd.OnExecute();
 
             rc.Should().Be(0);
@@ -96,7 +96,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
         private string GeneratePassword(int length) => new string('a', length);
 
         private void AssertTableOutputContainsPasswords(Table? table, int count, int pwLen)
-        {            
+        {
             table?.Rows.Count.Should().Be(count);
 
 #pragma warning disable CS8602 // Dereference of a possibly null reference.

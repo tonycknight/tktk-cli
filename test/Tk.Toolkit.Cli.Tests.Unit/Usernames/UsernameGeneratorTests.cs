@@ -6,7 +6,7 @@ using Tk.Toolkit.Cli.Usernames;
 namespace Tk.Toolkit.Cli.Tests.Unit.Usernames
 {
     public class UsernameGeneratorTests
-    {        
+    {
         [Property(Verbose = true)]
         public bool Generate_GeneratesNonEmptyString(PositiveInt x)
         {

@@ -32,11 +32,11 @@ namespace Tk.Toolkit.Cli
             {
                 return app.Execute(args);
             }
-            catch(UnrecognizedCommandParsingException ex)
+            catch (UnrecognizedCommandParsingException ex)
             {
                 Console.WriteLine(Crayon.Output.Bright.Red(ex.Message));
                 var possibleMatches = ex.NearestMatches.Select(m => $"{app.Name} {m}").Join(Environment.NewLine);
-                if(possibleMatches.Length > 0)
+                if (possibleMatches.Length > 0)
                 {
                     Console.WriteLine(Crayon.Output.Bright.Yellow($"Did you mean one of these commands?{Environment.NewLine}{possibleMatches}"));
                 }
@@ -47,7 +47,7 @@ namespace Tk.Toolkit.Cli
             }
             return false.ToReturnCode();
         }
-         
+
 
         private int OnExecute(CommandLineApplication app)
         {

@@ -30,7 +30,7 @@ namespace Tk.Toolkit.Cli.Commands
         {
             var rng = Seed.HasValue ? new Rng(Seed.Value) : new Rng();
             var gen = new WaffleGenerator(rng);
-                        
+
             var sb = gen.Generate(Paragraphs, IncludeTitle, Render);
 
             _console.Write(sb.ToString());

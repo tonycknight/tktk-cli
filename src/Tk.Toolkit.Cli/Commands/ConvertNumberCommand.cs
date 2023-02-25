@@ -28,7 +28,7 @@ namespace Tk.Toolkit.Cli.Commands
                     _console.Write(new Markup("[red]Missing value.[/]"));
                     return false.ToReturnCode();
                 }
-                                
+
                 var val = _converter.Parse(Value);
 
                 var results = _converter.Convert(val)
@@ -36,7 +36,7 @@ namespace Tk.Toolkit.Cli.Commands
                                         .ToSpectreList();
 
                 _console.Write(results);
-                
+
                 return true.ToReturnCode();
             }
             catch (Exception)

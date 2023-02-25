@@ -24,7 +24,7 @@ namespace Tk.Toolkit.Cli.Commands
         public int OnExecute()
         {
             var generations = Generations.ApplyDefault(x => x < 1, DefaultUsernameCount);
-            
+
             var pws = Enumerable.Range(0, generations)
                                 .Select(_ => _unGenerator.Generate())
                                 .ToSpectreList();

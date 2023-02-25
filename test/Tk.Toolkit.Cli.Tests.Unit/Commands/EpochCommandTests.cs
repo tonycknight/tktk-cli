@@ -32,7 +32,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
         public void OnExecute_ValidIntegerPassed_ReturnsOk()
         {
             var console = Substitute.For<IAnsiConsole>();
-            
+
             var cmd = new EpochCommand(console)
             {
                 Values = new[] { 1234.ToString() },

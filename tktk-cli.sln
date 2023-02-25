@@ -5,6 +5,7 @@ VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{CF8FC603-C38A-4B6E-98CB-B7565798D0F2}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
 		build.fsx = build.fsx
 		build.ps1 = build.ps1
 		.github\workflows\build.yml = .github\workflows\build.yml

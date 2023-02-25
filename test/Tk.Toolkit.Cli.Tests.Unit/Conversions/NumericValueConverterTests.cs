@@ -33,7 +33,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Conversions
             return result is HexadecimalValue && result.Value == value;
         }
 
-        
+
         [Property(Verbose = true)]
         public bool Parse_ValidBinaries(PositiveInt val)
         {
@@ -70,7 +70,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Conversions
 
             Func<NumericValue> f = () => conv.Parse(value);
 
-            f.Should().Throw<ArgumentException>().WithMessage("?*");            
+            f.Should().Throw<ArgumentException>().WithMessage("?*");
         }
 
         [Property(Verbose = true)]
@@ -106,7 +106,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Conversions
 
         [Property(Verbose = true)]
         public bool Parse_Convert_HexToDecimalToHex(PositiveInt val)
-        {            
+        {
             var value = $"0x{val.Get.ToString("X2")}";
             var conv = new NumericValueConverter();
 
@@ -167,7 +167,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Conversions
 
             return !string.IsNullOrEmpty(dec.Value) && !string.IsNullOrEmpty(hex.Value);
         }
-        
+
 
 
         [Fact]
@@ -180,6 +180,6 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Conversions
 
             f.Should().Throw<ArgumentException>().WithMessage("?*");
         }
-        
+
     }
 }

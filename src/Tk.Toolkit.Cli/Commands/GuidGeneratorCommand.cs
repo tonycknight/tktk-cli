@@ -5,7 +5,7 @@ using Spectre.Console;
 namespace Tk.Toolkit.Cli.Commands
 {
     [Command("guid", Description = "Generate guids")]
-    internal class GuidGeneratorCommand 
+    internal class GuidGeneratorCommand
     {
         private readonly IAnsiConsole _console;
         internal const int DefaultGenerationCount = 5;
@@ -19,7 +19,7 @@ namespace Tk.Toolkit.Cli.Commands
         public int Generations { get; set; } = DefaultGenerationCount;
 
         public int OnExecute()
-        {            
+        {
             var generations = Generations.ApplyDefault(x2 => x2 < 1, DefaultGenerationCount);
 
             var guids = Enumerable.Range(0, generations)
@@ -28,7 +28,7 @@ namespace Tk.Toolkit.Cli.Commands
             var table = guids.ToSpectreList();
 
             _console.Write(table);
-            
+
             return true.ToReturnCode();
         }
     }

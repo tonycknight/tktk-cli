@@ -20,7 +20,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.End2End
 
             rc.Should().Be(0);
         }
-                
+
         [Fact]
         public void GenerateGuids_InvalidGenerations_ReturnsFailure()
         {
