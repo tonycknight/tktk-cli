@@ -13,7 +13,6 @@ namespace Tk.Toolkit.Cli
                 .AddSingleton<Usernames.IUsernameGenerator, Usernames.UsernameGenerator>()
                 .AddSingleton<Waffle.IPhraseProvider, Waffle.PhraseProvider>()
                 .AddSingleton<Usernames.IWordProvider, Usernames.WordProvider>()
-                .AddSingleton<Jwts.IJwtParser, Jwts.JwtParser>()
                 .AddSingleton<IAnsiConsole>(sp => AnsiConsole.Create(new AnsiConsoleSettings() { ColorSystem = ColorSystemSupport.TrueColor }))
                 .AddSingleton<Nuget.INugetClient, Nuget.NugetClient>()
                 .AddSingleton<Conversions.INumericValueConverter, Conversions.NumericValueConverter>()
