@@ -94,7 +94,7 @@ tktk conv 0b10101
 
 ---
 
-## Waffle
+## Generate Waffle
 
 Generate reams of tedious, bloated, pompous text, for fun & testing.
 
