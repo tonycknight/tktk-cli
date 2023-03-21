@@ -64,18 +64,6 @@ Where:
 
 ---
 
-## Decode JWT
-
-```
-tktk jwt <jwt>
-```
-
-Where:
-
-`<jwt>` is the base-64 encoded JWT token to decode
-
----
-
 ## Base conversions
 
 ```
@@ -103,27 +91,6 @@ Binary:
 ```
 tktk conv 0b10101
 ```
-
----
-
-## Epoch
-
-Convert integer or date time values to their Unix epoch equivalents, or `now` for the curent time.
-
-```
-tktk epoch <value>
-```
-
-Where `<value>` is an integer, local date time or `now`
-
-E.g.
-
-`tktk epoch 0`
-
-`tktk epoch 2020-01-01T01:30:00`
-
-`tktk epoch now`
-
 
 ---
 
