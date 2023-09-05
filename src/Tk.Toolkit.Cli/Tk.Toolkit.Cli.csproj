@@ -1,5 +1,5 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
@@ -17,7 +17,6 @@
     <PackageProjectUrl>https://github.com/tonycknight/tktk-cli</PackageProjectUrl>
     <RootNamespace>Tk.Toolkit.Cli</RootNamespace>
   </PropertyGroup>
-  <Import Project="..\..\.paket\Paket.Restore.targets" />
   <ItemGroup>
     <Compile Update="Resource.Designer.cs">
       <DesignTime>True</DesignTime>
@@ -31,4 +30,5 @@
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <Import Project="..\..\.paket\Paket.Restore.targets" />
 </Project>
