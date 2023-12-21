@@ -1,6 +1,7 @@
-McMaster.Extensions.CommandLineUtils
-FSharp.Core
+group Main
 crayon
+FSharp.Core
+McMaster.Extensions.CommandLineUtils
 Microsoft.Extensions.DependencyInjection
 NuGet.Protocol
 Tk.Extensions
