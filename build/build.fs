@@ -180,7 +180,8 @@ let initTargets () =
 
     "Clean" ?=>! "Restore"
 
-    "Clean" ==> "Restore" ==> "Compile" ==> "Pack" ==> "Echo variables"
+    "Clean" ==> "Restore"
+        ==> "Compile" ==> "Pack" ==> "Echo variables"
     ==>! "Build"
 
     "Restore" ==> "Unit Tests" ==> "Consolidate code coverage" ==>! "Tests"

@@ -1,6 +1,5 @@
 group Main
 crayon
-FSharp.Core
 McMaster.Extensions.CommandLineUtils
 Microsoft.Extensions.DependencyInjection
 NuGet.Protocol
