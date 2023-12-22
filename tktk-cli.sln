@@ -6,7 +6,6 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{CF8FC603-C38A-4B6E-98CB-B7565798D0F2}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
-		build.fsx = build.fsx
 		build.ps1 = build.ps1
 		.github\workflows\build.yml = .github\workflows\build.yml
 		.github\workflows\clean-builds.yaml = .github\workflows\clean-builds.yaml
@@ -27,6 +26,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tk.Toolkit.Cli", "src\Tk.To
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tk.Toolkit.Cli.Tests.Unit", "test\Tk.Toolkit.Cli.Tests.Unit\Tk.Toolkit.Cli.Tests.Unit.csproj", "{83CBAF2E-C84B-463B-9396-28F2463AED83}"
 EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "build", "build\build.fsproj", "{9AD9EB44-57E0-4A92-9C31-EA70700F8839}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +42,10 @@ Global
 		{83CBAF2E-C84B-463B-9396-28F2463AED83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83CBAF2E-C84B-463B-9396-28F2463AED83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83CBAF2E-C84B-463B-9396-28F2463AED83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AD9EB44-57E0-4A92-9C31-EA70700F8839}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AD9EB44-57E0-4A92-9C31-EA70700F8839}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AD9EB44-57E0-4A92-9C31-EA70700F8839}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AD9EB44-57E0-4A92-9C31-EA70700F8839}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +53,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{16BE1969-F7C7-4F3D-B17B-B63DA13C8D62} = {41AEECFF-6354-4940-8C63-B77AA862149E}
 		{83CBAF2E-C84B-463B-9396-28F2463AED83} = {CD391199-006A-473B-91C5-9E1A7BF4F5C4}
+		{9AD9EB44-57E0-4A92-9C31-EA70700F8839} = {CF8FC603-C38A-4B6E-98CB-B7565798D0F2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {766F3128-91A5-48F4-900F-F28CB86EDA55}

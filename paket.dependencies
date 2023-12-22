@@ -1,23 +1,62 @@
 source https://api.nuget.org/v3/index.json
 
-storage: none
-framework: net6.0, net5.0, netstandard2.0, netstandard2.1
-nuget coverlet.collector
-nuget coverlet.msbuild
-nuget crayon 2.0.64
-nuget FluentAssertions
-nuget FsCheck.XUnit
-nuget FSharp.Core 6.0.3
-nuget FsUnit.Xunit
-nuget McMaster.Extensions.CommandLineUtils 4.0.1
-nuget Microsoft.Extensions.DependencyInjection
-nuget Microsoft.NET.Test.Sdk
-nuget nsubstitute
-nuget NuGet.Protocol
-nuget spectre.console
-nuget System.IdentityModel.Tokens.Jwt
-nuget System.Net.Http 4.3.4
-nuget System.Text.RegularExpressions 4.3.1
-nuget Tk.Extensions
-nuget xunit
-nuget xunit.runner.visualstudio
+// [ FAKE GROUP ]
+group Main
+    storage: none
+    framework: net8.0
+    source https://www.nuget.org/api/v2
+    source https://api.nuget.org/v3/index.json
+    nuget crayon 
+    nuget McMaster.Extensions.CommandLineUtils
+    nuget Microsoft.Extensions.DependencyInjection
+    nuget NuGet.Protocol
+    nuget spectre.console
+    nuget System.IdentityModel.Tokens.Jwt
+    nuget Tk.Extensions
+    
+
+// [ FAKE GROUP ]
+group Tests
+    storage: none
+    framework: net8.0
+    source https://www.nuget.org/api/v2
+    source https://api.nuget.org/v3/index.json
+    nuget coverlet.collector
+    nuget coverlet.msbuild
+    nuget FluentAssertions
+    nuget FsCheck.XUnit
+    nuget FsUnit.Xunit
+    nuget McMaster.Extensions.CommandLineUtils    
+    nuget Microsoft.NET.Test.Sdk
+    nuget nsubstitute
+    nuget spectre.console
+    nuget System.Net.Http
+    nuget System.Text.RegularExpressions
+    nuget xunit
+    nuget xunit.runner.visualstudio
+
+
+// [ FAKE GROUP ]
+group Build
+    storage: none
+    framework: net8.0
+    source https://www.nuget.org/api/v2
+    source https://api.nuget.org/v3/index.json
+    nuget FSharp.Core
+    nuget Fake.IO.FileSystem
+    nuget Fake.Core.Target
+    nuget Fake.Core.ReleaseNotes
+    nuget FAKE.Core.Environment
+    nuget FAKE.Core.Process
+    nuget Fake.DotNet.Cli
+    nuget Fake.DotNet.AssemblyInfoFile
+    nuget Fake.DotNet.MSBuild 6.0.0
+    nuget Fake.Tools.Git
+    nuget Fake.DotNet.Paket
+    nuget Fake.Api.GitHub
+    nuget Fake.BuildServer.GitHubActions
+    nuget MSBuild.StructuredLogger
+    nuget Microsoft.Build 17.3.2
+    nuget Microsoft.Build.Framework 17.3.2
+    nuget Microsoft.Build.Tasks.Core 17.3.2
+    nuget Microsoft.Build.Utilities.Core 17.3.2

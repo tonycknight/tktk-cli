@@ -2,7 +2,7 @@
   "profiles": {
     "tkdevcli": {
       "commandName": "Project",
-      "commandLineArgs": "epoch 2011-01-01 00:00:01"
+      "commandLineArgs": "un"
     }
   }
 }

@@ -1,6 +1,8 @@
+group Tests
 FSharp.Core
 xunit
 xunit.runner.visualstudio
+McMaster.Extensions.CommandLineUtils
 Microsoft.NET.Test.Sdk
 FsCheck.XUnit
 coverlet.msbuild
@@ -8,8 +10,6 @@ coverlet.collector
 nsubstitute
 FsUnit.Xunit
 FluentAssertions
-System.IdentityModel.Tokens.Jwt
 spectre.console
-McMaster.Extensions.CommandLineUtils
 System.Net.Http
 System.Text.RegularExpressions
