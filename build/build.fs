@@ -103,6 +103,7 @@ let initTargets () =
         ++ "test/**/obj" 
         ++ "test/**/TestResults" 
         ++ publishDir        
+        ++ packageDir
         |> Shell.cleanDirs
         
         !! strykerDir
