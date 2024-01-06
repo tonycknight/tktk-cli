@@ -20,8 +20,8 @@ namespace Tk.Toolkit.Cli
 
         public static string? GetAppVersion()
             => Assembly.GetExecutingAssembly()
-                       .GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion;
-
+                       .GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion
+                       .ToNormalisedVersion().ToString();
         public static Task<string?> GetCurrentNugetVersion()
             => new Nuget.NugetClient().GetLatestNugetVersionAsync("tktk-cli");
     }
