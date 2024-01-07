@@ -2,6 +2,7 @@
 using McMaster.Extensions.CommandLineUtils;
 using Spectre.Console;
 using Tk.Extensions;
+using Tk.Nuget;
 
 namespace Tk.Toolkit.Cli.Commands
 {
@@ -10,16 +11,17 @@ namespace Tk.Toolkit.Cli.Commands
     internal class AboutCommand
     {
         private readonly IAnsiConsole _console;
+        private readonly INugetClient _nuget;
 
-        public AboutCommand(IAnsiConsole console)
+        public AboutCommand(IAnsiConsole console, INugetClient nuget)
         {
             _console = console;
+            _nuget = nuget;
         }
 
         public async Task<int> OnExecuteAsync(CommandLineApplication app)
         {
             var currentVersion = ProgramBootstrap.GetAppVersion();
-            var nugetVersion = await ProgramBootstrap.GetCurrentNugetVersion();
             var descLines = new List<string>()
             {
                 $"[cyan]{app.Parent?.Name}[/]",
@@ -27,10 +29,13 @@ namespace Tk.Toolkit.Cli.Commands
                 $"[yellow]Version {currentVersion} beta[/]",
                 $"[yellow]Repo:[/] [white]https://github.com/tonycknight/tktk-cli [/]",
             };
-
-            if (nugetVersion != null && currentVersion != nugetVersion)
+            if (currentVersion != null)
             {
-                descLines.Add($"[magenta]An upgrade is available: {nugetVersion}[/]");
+                var nugetVersion = await _nuget.GetUpgradeVersionAsync("tktk-cli", currentVersion);
+                if (nugetVersion != null)
+                {
+                    descLines.Add($"[magenta]An upgrade is available: {nugetVersion}[/]");
+                }
             }
 
             var desc = new Markup(descLines.Join(Environment.NewLine) + Environment.NewLine);
