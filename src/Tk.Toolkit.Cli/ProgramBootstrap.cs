@@ -21,7 +21,6 @@ namespace Tk.Toolkit.Cli
 
         public static string? GetAppVersion()
             => Assembly.GetExecutingAssembly()
-                       .GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion
-                       .ToNormalisedVersion().ToString();
+                       .GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion;
     }
 }

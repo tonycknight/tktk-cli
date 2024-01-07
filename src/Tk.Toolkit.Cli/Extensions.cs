@@ -61,17 +61,5 @@ namespace Tk.Toolkit.Cli
                 }
             }
         }
-
-        public static Version ToNormalisedVersion(this string version)
-        {
-            // Strip out the SHA if present
-            var x = version.IndexOf('+');
-            if (x >= 0)
-            {
-                version = version.Substring(0, x);
-            }
-
-            return Version.Parse(version);
-        }
     }
 }
