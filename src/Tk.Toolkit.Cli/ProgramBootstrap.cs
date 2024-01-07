@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 using Spectre.Console;
+using Tk.Nuget;
 
 namespace Tk.Toolkit.Cli
 {
@@ -14,7 +15,7 @@ namespace Tk.Toolkit.Cli
                 .AddSingleton<Waffle.IPhraseProvider, Waffle.PhraseProvider>()
                 .AddSingleton<Usernames.IWordProvider, Usernames.WordProvider>()
                 .AddSingleton<IAnsiConsole>(sp => AnsiConsole.Create(new AnsiConsoleSettings() { ColorSystem = ColorSystemSupport.TrueColor }))
-                .AddSingleton<Nuget.INugetClient, Nuget.NugetClient>()
+                .AddNugetClient()
                 .AddSingleton<Conversions.INumericValueConverter, Conversions.NumericValueConverter>()
                 .BuildServiceProvider();
 
@@ -22,7 +23,5 @@ namespace Tk.Toolkit.Cli
             => Assembly.GetExecutingAssembly()
                        .GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion
                        .ToNormalisedVersion().ToString();
-        public static Task<string?> GetCurrentNugetVersion()
-            => new Nuget.NugetClient().GetLatestNugetVersionAsync("tktk-cli");
     }
 }

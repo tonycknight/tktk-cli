@@ -2,7 +2,7 @@ group Main
 crayon
 McMaster.Extensions.CommandLineUtils
 Microsoft.Extensions.DependencyInjection
-NuGet.Protocol
 Tk.Extensions
+Tk.Nuget
 System.IdentityModel.Tokens.Jwt
 spectre.console

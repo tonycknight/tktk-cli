@@ -9,11 +9,12 @@ group Main
     nuget crayon 
     nuget McMaster.Extensions.CommandLineUtils
     nuget Microsoft.Extensions.DependencyInjection
-    nuget NuGet.Protocol
     nuget spectre.console
     nuget System.IdentityModel.Tokens.Jwt
     nuget Tk.Extensions
+    nuget Tk.Nuget
     
+
 
 // [ FAKE GROUP ]
 group Tests
@@ -32,6 +33,7 @@ group Tests
     nuget spectre.console
     nuget System.Net.Http
     nuget System.Text.RegularExpressions
+    nuget Tk.Nuget    
     nuget xunit
     nuget xunit.runner.visualstudio
 

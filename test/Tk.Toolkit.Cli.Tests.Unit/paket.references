@@ -13,3 +13,4 @@ FluentAssertions
 spectre.console
 System.Net.Http
 System.Text.RegularExpressions
+Tk.Nuget
