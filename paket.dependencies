@@ -56,7 +56,6 @@ group Build
     nuget Fake.DotNet.Paket
     nuget Fake.Api.GitHub
     nuget Fake.BuildServer.GitHubActions
-    nuget MSBuild.StructuredLogger
     nuget Microsoft.Build 
     nuget Microsoft.Build.Framework 
     nuget Microsoft.Build.Tasks.Core 
