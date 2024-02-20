@@ -41,6 +41,8 @@ jobs:
           
       - name: Check Style
         run: |
+          dotnet tool restore
+          dotnet restore
           dotnet format --verify-no-changes
   
   tests:
