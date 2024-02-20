@@ -10,7 +10,6 @@ group Main
     nuget McMaster.Extensions.CommandLineUtils
     nuget Microsoft.Extensions.DependencyInjection
     nuget spectre.console
-    nuget System.IdentityModel.Tokens.Jwt
     nuget Tk.Extensions
     nuget Tk.Nuget
     
