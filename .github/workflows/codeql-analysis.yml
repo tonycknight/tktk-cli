@@ -23,8 +23,6 @@ jobs:
 
     strategy:
       fail-fast: false
-      matrix:
-        language: [ 'csharp' ]
 
     steps:
     - name: Checkout repository
@@ -33,7 +31,7 @@ jobs:
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v3
       with:
-        languages: ${{ matrix.language }}
+        languages: 'csharp'
 
     - name: Setup .NET Core SDK
       uses: actions/setup-dotnet@v4
