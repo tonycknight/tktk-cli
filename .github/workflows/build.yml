@@ -16,10 +16,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Setup .NET Core SDK
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: ${{ env.dotnet-version }}
           
@@ -27,33 +27,55 @@ jobs:
         run: |
           dotnet tool restore
           dotnet pkgchk -t
+
+  check-style:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.dotnet-version }}
+          
+      - name: Check Style
+        run: |
+          dotnet tool restore
+          dotnet restore
+          dotnet format --verify-no-changes
   
   tests:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Setup .NET Core SDK
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: ${{ env.dotnet-version }}
         
-      - name: dotnet tool restore
-        run: dotnet tool restore
-              
       - name: Run tests
-        run: dotnet run --project ./build/build.fsproj -c Release -t "Tests"
-              
+        run: |
+          dotnet tool restore
+          dotnet restore
+          dotnet test -c Debug --logger "trx;LogFileName=test_results.trx" /p:CollectCoverage=true /p:CoverletOutput=./TestResults/coverage.info /p:CoverletOutputFormat=cobertura
+
+      - name: Consolidate code coverage
+        run: |
+          dotnet reportgenerator -reports:./test/**/coverage.info -targetdir:./publish/codecoverage -reporttypes:Html
+  
+          
       - name: Archive Test results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: tests.results
           path: |
             ./test/**/TestResults/*
       
       - name: Archive Code coverage
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: codecoverage
           path: ./publish/codecoverage/*.*
@@ -85,21 +107,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Setup .NET Core SDK
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: ${{ env.dotnet-version }}
-        
-      - name: dotnet tool restore
-        run: dotnet tool restore
-              
-      - name: Run build
-        run: dotnet run --project ./build/build.fsproj -c Release -t "Build"
+       
+      - name: Set Build version
+        if: github.ref != 'refs/heads/main'
+        run: |
+          echo "build-version-number=${{ env.build-version-number }}-preview" >> $GITHUB_ENV
+    
+      - name: Create nuget package
+        run: |
+          dotnet tool restore
+          dotnet restore
+          dotnet pack ./src/Tk.Toolkit.Cli/Tk.Toolkit.Cli.csproj -c Release -o ./package /p:PackageVersion=${{ env.build-version-number }} /p:Version=${{ env.build-version-number }} /p:AssemblyInformationalVersion=${{ env.build-version-number }}          
 
       - name: Archive tool nupkg
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: tktk-cli.nupkg
           path: ./package/tktk*.nupkg
@@ -111,21 +138,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Setup .NET Core SDK
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: ${{ env.dotnet-version }}
         
-      - name: dotnet tool restore
-        run: dotnet tool restore
-              
-      - name: Run build
-        run: dotnet run --project ./build/build.fsproj -c Release -t  "Stryker"
+      - name: Run Stryker
+        run: |
+          dotnet tool restore
+          dotnet restore
+          dotnet dotnet-stryker -tp ./test/Tk.Toolkit.Cli.Tests.Unit/Tk.Toolkit.Cli.Tests.Unit.csproj -b 20 -m !**/Waffle/** --reporter json --reporter html
 
       - name: Archive Stryker results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: stryker.results
@@ -135,19 +162,19 @@ jobs:
   nuget-release:
     name: nuget release
     runs-on: ubuntu-latest
-    needs:   [ sca, build, codeql, stryker, tests ]
+    needs:   [ sca, build, codeql, stryker, tests, check-style ]
     if: github.event_name == 'push'
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Setup .NET Core SDK
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: ${{ env.dotnet-version }}
 
       - name: Download package
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: tktk-cli.nupkg
           path: ${{ github.workspace }}/artifacts
@@ -162,7 +189,7 @@ jobs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
 
     steps:    
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Create Release
         uses: ncipollo/release-action@v1
