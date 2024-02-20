@@ -64,7 +64,7 @@ jobs:
 
       - name: Consolidate code coverage
         run: |
-          dotnet reportgenerator -reports:./tests/**/coverage.info -targetdir:./publish/codecoverage -reporttypes:Html
+          dotnet reportgenerator -reports:./test/**/coverage.info -targetdir:./publish/codecoverage -reporttypes:Html
   
           
       - name: Archive Test results
