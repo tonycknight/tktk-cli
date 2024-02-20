@@ -51,7 +51,7 @@ group Build
     nuget FAKE.Core.Process
     nuget Fake.DotNet.Cli
     nuget Fake.DotNet.AssemblyInfoFile
-    nuget Fake.DotNet.MSBuild 6.0.0
+    nuget Fake.DotNet.MSBuild
     nuget Fake.Tools.Git
     nuget Fake.DotNet.Paket
     nuget Fake.Api.GitHub
@@ -60,4 +60,4 @@ group Build
     nuget Microsoft.Build 17.3.2
     nuget Microsoft.Build.Framework 17.3.2
     nuget Microsoft.Build.Tasks.Core 17.3.2
-    nuget Microsoft.Build.Utilities.Core 17.3.2
+    nuget Microsoft.Build.Utilities.Core 17.3.2    
