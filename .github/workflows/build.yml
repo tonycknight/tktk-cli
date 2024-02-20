@@ -68,14 +68,14 @@ jobs:
   
           
       - name: Archive Test results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: tests.results
           path: |
             ./test/**/TestResults/*
       
       - name: Archive Code coverage
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: codecoverage
           path: ./publish/codecoverage/*.*
@@ -126,7 +126,7 @@ jobs:
           dotnet pack ./src/Tk.Toolkit.Cli/Tk.Toolkit.Cli.csproj -c Release -o ./package /p:PackageVersion=${{ env.build-version-number }} /p:Version=${{ env.build-version-number }} /p:AssemblyInformationalVersion=${{ env.build-version-number }}          
 
       - name: Archive tool nupkg
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: tktk-cli.nupkg
           path: ./package/tktk*.nupkg
@@ -152,7 +152,7 @@ jobs:
           dotnet dotnet-stryker -tp ./test/Tk.Toolkit.Cli.Tests.Unit/Tk.Toolkit.Cli.Tests.Unit.csproj -b 20 -m !**/Waffle/** --reporter json --reporter html
 
       - name: Archive Stryker results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: stryker.results
@@ -174,7 +174,7 @@ jobs:
           dotnet-version: ${{ env.dotnet-version }}
 
       - name: Download package
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: tktk-cli.nupkg
           path: ${{ github.workspace }}/artifacts
