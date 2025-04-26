@@ -9,8 +9,6 @@ permissions: # set permissions to principle of least privilege, codeql requires 
 
 on:
   push:
-  pull_request:
-    branches: [ main ]
   workflow_dispatch:
 
 env:
