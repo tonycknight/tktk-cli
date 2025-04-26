@@ -33,4 +33,4 @@ jobs:
       - name: dotnet SCA
         run: |
           dotnet tool restore
-          dotnet pkgchk -t
+          dotnet pkgchk scan -t true
