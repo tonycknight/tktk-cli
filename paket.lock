@@ -47,8 +47,8 @@ NUGET
   remote: https://www.nuget.org/api/v2
     Castle.Core (5.1.1)
       System.Diagnostics.EventLog (>= 6.0)
-    coverlet.collector (6.0)
-    coverlet.msbuild (6.0)
+    coverlet.collector (6.0.4)
+    coverlet.msbuild (6.0.4)
     FluentAssertions (6.12)
       System.Configuration.ConfigurationManager (>= 4.4)
     FsCheck (2.16.6)
