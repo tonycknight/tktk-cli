@@ -11,5 +11,7 @@ updates:
       - ":robot: bot"
     open-pull-requests-limit: 20
     ignore:
-      - dependency-name: "paket"
+      - dependency-name: "FsUnit.Xunit"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "FluentAssertions"
         update-types: ["version-update:semver-major"]

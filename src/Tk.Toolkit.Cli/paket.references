@@ -1,7 +1,0 @@
-group Main
-crayon
-McMaster.Extensions.CommandLineUtils
-Microsoft.Extensions.DependencyInjection
-Tk.Extensions
-Tk.Nuget
-spectre.console
