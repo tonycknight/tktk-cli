@@ -30,5 +30,12 @@
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <Import Project="..\..\.paket\Paket.Restore.targets" />
+  <ItemGroup>
+    <PackageReference Include="Crayon" Version="2.0.69" />
+    <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="4.1.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.7" />
+    <PackageReference Include="spectre.console" Version="0.50.0" />
+    <PackageReference Include="Tk.Extensions" Version="0.1.135" />
+    <PackageReference Include="Tk.Nuget" Version="0.1.98" />
+  </ItemGroup>  
 </Project>
