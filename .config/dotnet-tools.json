@@ -10,7 +10,7 @@
       "rollForward": false
     },
     "paket": {
-      "version": "9.0.2",
+      "version": "8.0.0",
       "commands": [
         "paket"
       ],
