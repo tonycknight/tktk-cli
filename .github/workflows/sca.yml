@@ -25,12 +25,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - name: Setup .NET SDK
-        uses: actions/setup-dotnet@v4
-        
-      - name: dotnet SCA
-        run: |
-          dotnet tool restore
-          dotnet pkgchk scan -t true
+      - name: Run SCA
+        uses: tonycknight/pkgchk-action@v1
