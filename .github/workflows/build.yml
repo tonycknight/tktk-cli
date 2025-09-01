@@ -22,16 +22,9 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
-      - name: Setup .NET Core SDK
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: ${{ env.dotnet-version }}
-          
       - name: Run SCA
-        run: |
-          dotnet tool restore
-          dotnet pkgchk scan -t true
-  
+        uses: tonycknight/pkgchk-action@v1
+        
   tests:
     runs-on: ubuntu-latest
 
