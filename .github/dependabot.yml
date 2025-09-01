@@ -9,9 +9,25 @@ updates:
     labels:
       - ":game_die: dependencies"
       - ":robot: bot"
-    open-pull-requests-limit: 20
+    groups:
+      packages:
+        patterns:
+          - "*"
     ignore:
       - dependency-name: "FsUnit.Xunit"
         update-types: ["version-update:semver-major"]
       - dependency-name: "FluentAssertions"
         update-types: ["version-update:semver-major"]
+  - package-ecosystem: "github-actions"
+    directory: "/.github/workflows"
+    schedule:
+      interval: "daily"
+      time: "06:00"
+      timezone: "Europe/London"
+    groups:
+      packages:
+        patterns:
+          - "*"
+    labels:
+      - ":game_die: dependencies"
+      - ":robot: bot"
