@@ -3,21 +3,21 @@
   "isRoot": true,
   "tools": {
     "dotnet-reportgenerator-globaltool": {
-      "version": "5.4.10",
+      "version": "5.4.12",
       "commands": [
         "reportgenerator"
       ],
       "rollForward": false
     },
     "dotnet-stryker": {
-      "version": "4.7.0",
+      "version": "4.8.1",
       "commands": [
         "dotnet-stryker"
       ],
       "rollForward": false
     },
     "pkgchk-cli": {
-      "version": "0.3.489",
+      "version": "0.3.521",
       "commands": [
         "pkgchk"
       ],
