@@ -16,11 +16,11 @@ namespace Tk.Toolkit.Cli.Usernames
         public string Generate() => GenerateRandomUsername();
 
         private string GenerateRandomUsername()
-        {
-            var noun = PickWord(_words.GetNouns());
-            var adj = PickWord(_words.GetAdjectives());
+        {            
+            var words = new[] { _words.GetAdjectives(), _words.GetWords() };
+            var i = _rng.Pick(words.Length);
 
-            return $"{adj}{noun}";
+            return $"{PickWord(words[i])}{PickWord(_words.GetNouns())}";            
         }
 
         private string PickWord(IList<string> words)
