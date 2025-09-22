@@ -4,5 +4,6 @@
     {
         IList<string> GetNouns();
         IList<string> GetAdjectives();
+        IList<string> GetWords();
     }
 }

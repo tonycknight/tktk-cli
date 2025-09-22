@@ -174,5 +174,74 @@ namespace Tk.Toolkit.Cli {
                 return ResourceManager.GetString("nouns", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to a
+        ///aa
+        ///aah
+        ///aahed
+        ///aahing
+        ///aahs
+        ///aal
+        ///aalii
+        ///aaliis
+        ///aals
+        ///aam
+        ///aani
+        ///aardvark
+        ///aardvarks
+        ///aardwolf
+        ///aardwolves
+        ///aargh
+        ///aaron
+        ///aaronic
+        ///aaronical
+        ///aaronite
+        ///aaronitic
+        ///aarrgh
+        ///aarrghh
+        ///aaru
+        ///aas
+        ///aasvogel
+        ///aasvogels
+        ///ababdeh
+        ///ababua
+        ///abac
+        ///abaca
+        ///abacay
+        ///abacas
+        ///abacate
+        ///abacaxi
+        ///abaci
+        ///abacinate
+        ///abacination
+        ///abacisci
+        ///abaciscus
+        ///abacist
+        ///aback
+        ///abacli
+        ///abacot
+        ///abacterial
+        ///abactinal
+        ///abactinally
+        ///abaction
+        ///abactor
+        ///abaculi
+        ///abaculus
+        ///abacus
+        ///abacuses
+        ///abada
+        ///abaddon
+        ///abadejo
+        ///abadengo
+        ///abadia
+        ///abadite
+        ///aba [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string words {
+            get {
+                return ResourceManager.GetString("words", resourceCulture);
+            }
+        }
     }
 }
