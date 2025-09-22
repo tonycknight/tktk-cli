@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+﻿using Shouldly;
 using Xunit;
 
 namespace Tk.Toolkit.Cli.Tests.Unit.End2End
@@ -11,7 +11,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.End2End
         {
             var rc = Program.Main(new[] { "pw" });
 
-            rc.Should().Be(0);
+            rc.ShouldBe(0);
         }
 
         [Fact]
@@ -19,7 +19,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.End2End
         {
             var rc = Program.Main(new[] { "pw", "-g 10" });
 
-            rc.Should().Be(0);
+            rc.ShouldBe(0);
         }
 
         [Fact]
@@ -27,7 +27,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.End2End
         {
             var rc = Program.Main(new[] { "pw", "-g a" });
 
-            rc.Should().Be(1);
+            rc.ShouldBe(1);
         }
 
         [Fact]
@@ -35,7 +35,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.End2End
         {
             var rc = Program.Main(new[] { "pw", "-l 10" });
 
-            rc.Should().Be(0);
+            rc.ShouldBe(0);
         }
 
         [Fact]
@@ -43,7 +43,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.End2End
         {
             var rc = Program.Main(new[] { "pw", "-l a" });
 
-            rc.Should().Be(1);
+            rc.ShouldBe(1);
         }
     }
 }

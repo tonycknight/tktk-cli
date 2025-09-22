@@ -1,9 +1,9 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
-using FluentAssertions;
 using FsCheck;
 using FsCheck.Xunit;
 using NSubstitute;
+using Shouldly;
 using Spectre.Console;
 using Tk.Toolkit.Cli.Commands;
 using Tk.Toolkit.Cli.Passwords;
@@ -32,7 +32,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
 
             var rc = cmd.OnExecute();
 
-            rc.Should().Be(0);
+            rc.ShouldBe(0);
             AssertTableOutputContainsPasswords(output, 5, PasswordGeneratorCommand.DefaultPasswordLength);
         }
 
@@ -59,7 +59,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
 
             var rc = cmd.OnExecute();
 
-            rc.Should().Be(0);
+            rc.ShouldBe(0);
             AssertTableOutputContainsPasswords(output, count.Get, pwLen.Get);
 
             return true;
@@ -87,7 +87,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
 
             var rc = cmd.OnExecute();
 
-            rc.Should().Be(0);
+            rc.ShouldBe(0);
             AssertTableOutputContainsPasswords(output, PasswordGeneratorCommand.DefaultPasswordCount, PasswordGeneratorCommand.DefaultPasswordLength);
 
             return true;
@@ -97,7 +97,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
 
         private void AssertTableOutputContainsPasswords(Table? table, int count, int pwLen)
         {
-            table?.Rows.Count.Should().Be(count);
+            table?.Rows.Count.ShouldBe(count);
 
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
             foreach (var row in table.Rows)
@@ -105,9 +105,9 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
                 foreach (var col in row.OfType<Markup>())
                 {
                     // We can't see the rendered string, we'll just have to gauge its length
-                    col.Length.Should().Be(pwLen);
+                    col.Length.ShouldBe(pwLen);
                 }
-                row.Count.Should().Be(1);
+                row.Count.ShouldBe(1);
             }
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
         }

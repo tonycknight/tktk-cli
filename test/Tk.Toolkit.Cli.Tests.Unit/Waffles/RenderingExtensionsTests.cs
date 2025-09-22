@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+﻿using Shouldly;
 using Tk.Toolkit.Cli.Waffle;
 using Xunit;
 
@@ -15,7 +15,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Waffles
         public void Markdown_Rendering(string value, string expected)
         {
             value.Render(RenderMode.Markdown)
-                 .Should().Be(expected);
+                 .ShouldBe(expected);
         }
 
         [Theory]
@@ -27,7 +27,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Waffles
         public void Text_Rendering(string value, string expected)
         {
             value.Render(RenderMode.Text)
-                 .Should().Be(expected);
+                 .ShouldBe(expected);
         }
 
         [Theory]
@@ -39,7 +39,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Waffles
         public void Html_Rendering(string value, string expected)
         {
             value.Render(RenderMode.Html)
-                 .Should().Be(expected);
+                 .ShouldBe(expected);
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using FluentAssertions;
 using McMaster.Extensions.CommandLineUtils;
 using NSubstitute;
+using Shouldly;
 using Spectre.Console;
 using Tk.Nuget;
 using Tk.Toolkit.Cli.Commands;
@@ -21,7 +21,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
 
             var rc = await cmd.OnExecuteAsync(app);
 
-            rc.Should().Be(0);
+            rc.ShouldBe(0);
         }
     }
 }

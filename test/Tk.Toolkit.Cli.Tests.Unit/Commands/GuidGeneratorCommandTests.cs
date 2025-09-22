@@ -1,9 +1,9 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
-using FluentAssertions;
 using FsCheck;
 using FsCheck.Xunit;
 using NSubstitute;
+using Shouldly;
 using Spectre.Console;
 using Tk.Toolkit.Cli.Commands;
 using Xunit;
@@ -27,7 +27,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
 
             var rc = cmd.OnExecute();
 
-            rc.Should().Be(0);
+            rc.ShouldBe(0);
             AssertTableOutputContainsGuids(output, 5);
         }
 
@@ -49,7 +49,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
 
             var rc = cmd.OnExecute();
 
-            rc.Should().Be(0);
+            rc.ShouldBe(0);
             AssertTableOutputContainsGuids(output, count.Get);
 
             return true;
@@ -73,7 +73,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
 
             var rc = cmd.OnExecute();
 
-            rc.Should().Be(0);
+            rc.ShouldBe(0);
             AssertTableOutputContainsGuids(output, GuidGeneratorCommand.DefaultGenerationCount);
 
             return true;
@@ -84,7 +84,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
         {
             var guidLength = System.Guid.NewGuid().ToString().Length;
 
-            table?.Rows.Count.Should().Be(count);
+            table?.Rows.Count.ShouldBe(count);
 
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
             foreach (var row in table.Rows)
@@ -92,9 +92,9 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
                 foreach (var col in row.OfType<Markup>())
                 {
                     // We can't see the rendered string, we'll just have to gauge its length
-                    col.Length.Should().Be(guidLength);
+                    col.Length.ShouldBe(guidLength);
                 }
-                row.Count.Should().Be(1);
+                row.Count.ShouldBe(1);
             }
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
