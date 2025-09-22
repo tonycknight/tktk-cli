@@ -16,8 +16,6 @@ updates:
     ignore:
       - dependency-name: "FsUnit.Xunit"
         update-types: ["version-update:semver-major"]
-      - dependency-name: "FluentAssertions"
-        update-types: ["version-update:semver-major"]
   - package-ecosystem: "github-actions"
     directory: "/.github/workflows"
     schedule:
