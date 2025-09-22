@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using FluentAssertions;
 using FsCheck;
 using FsCheck.Xunit;
+using Shouldly;
 using Tk.Toolkit.Cli.Conversions;
 using Xunit;
 
@@ -70,7 +70,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Conversions
 
             Func<NumericValue> f = () => conv.Parse(value);
 
-            f.Should().Throw<ArgumentException>().WithMessage("?*");
+            Should.Throw<ArgumentException>(() => f());
         }
 
         [Property(Verbose = true)]
@@ -177,8 +177,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Conversions
 
             var conv = new NumericValueConverter();
             Func<IEnumerable<NumericValue>> f = () => conv.Convert(s);
-
-            f.Should().Throw<ArgumentException>().WithMessage("?*");
+            f.ShouldThrow<ArgumentException>();
         }
 
     }

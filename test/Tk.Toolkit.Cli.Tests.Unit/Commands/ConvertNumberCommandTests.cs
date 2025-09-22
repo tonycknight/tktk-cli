@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using FluentAssertions;
 using FsCheck;
 using NSubstitute;
+using Shouldly;
 using Spectre.Console;
 using Tk.Toolkit.Cli.Commands;
 using Tk.Toolkit.Cli.Conversions;
@@ -20,7 +20,7 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
 
             var rc = cmd.OnExecute();
 
-            rc.Should().Be(1);
+            rc.ShouldBe(1);
         }
 
         [Fact]
@@ -42,9 +42,9 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
 
             var rc = cmd.OnExecute();
 
-            rc.Should().Be(0);
+            rc.ShouldBe(0);
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
-            output.Rows.Count.Should().Be(1);
+            output.Rows.Count.ShouldBe(1);
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
     }
