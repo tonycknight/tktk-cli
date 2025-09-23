@@ -16,7 +16,7 @@ namespace Tk.Toolkit.Cli.Passwords
                 throw new ArgumentOutOfRangeException("The password length must be at least 4 characters.", (Exception?)null);
             }
             var result = GenerateRandomPassword(length);
-            while (!IsComplex(result)) 
+            while (!IsComplex(result))
             {
                 result = GenerateRandomPassword(length);
             }
@@ -24,11 +24,11 @@ namespace Tk.Toolkit.Cli.Passwords
         }
 
         private string GenerateRandomPassword(int length)
-        {            
+        {
             var cs = Enumerable.Range(0, length)
                 .Select(x => GetRandomCharacter())
                 .ToArray();
-            
+
             return new String(cs);
         }
 
