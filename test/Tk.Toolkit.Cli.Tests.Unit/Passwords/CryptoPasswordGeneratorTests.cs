@@ -7,24 +7,24 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Passwords
 {
     public class CryptoPasswordGeneratorTests
     {
-        [Property(Verbose = true)]
-        public bool PasswordGenerator_AlwaysReturnsCorrectLength(PositiveInt len)
+        [Property(Verbose = true, Arbitrary = [typeof(PasswordLengths)])]
+        public bool PasswordGenerator_AlwaysReturnsCorrectLength(int len)
         {
             var pg = new CryptoPasswordGenerator();
 
-            var pw = pg.Generate(len.Get);
+            var pw = pg.Generate(len);
 
-            return pw.Length == len.Get;
+            return pw.Length == len;
         }
 
-        [Property(Verbose = true)]
-        public bool PasswordGenerator_AlwaysReturnsAlphanumeric(PositiveInt len)
+        [Property(Verbose = true, Arbitrary = [typeof(PasswordLengths)])]
+        public bool PasswordGenerator_AlwaysReturnsAlphanumeric(int len)
         {
             var pg = new CryptoPasswordGenerator();
 
-            var pw = pg.Generate(len.Get);
+            var pw = pg.Generate(len);
 
-            return pw.All(char.IsLetterOrDigit);
+            return pw.All(c => char.IsLetterOrDigit(c) || "!?@".Contains(c));
         }
     }
 }

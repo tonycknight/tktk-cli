@@ -7,6 +7,7 @@ using Shouldly;
 using Spectre.Console;
 using Tk.Toolkit.Cli.Commands;
 using Tk.Toolkit.Cli.Passwords;
+using Tk.Toolkit.Cli.Tests.Unit.Passwords;
 using Xunit;
 
 namespace Tk.Toolkit.Cli.Tests.Unit.Commands
@@ -36,8 +37,8 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
             AssertTableOutputContainsPasswords(output, 5, PasswordGeneratorCommand.DefaultPasswordLength);
         }
 
-        [Property(Verbose = true)]
-        public bool OnExecute_PositiveValues_ReturnsOk(PositiveInt count, PositiveInt pwLen)
+        [Property(Verbose = true, Arbitrary = [typeof(PasswordLengths)])]
+        public bool OnExecute_PositiveValues_ReturnsOk(PositiveInt count, int pwLen)
         {
             Table? output = null;
             var pwGen = Substitute.For<IPasswordGenerator>();
@@ -54,13 +55,13 @@ namespace Tk.Toolkit.Cli.Tests.Unit.Commands
             var cmd = new PasswordGeneratorCommand(console, pwGen)
             {
                 Generations = count.Get,
-                PwLength = pwLen.Get,
+                PwLength = pwLen,
             };
 
             var rc = cmd.OnExecute();
 
             rc.ShouldBe(0);
-            AssertTableOutputContainsPasswords(output, count.Get, pwLen.Get);
+            AssertTableOutputContainsPasswords(output, count.Get, pwLen);
 
             return true;
         }
