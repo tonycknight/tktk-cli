@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - name: Run SCA
         uses: tonycknight/pkgchk-action@v1
@@ -29,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - name: Setup .NET Core SDK
         uses: actions/setup-dotnet@v5.0.0
@@ -48,14 +48,14 @@ jobs:
   
           
       - name: Archive Test results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: tests.results
           path: |
             ./test/**/TestResults/*
       
       - name: Archive Code coverage
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: codecoverage
           path: ./publish/codecoverage/*.*
@@ -87,7 +87,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - name: Setup .NET Core SDK
         uses: actions/setup-dotnet@v5.0.0
@@ -106,7 +106,7 @@ jobs:
           dotnet pack ./src/Tk.Toolkit.Cli/Tk.Toolkit.Cli.csproj -c Release -o ./package /p:PackageVersion=${{ env.build-version-number }} /p:Version=${{ env.build-version-number }} /p:AssemblyInformationalVersion=${{ env.build-version-number }}          
 
       - name: Archive tool nupkg
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: tktk-cli.nupkg
           path: ./package/tktk*.nupkg
@@ -118,7 +118,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - name: Setup .NET Core SDK
         uses: actions/setup-dotnet@v5.0.0
@@ -132,7 +132,7 @@ jobs:
           dotnet dotnet-stryker -tp ./test/Tk.Toolkit.Cli.Tests.Unit/Tk.Toolkit.Cli.Tests.Unit.csproj -b 20 -m !**/Waffle/** --reporter json --reporter html
 
       - name: Archive Stryker results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         if: always()
         with:
           name: stryker.results
@@ -146,7 +146,7 @@ jobs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - name: Setup .NET Core SDK
         uses: actions/setup-dotnet@v5.0.0
@@ -154,7 +154,7 @@ jobs:
           dotnet-version: ${{ env.dotnet-version }}
 
       - name: Download package
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           name: tktk-cli.nupkg
           path: ${{ github.workspace }}/artifacts
@@ -169,7 +169,7 @@ jobs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
 
     steps:    
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - name: Create Release
         uses: ncipollo/release-action@v1
