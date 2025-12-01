@@ -33,10 +33,10 @@
   <ItemGroup>
     <PackageReference Include="Crayon" Version="2.0.69" />
     <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="4.1.1" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.9" />
-    <PackageReference Include="System.Formats.Asn1" Version="9.0.9" />
-    <PackageReference Include="spectre.console" Version="0.51.1" />    
-    <PackageReference Include="Tk.Extensions" Version="0.1.163" />
-    <PackageReference Include="Tk.Nuget" Version="0.1.111" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.0" />
+    <PackageReference Include="System.Formats.Asn1" Version="10.0.0" />
+    <PackageReference Include="spectre.console" Version="0.54.0" />    
+    <PackageReference Include="Tk.Extensions" Version="0.1.209" />
+    <PackageReference Include="Tk.Nuget" Version="0.1.129" />
   </ItemGroup>  
 </Project>
