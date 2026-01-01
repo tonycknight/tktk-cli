@@ -16,7 +16,7 @@ namespace Tk.Toolkit.Cli.JsonFormatting
 
             var x = JsonConvert.DeserializeObject(json, settings);
 
-            return JsonConvert.SerializeObject(x, settings); 
+            return JsonConvert.SerializeObject(x, settings);
         }
 
         private JsonSerializerSettings CreateSettings(bool indent)
@@ -25,7 +25,7 @@ namespace Tk.Toolkit.Cli.JsonFormatting
                 {
                     new StringEnumConverter()
                 };
-            
+
             return new JsonSerializerSettings
             {
                 Formatting = indent ? Formatting.Indented : Formatting.None,
