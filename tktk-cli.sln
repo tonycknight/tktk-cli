@@ -1,15 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.32126.317
+# Visual Studio Version 18
+VisualStudioVersion = 18.1.11312.151 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{CF8FC603-C38A-4B6E-98CB-B7565798D0F2}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		.github\workflows\build.yml = .github\workflows\build.yml
-		.github\workflows\clean-builds.yaml = .github\workflows\clean-builds.yaml
 		.github\workflows\codeql-analysis.yml = .github\workflows\codeql-analysis.yml
-		paket.dependencies = paket.dependencies
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{41AEECFF-6354-4940-8C63-B77AA862149E}"

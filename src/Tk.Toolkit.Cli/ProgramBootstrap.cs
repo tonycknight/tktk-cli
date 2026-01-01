@@ -17,6 +17,7 @@ namespace Tk.Toolkit.Cli
                 .AddSingleton<IAnsiConsole>(sp => AnsiConsole.Create(new AnsiConsoleSettings() { ColorSystem = ColorSystemSupport.TrueColor }))
                 .AddNugetClient()
                 .AddSingleton<Conversions.INumericValueConverter, Conversions.NumericValueConverter>()
+                .AddSingleton<JsonFormatting.IJsonFormatter, JsonFormatting.JsonFormatter>()
                 .BuildServiceProvider();
 
         public static string? GetAppVersion()
