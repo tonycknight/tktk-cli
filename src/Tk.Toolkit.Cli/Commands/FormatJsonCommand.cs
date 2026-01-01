@@ -22,14 +22,11 @@ namespace Tk.Toolkit.Cli.Commands
         [Option(CommandOptionType.SingleValue, Description = "Indent the json true/false.", LongName = "indent", ShortName = "i")]
         public bool Indent { get; set; } = true;
 
-        [Option(CommandOptionType.SingleValue, Description = "Colourise the json true/false.", LongName = "colour", ShortName = "c")]
-        public bool Colourise { get; set; } = true;
-
         public int OnExecute()
         {
             try
             {
-                var result = _jsonFormatter.Format(Value, Indent, Colourise);
+                var result = _jsonFormatter.Format(Value, Indent);
 
                 _console.Write(result);
 
