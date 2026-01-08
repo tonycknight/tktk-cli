@@ -36,7 +36,7 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.1" />
     <PackageReference Include="System.Formats.Asn1" Version="10.0.1" />
     <PackageReference Include="spectre.console" Version="0.54.0" />    
-    <PackageReference Include="Tk.Extensions" Version="0.1.231" />
-    <PackageReference Include="Tk.Nuget" Version="0.1.154" />
+    <PackageReference Include="Tk.Extensions" Version="0.1.234" />
+    <PackageReference Include="Tk.Nuget" Version="0.1.156" />
   </ItemGroup>  
 </Project>
