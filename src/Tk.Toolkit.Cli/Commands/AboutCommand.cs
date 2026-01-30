@@ -31,7 +31,7 @@ namespace Tk.Toolkit.Cli.Commands
             };
             if (currentVersion != null)
             {
-                var nugetVersion = await _nuget.GetUpgradeVersionAsync("tktk-cli", currentVersion);
+                var nugetVersion = await _nuget.GetUpgradeVersionAsync("tktk-cli", currentVersion, false);
                 if (nugetVersion != null)
                 {
                     descLines.Add($"[magenta]An upgrade is available: {nugetVersion}[/]");
