@@ -32,12 +32,12 @@ namespace Tk.Toolkit.Cli.Commands
 
                 return true.ToReturnCode();
             }
-            catch (Newtonsoft.Json.JsonReaderException ex)
+            catch (Newtonsoft.Json.JsonReaderException)
             {
                 _console.Write(new Markup($"[red]Invalid value.[/]"));
                 return false.ToReturnCode();
             }
-            catch (Newtonsoft.Json.JsonException ex)
+            catch (Newtonsoft.Json.JsonException)
             {
                 _console.Write(new Markup($"[red]Invalid value.[/]"));
                 return false.ToReturnCode();
