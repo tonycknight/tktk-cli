@@ -2,7 +2,7 @@
 
 [![Build & Release](https://github.com/tonycknight/tktk-cli/actions/workflows/build.yml/badge.svg)](https://github.com/tonycknight/tktk-cli/actions/workflows/build.yml)
 
-![Nuget](https://img.shields.io/nuget/v/tktk-cli)
+[![Nuget](https://img.shields.io/nuget/v/tktk-cli)](https://www.nuget.org/packages/tktk-cli/)
 
 A `dotnet tool` for various development tasks.
 
