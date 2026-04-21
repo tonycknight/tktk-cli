@@ -35,7 +35,7 @@
     <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="5.1.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.6" />
     <PackageReference Include="spectre.console" Version="0.55.2" />    
-    <PackageReference Include="Tk.Extensions" Version="0.1.279" />
-    <PackageReference Include="Tk.Nuget" Version="0.2.200" />
+    <PackageReference Include="Tk.Extensions" Version="0.1.282" />
+    <PackageReference Include="Tk.Nuget" Version="0.2.202" />
   </ItemGroup>  
 </Project>
