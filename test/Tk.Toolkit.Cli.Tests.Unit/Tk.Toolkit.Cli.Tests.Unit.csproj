@@ -17,7 +17,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="FsCheck.XUnit" Version="3.3.3" />
+    <PackageReference Include="FsCheck.XUnit" Version="3.3.4" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.8.1" />
     <PackageReference Include="nsubstitute" Version="6.0.0" />
     <PackageReference Include="Shouldly" Version="4.3.0" />
