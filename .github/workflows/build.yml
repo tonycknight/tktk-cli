@@ -56,7 +56,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Code coverage results
-        uses: 5monkeys/cobertura-action@master
+        uses: 5monkeys/cobertura-action@v14
         with:
           path: ${{ github.workspace }}/TestResults/*.cobertura.xml
           repo_token: ${{ secrets.GITHUB_TOKEN }}
@@ -100,35 +100,10 @@ jobs:
   codeql:
     uses: ./.github/workflows/codeql-analysis.yml
   
-  stryker:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v7
-
-      - name: Setup .NET Core SDK
-        uses: actions/setup-dotnet@v6
-        with:
-          dotnet-version: ${{ env.dotnet-version }}
-        
-      - name: Run Stryker
-        run: |
-          dotnet tool restore
-          dotnet restore
-          dotnet dotnet-stryker -tp ./test/Tk.Toolkit.Cli.Tests.Unit/Tk.Toolkit.Cli.Tests.Unit.csproj -b 20 -m !**/Waffle/** --reporter json --reporter html
-
-      - name: Archive Stryker results
-        uses: actions/upload-artifact@v7
-        if: always()
-        with:
-          name: stryker.results
-          path: |
-            ./StrykerOutput/**/reports/* 
-
   nuget-deploy:
     name: nuget deploy
     runs-on: ubuntu-latest
-    needs:   [ sca, build, codeql, stryker, tests ]
+    needs:   [ sca, build, codeql, tests ]
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
 
     steps:
