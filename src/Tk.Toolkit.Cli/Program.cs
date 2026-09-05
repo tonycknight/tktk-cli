@@ -12,6 +12,7 @@ namespace Tk.Toolkit.Cli
     [Subcommand(typeof(GenerateWaffleCommand))]
     [Subcommand(typeof(UsernameGeneratorCommand))]
     [Subcommand(typeof(FormatJsonCommand))]
+    [Subcommand(typeof(AltCaseCommand))]
     [Subcommand(typeof(AboutCommand))]
     public class Program
     {
