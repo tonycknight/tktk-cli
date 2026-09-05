@@ -6,11 +6,10 @@ namespace Tk.Toolkit.Cli.Commands;
 
 [Command("altcase", Description = "Alternating case")]
 internal class AltCaseCommand(IAnsiConsole console, AltCaseTextFormatter formatter)
-{    
-    // TODO: needs to ignore quotes
-    [Argument(0, Description = "The text to convert.", Name = "value")]
+{
+    [Argument(0, Description = "The text to convert.", Name = "value")]    
     public string Value { get; set; } = "";
-
+    
     public int OnExecute()
     {        
         var result = formatter.Format(Value);
