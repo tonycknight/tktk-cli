@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Spectre.Console;
 using Tk.Nuget;
+using Tk.Toolkit.Cli.TextFormatting;
 
 namespace Tk.Toolkit.Cli
 {
@@ -18,6 +19,7 @@ namespace Tk.Toolkit.Cli
                 .AddNugetClient()
                 .AddSingleton<Conversions.INumericValueConverter, Conversions.NumericValueConverter>()
                 .AddSingleton<JsonFormatting.IJsonFormatter, JsonFormatting.JsonFormatter>()
+                .AddSingleton<AltCaseTextFormatter>()
                 .BuildServiceProvider();
 
         public static string? GetAppVersion()
